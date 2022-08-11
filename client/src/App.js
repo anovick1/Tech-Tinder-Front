@@ -18,12 +18,17 @@ function App() {
   // console.log(currentUser)
 
   const allPosts = []
+  const chicken = (res) => {
+    for (let i = 0; i < res.length; i++) {
+      allPosts.push(res[i])
+    }
+  }
   useEffect(() => {
-    GetImagePosts().then((res) => allPosts.push(res))
+    GetImagePosts().then((res) => chicken(res))
     // console.log(allPosts)
-    GetVideoPosts().then((res) => allPosts.push(res))
+    GetVideoPosts().then((res) => chicken(res))
     // console.log(allPosts)
-    GetWrittenPosts().then((res) => allPosts.push(res))
+    GetWrittenPosts().then((res) => chicken(res))
     // console.log(allPosts)
     setPosts(allPosts)
   }, [])
