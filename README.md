@@ -63,6 +63,6 @@ Once you fork and clone the repo:
 
 #### **_Resources_**
 
-##### [Frontend GitHub Link](https://github.com/anovick1/Tech-Tinder-Backend)
+##### [Backend GitHub Link](https://github.com/anovick1/Tech-Tinder-Backend)
 
 ##### [Trello Link](https://trello.com/b/1tj4Ue40/tech-harmony-full-stack-pern)
