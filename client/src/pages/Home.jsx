@@ -9,34 +9,38 @@ const Home = ({ currentUser, posts, users }) => {
   const showSocials = () => {}
 
   const showFeed = () => {
-    if (currentUser.orientation === 'Male') {
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].gender === 'Male' && users[i].id != currentUser.id) {
-          arr.push(users[i])
+    if (currentUser != null) {
+      if (currentUser.orientation === 'Male') {
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].gender === 'Male' && users[i].id !== currentUser.id) {
+            arr.push(users[i])
+          }
         }
-      }
-      const interest = users[count]
-      return (
-        <div className="profile">
-          <div className="name,bio,stats">
-            <h1>
-              {interest.firstName} {interest.lastName}
-            </h1>
-            <img src={interest.pfp_link} alt="pfp" />
-            <h4>
-              Location: {interest.city}, {interest.state}
-            </h4>
-            <h4>Age: {interest.age}</h4>
-            <h4>Interested In: {interest.orientation}</h4>
+        const interest = users[count]
+        return (
+          <div className="profile">
+            <div className="name,bio,stats">
+              <h1>
+                {interest.firstName} {interest.lastName}
+              </h1>
+              <img src={interest.pfp_link} alt="pfp" />
+              <h4>
+                Location: {interest.city}, {interest.state}
+              </h4>
+              <h4>Age: {interest.age}</h4>
+              <h4>Interested In: {interest.orientation}</h4>
+            </div>
           </div>
-        </div>
-      )
-    }
-    if (currentUser.orientation === 'Female') {
-      return 'vag'
-    }
-    if (currentUser.orientation === 'Both') {
-      return 'vag + dong'
+        )
+      }
+      if (currentUser.orientation === 'Female') {
+        return 'vag'
+      }
+      if (currentUser.orientation === 'Both') {
+        return 'vag + dong'
+      }
+    } else {
+      return ''
     }
   }
   return <div>{showFeed()}</div>
