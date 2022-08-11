@@ -12,7 +12,10 @@ const RegisterForm = () => {
     password: '',
     confirmPassword: '',
     gender: '',
-    orientation: ''
+    orientation: '',
+    pfp_link:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
+    bio: 'Just here to have fun!'
   })
 
   const handleChange = (e) => {
@@ -27,7 +30,10 @@ const RegisterForm = () => {
       email: formValues.email,
       password: formValues.password,
       gender: formValues.gender,
-      orientation: formValues.orientation
+      orientation: formValues.orientation,
+      pfp_link:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
+      bio: 'Just here to have fun!'
     })
     setFormValues({
       firstName: '',

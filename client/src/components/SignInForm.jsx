@@ -3,10 +3,9 @@ import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-const SignInForm = ({ setCurrentUser }) => {
+const SignInForm = ({ setCurrentUser, currentUser }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
-
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
@@ -18,7 +17,6 @@ const SignInForm = ({ setCurrentUser }) => {
     setCurrentUser(payload)
     navigate('/home')
   }
-
   return (
     <div className="signin col">
       <div className="card-overlay centered">
