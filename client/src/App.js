@@ -10,6 +10,7 @@ import {
   GetVideoPosts,
   GetWrittenPosts
 } from './services/PostServices'
+import { GetUsers } from './services/UserServices'
 import { CheckSession } from './services/Auth'
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
     GetVideoPosts().then((res) => chicken(res))
     GetWrittenPosts().then((res) => chicken(res))
     setPosts(allPosts)
+  }, [])
+  useEffect(() => {
+    GetUsers().then((res) => setUsers(res))
   }, [])
   return (
     <div>

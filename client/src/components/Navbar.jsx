@@ -12,7 +12,7 @@ const Navbar = ({ currentUser }) => {
             </div>
             <div id="username">
               <h2>
-                @<span id="nav">{currentUser.firstName}</span>
+                <span id="nav">{currentUser.firstName}</span>
               </h2>
             </div>
           </button>

@@ -8,3 +8,11 @@ export const GetUserById = async (id) => {
     throw error
   }
 }
+export const GetUsers = async (id) => {
+  try {
+    const res = await Client.get('/users/all')
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
