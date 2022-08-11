@@ -47,10 +47,10 @@ const RegisterForm = () => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="firstName">First Name</label>
+            <label>First Name</label>
             <input
               onChange={handleChange}
-              name="first name"
+              name="firstName"
               type="text"
               placeholder="John"
               value={formValues.firstName}
@@ -58,10 +58,10 @@ const RegisterForm = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="lastName">Last Name</label>
+            <label>Last Name</label>
             <input
               onChange={handleChange}
-              name="last name"
+              name="lastName"
               type="text"
               placeholder="Smith"
               value={formValues.lastName}
@@ -132,16 +132,6 @@ const RegisterForm = () => {
               type="password"
               name="password"
               value={formValues.password}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="confirmPassword"
-              value={formValues.confirmPassword}
               required
             />
           </div>
