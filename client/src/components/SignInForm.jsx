@@ -2,12 +2,10 @@ import React from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { GetUserById } from '../services/UserServices'
 
 const SignInForm = ({ setCurrentUser, currentUser }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
-
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
@@ -16,14 +14,7 @@ const SignInForm = ({ setCurrentUser, currentUser }) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
     setFormValues({ email: '', password: '' })
-
-    GetUserById(payload.id).then((res) => {
-      setCurrentUser(res[0])
-    })
-
-    // setCurrentUser(payload)
-    // console.log(currentUser)
-
+    setCurrentUser(payload)
     navigate('/home')
   }
   return (

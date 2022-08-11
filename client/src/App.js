@@ -10,11 +10,32 @@ import {
   GetVideoPosts,
   GetWrittenPosts
 } from './services/PostServices'
+import { CheckSession } from './services/Auth'
 
 function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState(null)
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localStorage
+    setCurrentUser(null)
+    localStorage.clear()
+  }
+  console.log(currentUser)
+
+  const checkToken = async () => {
+    //If a token exists, sends token to localStorage to persist logged in user
+    const user = await CheckSession()
+    console.log(user)
+    setCurrentUser(user)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   const allPosts = []
   const chicken = (res) => {
@@ -28,7 +49,6 @@ function App() {
     GetWrittenPosts().then((res) => chicken(res))
     setPosts(allPosts)
   }, [])
-
   return (
     <div>
       <main>
