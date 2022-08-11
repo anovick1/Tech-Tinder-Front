@@ -10,6 +10,7 @@ function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
   const [currentUser, setCurrentUser] = useState({})
+  console.log(currentUser)
 
   return (
     <div>
