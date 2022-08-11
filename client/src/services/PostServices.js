@@ -1,6 +1,6 @@
 import Client from './api'
 
-const GetImagePosts = async () => {
+export const GetImagePosts = async () => {
   try {
     const res = await Client.get('/imageposts/all')
     return res.data
@@ -9,7 +9,7 @@ const GetImagePosts = async () => {
   }
 }
 
-const GetVideoPosts = async () => {
+export const GetVideoPosts = async () => {
   try {
     const res = await Client.get('/videoposts/all')
     return res.data
@@ -18,7 +18,7 @@ const GetVideoPosts = async () => {
   }
 }
 
-const GetWrittenPosts = async () => {
+export const GetWrittenPosts = async () => {
   try {
     const res = await Client.get('/writtenposts/all')
     return res.data
@@ -27,8 +27,8 @@ const GetWrittenPosts = async () => {
   }
 }
 
-module.exports = {
-  GetImagePosts,
-  GetVideoPosts,
-  GetWrittenPosts
-}
+// module.exports = {
+//   GetImagePosts,
+//   GetVideoPosts,
+//   GetWrittenPosts
+// }

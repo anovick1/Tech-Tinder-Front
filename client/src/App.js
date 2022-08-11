@@ -5,13 +5,30 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import SignIn from './pages/SignIn'
+import {
+  GetImagePosts,
+  GetVideoPosts,
+  GetWrittenPosts
+} from './services/PostServices'
 
 function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
   const [currentUser, setCurrentUser] = useState({})
-  console.log(currentUser)
+  // console.log(currentUser)
 
+  const allPosts = []
+  useEffect(() => {
+    GetImagePosts().then((res) => allPosts.push(res))
+    // console.log(allPosts)
+    GetVideoPosts().then((res) => allPosts.push(res))
+    // console.log(allPosts)
+    GetWrittenPosts().then((res) => allPosts.push(res))
+    // console.log(allPosts)
+    setPosts(allPosts)
+  }, [])
+  console.log(posts)
+  // console.log(GetImagePosts())
   return (
     <div>
       <main>
