@@ -136,11 +136,10 @@ nav {
 
 .socials {
   display: flex;
-  width: 29vw;
-  justify-content: space-between;
+  width: 30vw;
+  justify-content: space-evenly;
 }
 
-.gender,
 .location,
 .age,
 .box-title,
@@ -161,9 +160,25 @@ nav {
 }
 
 #orientation {
-  margin-bottom: 2vh;
+  margin-left: 3vw;
 }
 
 #stat-title {
   text-decoration: underline;
+}
+.gender-orientation {
+  display: flex;
+  width: 32vw;
+}
+
+.gender {
+  border: 2px solid black;
+  border-radius: 30px;
+  padding: 0vw 1vw 0vw 1vw;
+  background-color: white;
+  width: 14vw;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  height: 3vh;
 }

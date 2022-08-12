@@ -42,7 +42,7 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
     if (displayedUser.li_link != null) {
       return (
         <div className="social-img">
-          <a href={displayedUser.li_link} target="_blank" rel="noreferrer">
+          <a href="yes" target="_blank" rel="noreferrer">
             <img
               src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png"
               alt="ig"
@@ -100,33 +100,22 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
         <div className="displayed_pfp">
           <img src={displayedUser.pfp_link} alt="pfp" />
         </div>
+        <div className="gender-orientation">
+          <div className="gender">
+            <h4>Gender:</h4>
+            {showGender(displayedUser.gender)}
+          </div>
+          <div className="gender" id="orientation">
+            <h4>Interested in:</h4>
+            {showGender(displayedUser.orientation)}
+          </div>
+        </div>
         <div className="bio">
           <div className="box-title">
             <h2>Bio</h2>
           </div>
           <div className="bio-text">
             <h4>{displayedUser.bio}</h4>
-          </div>
-        </div>
-        <div className="stats">
-          <div className="box-title">
-            <h2>Stats</h2>
-          </div>
-          <div className="location-age-gender-interest-socials">
-            <div className="gender-orientation">
-              <div className="gender">
-                <h4>
-                  <span id="stat-title">Gender</span>:
-                </h4>
-                {showGender(displayedUser.gender)}
-              </div>
-              <div className="gender" id="orientation">
-                <h4>
-                  <span id="stat-title">Interested in</span>:
-                </h4>
-                {showGender(displayedUser.orientation)}
-              </div>
-            </div>
           </div>
         </div>
         <div className="socials">
