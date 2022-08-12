@@ -238,6 +238,10 @@ width: 100vw;
     width: 15vw;
     position: fixed;
     bottom: 10%;
+    background-color: rgba(211, 211, 211, 0.709);
+    border-radius: 20px;
+    border: 1px black solid;
+    padding: 3vw;
   }
   
   #like-icon{
@@ -245,5 +249,8 @@ width: 100vw;
   }
   #dislike-icon{
     left: 10vw;
+  }
+  .ShownUserName, .bio, .image-post, .displayed_pfp img {
+width: 85vw
   }
 }
