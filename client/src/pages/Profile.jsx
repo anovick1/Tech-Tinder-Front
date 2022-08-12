@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react'
 
-import ShowUserFeed from '../components/ShowUserFeed'
+import ShowProfileFeed from '../components/ShowProfileFeed'
+import ProfileEditForm from '../components/EditProfile'
 
 const Profile = ({ currentUser, posts, users }) => {
-  const [count, setCount] = useState(0)
+  const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
+console.log(currentUser)
 
-  return (
-    <div>
-      <ShowUserFeed
+  return edit?(
+      
+      <ProfileEditForm 
         currentUser={currentUser}
         posts={posts}
         users={users}
-        displayedUser={displayedUser}
-      />
-    </div>
-  )
+        displayedUser={displayedUser} 
+        edit={edit} setEdit={setEdit} />
+    
+  ): (<ShowProfileFeed
+    currentUser={currentUser}
+    posts={posts}
+    users={users}
+    displayedUser={displayedUser}
+    edit={edit} setEdit={setEdit}
+  />)
 }
 
 export default Profile
