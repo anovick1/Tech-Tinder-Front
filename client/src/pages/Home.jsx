@@ -24,7 +24,7 @@ const Home = ({ currentUser, posts, users }) => {
             users={users}
             displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} />
+            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
           </>
         )
       }
@@ -43,7 +43,7 @@ const Home = ({ currentUser, posts, users }) => {
             users={users}
             displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} />
+            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
           </>
         )
       }
@@ -62,7 +62,7 @@ const Home = ({ currentUser, posts, users }) => {
             users={users}
             displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} />
+            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
           </>
         )
       }

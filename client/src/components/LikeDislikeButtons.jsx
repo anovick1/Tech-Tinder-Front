@@ -1,12 +1,16 @@
 import React from 'react'
+import { GetUsersLikes } from '../services/UserServices'
 
-const LikeDislikeButtons = ({setCount}) => {
+const LikeDislikeButtons = ({setCount, count, currentUser, displayedUser}) => {
   const likeClick = () => {
-
+   let likeCount = count+1
+setCount(likeCount)
+GetUsersLikes(currentUser.id, displayedUser.id)
   }
 
   const dislikeClick = () => {
-
+    let likeCount = count+1
+    setCount(likeCount)
   }
 
   return (
