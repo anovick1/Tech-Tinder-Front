@@ -22,7 +22,6 @@ function App() {
     setCurrentUser(null)
     localStorage.clear()
   }
-  console.log(currentUser)
 
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
