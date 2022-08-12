@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import ShowUserFeed from '../components/ShowUserFeed'
+import LikeDislikeButtons from '../components/LikeDislikeButtons'
 
 const Home = ({ currentUser, posts, users }) => {
   const [count, setCount] = useState(0)
-  const displayedUser = users[count]
-
   const arr = []
+  let displayedUser = arr[count]
 
   const showFeed = () => {
     if (currentUser != null) {
@@ -15,6 +15,7 @@ const Home = ({ currentUser, posts, users }) => {
             arr.push(users[i])
           }
         }
+        displayedUser = arr[count]
         return (
           <ShowUserFeed
             currentUser={currentUser}
@@ -30,6 +31,7 @@ const Home = ({ currentUser, posts, users }) => {
             arr.push(users[i])
           }
         }
+        displayedUser = arr[count]
         return (
           <ShowUserFeed
             currentUser={currentUser}
@@ -45,6 +47,7 @@ const Home = ({ currentUser, posts, users }) => {
             arr.push(users[i])
           }
         }
+        displayedUser = arr[count]
         return (
           <ShowUserFeed
             currentUser={currentUser}
@@ -55,7 +58,7 @@ const Home = ({ currentUser, posts, users }) => {
         )
       }
     } else {
-      return ''
+      return 'something'
     }
   }
   return <div>{showFeed()}</div>

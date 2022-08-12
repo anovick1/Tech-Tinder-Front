@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import VidioPosts from './VidioPosts'
+import VideoPosts from './VideoPosts'
 import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
 
@@ -84,9 +84,18 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
     <div className="feed">
       <div className="profile">
         <div className="ShownUserName">
-          <h1>
-            {displayedUser.firstName} {displayedUser.lastName}
-          </h1>
+          <div>
+            <h1>
+              {displayedUser.firstName} {displayedUser.lastName},{' '}
+              {displayedUser.age}
+            </h1>
+          </div>
+          <div>
+            <h3>
+              {' '}
+              {displayedUser.city}, {displayedUser.state}
+            </h3>
+          </div>
         </div>
         <div className="displayed_pfp">
           <img src={displayedUser.pfp_link} alt="pfp" />
@@ -104,29 +113,34 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
             <h2>Stats</h2>
           </div>
           <div className="location-age-gender-interest-socials">
-            <div className="location">
-              <h4>
-                <span id="stat-title">Location</span>: {displayedUser.city},{' '}
-                {displayedUser.state}
-              </h4>
+            <div className="location-age">
+              <div className="location">
+                <h4>
+                  <span id="stat-title">Location</span>: {displayedUser.city},{' '}
+                  {displayedUser.state}
+                </h4>
+              </div>
+              <div className="age">
+                <h4>
+                  <span id="stat-title">Age</span>: {displayedUser.age}
+                </h4>
+              </div>
             </div>
-            <div className="age">
-              <h4>
-                <span id="stat-title">Age</span>: {displayedUser.age}
-              </h4>
+            <div className="gender-orientation">
+              <div className="gender">
+                <h4>
+                  <span id="stat-title">Gender</span>:
+                </h4>
+                {showGender(displayedUser.gender)}
+              </div>
+              <div className="gender" id="orientation">
+                <h4>
+                  <span id="stat-title">Interested in</span>:
+                </h4>
+                {showGender(displayedUser.orientation)}
+              </div>
             </div>
-            <div className="gender">
-              <h4>
-                <span id="stat-title">Gender</span>:
-              </h4>
-              {showGender(displayedUser.gender)}
-            </div>
-            <div className="gender" id="orientation">
-              <h4>
-                <span id="stat-title">Interested in</span>:
-              </h4>
-              {showGender(displayedUser.orientation)}
-            </div>
+
             <div className="socials">
               {showIg()}
               {showFb()}

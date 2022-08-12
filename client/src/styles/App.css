@@ -110,9 +110,12 @@ nav {
   border-bottom: 1px lightgray solid;
 }
 .ShownUserName {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
-
+.ShownUserName h3 {
+  margin: 0;
+}
 .gender img {
   width: 2vw;
   height: 2vw;
