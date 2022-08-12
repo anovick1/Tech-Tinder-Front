@@ -91,7 +91,6 @@ nav {
   border-radius: 20px;
 }
 .ShownUserName,
-.displayed_pfp,
 .bio,
 .stats {
   border: 2px solid black;
@@ -101,9 +100,11 @@ nav {
   margin: 1vh;
   width: 30vw;
 }
-.displayed_pfp {
+.displayed_pfp img {
   padding: 0;
-  width: 32vw;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: 1vh;
 }
 
 .box-title {
