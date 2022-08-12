@@ -112,3 +112,43 @@ nav {
 .ShownUserName {
   text-align: center;
 }
+
+.gender img {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 0;
+}
+.social-img img {
+  width: 3vw;
+  border-radius: 0;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gender,
+.location,
+.age,
+.box-title,
+.bio-text {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+}
+.gender h4,
+.location h4,
+.age h4,
+.bio-text h4 {
+  margin: 0;
+}
+
+.location,
+.box-title {
+  margin-top: 2vh;
+}
+
+#orientation {
+  margin-bottom: 2vh;
+}

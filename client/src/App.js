@@ -90,7 +90,7 @@ function App() {
           />
 
           <Route
-            path="/:username"
+            path="/profile"
             element={
               <>
                 <Navbar

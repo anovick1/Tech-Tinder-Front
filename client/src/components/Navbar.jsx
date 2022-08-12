@@ -17,7 +17,7 @@ const Navbar = ({ currentUser }) => {
             </div>
           </button>
           <div className="dropdown-content">
-            <Link to={'/' + currentUser.firstName} className="user-profile">
+            <Link to={'/profile'} className="user-profile">
               <h4>Profile</h4>
             </Link>
             <Link to={'/create-post'} className="user-profile">
