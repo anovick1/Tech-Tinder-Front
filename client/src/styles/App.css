@@ -183,3 +183,27 @@ nav {
   align-items: center;
   height: 3vh;
 }
+
+.post-image img {
+  border-radius: 16px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 2px solid black;
+}
+
+.image-post {
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.image-text {
+  border-top: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.image-text h4 {
+  margin: 0;
+  padding: 2vw;
+}
