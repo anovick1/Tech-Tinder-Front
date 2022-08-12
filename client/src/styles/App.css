@@ -116,6 +116,13 @@ nav {
 .ShownUserName h3 {
   margin: 0;
 }
+.ShownUserName h1 {
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+.ShownUserName h3 {
+  margin: 0;
+}
 .gender img {
   width: 2vw;
   height: 2vw;
@@ -129,7 +136,8 @@ nav {
 
 .socials {
   display: flex;
-  justify-content: space-around;
+  width: 29vw;
+  justify-content: space-between;
 }
 
 .gender,

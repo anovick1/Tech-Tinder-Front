@@ -113,19 +113,6 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
             <h2>Stats</h2>
           </div>
           <div className="location-age-gender-interest-socials">
-            <div className="location-age">
-              <div className="location">
-                <h4>
-                  <span id="stat-title">Location</span>: {displayedUser.city},{' '}
-                  {displayedUser.state}
-                </h4>
-              </div>
-              <div className="age">
-                <h4>
-                  <span id="stat-title">Age</span>: {displayedUser.age}
-                </h4>
-              </div>
-            </div>
             <div className="gender-orientation">
               <div className="gender">
                 <h4>
@@ -140,13 +127,12 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
                 {showGender(displayedUser.orientation)}
               </div>
             </div>
-
-            <div className="socials">
-              {showIg()}
-              {showFb()}
-              {showLi()}
-            </div>
           </div>
+        </div>
+        <div className="socials">
+          {showIg()}
+          {showFb()}
+          {showLi()}
         </div>
         {/* MAP POSTS HERE */}
       </div>
