@@ -17,12 +17,15 @@ const Home = ({ currentUser, posts, users }) => {
         }
         displayedUser = arr[count]
         return (
-          <ShowUserFeed
+          <>
+            <ShowUserFeed
             currentUser={currentUser}
             posts={posts}
             users={users}
             displayedUser={displayedUser}
-          />
+            />
+            <LikeDislikeButtons setCount={setCount} />
+          </>
         )
       }
       if (currentUser.orientation === 'Female') {
@@ -33,12 +36,15 @@ const Home = ({ currentUser, posts, users }) => {
         }
         displayedUser = arr[count]
         return (
-          <ShowUserFeed
+          <>
+            <ShowUserFeed
             currentUser={currentUser}
             posts={posts}
             users={users}
             displayedUser={displayedUser}
-          />
+            />
+            <LikeDislikeButtons setCount={setCount} />
+          </>
         )
       }
       if (currentUser.orientation === 'Both') {
@@ -49,12 +55,15 @@ const Home = ({ currentUser, posts, users }) => {
         }
         displayedUser = arr[count]
         return (
-          <ShowUserFeed
+          <>
+            <ShowUserFeed
             currentUser={currentUser}
             posts={posts}
             users={users}
             displayedUser={displayedUser}
-          />
+            />
+            <LikeDislikeButtons setCount={setCount} />
+          </>
         )
       }
     } else {
