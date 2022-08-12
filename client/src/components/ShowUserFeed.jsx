@@ -6,10 +6,7 @@ import WrittenPosts from './WrittenPosts'
 const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
-    console.log("User " + parseInt(posts[i].userId))
-    console.log("id " + parseInt(displayedUser.id))
-
-    if (parseInt(posts[i].userId) === parseInt(displayedUser.id)) {
+      if (parseInt(posts[i].userId) === parseInt(displayedUser.id)) {
       p.push(posts[i])
     }
   }
@@ -131,7 +128,6 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
             <h4>{displayedUser.bio}</h4>
           </div>
         </div>
-        {console.log(displayedUser.id)}
         {
           p.map((post) => (
             <div key={post.id}>
