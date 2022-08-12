@@ -184,7 +184,7 @@ nav {
   height: 3vh;
 }
 
-.post-image img {
+.post-image img, iframe {
   border-radius: 16px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -195,6 +195,7 @@ nav {
   border: 2px solid black;
   border-radius: 20px;
   background-color: white;
+  margin-bottom: 1vh;
 }
 
 .image-text {
@@ -206,4 +207,8 @@ nav {
 .image-text h4 {
   margin: 0;
   padding: 2vw;
+}
+
+iframe {
+  width: 32vw;
 }
