@@ -1,14 +1,10 @@
-import { set } from 'mongoose'
 import React, { useState, useEffect } from 'react'
 import ShowUserFeed from '../components/ShowUserFeed'
 
 const Home = ({ currentUser, posts, users }) => {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
 
   const arr = []
-
-  //// conditional that shows social link if not null
-  const showSocials = () => {}
 
   const showFeed = () => {
     if (currentUser != null) {
