@@ -129,8 +129,8 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
           </div>
         </div>
         {
-          p.map((post) => (
-            <div key={post.id}>
+          p.map((post, index) => (
+            <div key={index}>
               {showPost(post)}
             </div>
           ))
