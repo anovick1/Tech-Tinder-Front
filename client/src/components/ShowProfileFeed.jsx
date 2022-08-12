@@ -3,7 +3,7 @@ import VideoPosts from './VideoPosts'
 import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
 
-const ShowProfileFeed = ({ currentUser, posts, users, displayedUser }) => {
+const ShowProfileFeed = ({ currentUser, posts, users, displayedUser, edit, setEdit }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
       if (parseInt(posts[i].userId) === parseInt(displayedUser.id)) {
@@ -90,21 +90,29 @@ const ShowProfileFeed = ({ currentUser, posts, users, displayedUser }) => {
     }
   }
 
+  const editBtn= () => {
+    setEdit(true)
+    console.log('clicked')
+  }
+
   return currentUser && displayedUser ? (
     <div className="feed">
       <div className="profile">
+      <img id='edit-icon' src='https://i.imgur.com/Kmxk7OM.png' onClick={()=> editBtn()}/>
         <div className="ShownUserName">
           <div>
             <h1>
               {displayedUser.firstName} {displayedUser.lastName},{' '}
               {displayedUser.age}
             </h1>
+            
           </div>
           <div>
             <h3>
               {' '}
               {displayedUser.city}, {displayedUser.state}
             </h3>
+            
           </div>
         </div>
         <div className="displayed_pfp">
