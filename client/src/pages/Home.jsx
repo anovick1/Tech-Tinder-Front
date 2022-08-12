@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import ShowUserFeed from '../components/ShowUserFeed'
 
 const Home = ({ currentUser, posts, users }) => {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
+  const displayedUser = users[count]
 
   const arr = []
-
-  //// conditional that shows social link if not null
-  const showSocials = () => {}
 
   const showFeed = () => {
     if (currentUser != null) {
@@ -16,28 +15,44 @@ const Home = ({ currentUser, posts, users }) => {
             arr.push(users[i])
           }
         }
-        const interest = users[count]
         return (
-          <div className="profile">
-            <div className="name,bio,stats">
-              <h1>
-                {interest.firstName} {interest.lastName}
-              </h1>
-              <img src={interest.pfp_link} alt="pfp" />
-              <h4>
-                Location: {interest.city}, {interest.state}
-              </h4>
-              <h4>Age: {interest.age}</h4>
-              <h4>Interested In: {interest.orientation}</h4>
-            </div>
-          </div>
+          <ShowUserFeed
+            currentUser={currentUser}
+            posts={posts}
+            users={users}
+            displayedUser={displayedUser}
+          />
         )
       }
       if (currentUser.orientation === 'Female') {
-        return 'vag'
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].gender === 'Female' && users[i].id !== currentUser.id) {
+            arr.push(users[i])
+          }
+        }
+        return (
+          <ShowUserFeed
+            currentUser={currentUser}
+            posts={posts}
+            users={users}
+            displayedUser={displayedUser}
+          />
+        )
       }
       if (currentUser.orientation === 'Both') {
-        return 'vag + dong'
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].id !== currentUser.id) {
+            arr.push(users[i])
+          }
+        }
+        return (
+          <ShowUserFeed
+            currentUser={currentUser}
+            posts={posts}
+            users={users}
+            displayedUser={displayedUser}
+          />
+        )
       }
     } else {
       return ''
