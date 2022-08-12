@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
-import ShowUserFeed from '../components/ShowUserFeed'
+import ShowProfileFeed from '../components/ShowProfileFeed'
 
 const Profile = ({ currentUser, posts, users }) => {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
   const displayedUser = currentUser
 
   return (
     <div>
-      <ShowUserFeed
+      <ShowProfileFeed
         currentUser={currentUser}
         posts={posts}
         users={users}
