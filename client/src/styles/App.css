@@ -104,7 +104,6 @@ nav {
   padding: 0;
   border: 2px solid black;
   border-radius: 20px;
-  margin: 1vh;
 }
 
 .box-title {
@@ -175,7 +174,7 @@ nav {
 .gender {
   border: 2px solid black;
   border-radius: 30px;
-  padding: 0vw 1vw 0vw 1vw;
+  padding: 0.5vh 1vw;
   background-color: white;
   width: 14vw;
   justify-content: space-evenly;
@@ -195,7 +194,7 @@ nav {
   border: 2px solid black;
   border-radius: 20px;
   background-color: white;
-  margin-bottom: 1vh;
+  margin: 1vh;
 }
 
 .image-text {
@@ -211,4 +210,8 @@ nav {
 
 iframe {
   width: 32vw;
+}
+
+.bio, .image-post, .displayed_pfp, .ShownUserName {
+  margin: 1vh;
 }
