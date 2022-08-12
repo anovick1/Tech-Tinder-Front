@@ -1,3 +1,4 @@
+
 header {
   background-color: rgba(255, 255, 255, 0.501);
   border-bottom: 1px solid black;
@@ -214,4 +215,35 @@ iframe {
 
 .bio, .image-post, .displayed_pfp, .ShownUserName {
   margin: 1vh;
+}
+
+#like-icon, #dislike-icon{
+  width: 5vw;
+  position: fixed;
+  bottom: 10%;
+}
+
+#like-icon{
+  right: 25vw;
+}
+#dislike-icon{
+  left: 25vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile {
+width: 100vw;
+  }
+  #like-icon, #dislike-icon{
+    width: 15vw;
+    position: fixed;
+    bottom: 10%;
+  }
+  
+  #like-icon{
+    right: 10vw;
+  }
+  #dislike-icon{
+    left: 10vw;
+  }
 }
