@@ -53,6 +53,16 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
     }
   }
 
+  const showPost = (post) => {
+    if (post.type === "image") {
+      return <ImagePosts post={post} displayedUser={displayedUser} />
+    } if (post.type === "video") {
+      return <VideoPosts post={post} displayedUser={displayedUser} />
+    } if (post.type === "written") {
+      return <WrittenPosts post={post} displayedUser={displayedUser} />
+    }
+  }
+
   const showGender = (gender) => {
     if (gender === 'Male') {
       return (
@@ -123,7 +133,13 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
           {showFb()}
           {showLi()}
         </div>
-        {/* MAP POSTS HERE */}
+        {
+          p.map((post) => (
+            <div key={post.id}>
+              {showPost(post)}
+            </div>
+          ))
+        }
       </div>
     </div>
   ) : (
