@@ -117,6 +117,7 @@ nav {
   width: 2vw;
   height: 2vw;
   border-radius: 0;
+  margin-left: 1vw;
 }
 .social-img img {
   width: 3vw;
@@ -151,4 +152,8 @@ nav {
 
 #orientation {
   margin-bottom: 2vh;
+}
+
+#stat-title {
+  text-decoration: underline;
 }
