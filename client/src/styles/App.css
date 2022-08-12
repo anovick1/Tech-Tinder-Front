@@ -110,9 +110,19 @@ nav {
   border-bottom: 1px lightgray solid;
 }
 .ShownUserName {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
-
+.ShownUserName h3 {
+  margin: 0;
+}
+.ShownUserName h1 {
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+.ShownUserName h3 {
+  margin: 0;
+}
 .gender img {
   width: 2vw;
   height: 2vw;
@@ -126,10 +136,10 @@ nav {
 
 .socials {
   display: flex;
-  justify-content: space-around;
+  width: 30vw;
+  justify-content: space-evenly;
 }
 
-.gender,
 .location,
 .age,
 .box-title,
@@ -145,15 +155,30 @@ nav {
   margin: 0;
 }
 
-.location,
-.box-title {
+.location {
   margin-top: 2vh;
 }
 
 #orientation {
-  margin-bottom: 2vh;
+  margin-left: 3vw;
 }
 
 #stat-title {
   text-decoration: underline;
+}
+.gender-orientation {
+  display: flex;
+  width: 32vw;
+}
+
+.gender {
+  border: 2px solid black;
+  border-radius: 30px;
+  padding: 0vw 1vw 0vw 1vw;
+  background-color: white;
+  width: 14vw;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  height: 3vh;
 }
