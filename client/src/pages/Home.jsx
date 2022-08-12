@@ -3,6 +3,7 @@ import ShowUserFeed from '../components/ShowUserFeed'
 
 const Home = ({ currentUser, posts, users }) => {
   const [count, setCount] = useState(0)
+  const displayedUser = users[count]
 
   const arr = []
 
@@ -19,8 +20,7 @@ const Home = ({ currentUser, posts, users }) => {
             currentUser={currentUser}
             posts={posts}
             users={users}
-            count={count}
-            setCount={setCount}
+            displayedUser={displayedUser}
           />
         )
       }
@@ -35,8 +35,7 @@ const Home = ({ currentUser, posts, users }) => {
             currentUser={currentUser}
             posts={posts}
             users={users}
-            count={count}
-            setCount={setCount}
+            displayedUser={displayedUser}
           />
         )
       }
@@ -51,8 +50,7 @@ const Home = ({ currentUser, posts, users }) => {
             currentUser={currentUser}
             posts={posts}
             users={users}
-            count={count}
-            setCount={setCount}
+            displayedUser={displayedUser}
           />
         )
       }

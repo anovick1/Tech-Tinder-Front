@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-const ShowUserFeed = ({ currentUser, posts, users, count, setCount }) => {
-  const displayedUser = users[count]
+const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
+  // const displayedUser = users[count]
   //// conditional that shows social link if not null
   const showIg = () => {
     if (displayedUser.ig_link != null) {

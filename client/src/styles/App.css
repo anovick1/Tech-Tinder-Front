@@ -87,7 +87,7 @@ nav {
 }
 
 .profile img {
-  width: 30vw;
+  width: 32vw;
   border-radius: 20px;
 }
 .ShownUserName,
@@ -99,11 +99,16 @@ nav {
   padding: 1vw;
   background-color: white;
   margin: 1vh;
+  width: 30vw;
 }
 .displayed_pfp {
   padding: 0;
+  width: 32vw;
 }
 
 .box-title {
   border-bottom: 1px lightgray solid;
+}
+.ShownUserName {
+  text-align: center;
 }
