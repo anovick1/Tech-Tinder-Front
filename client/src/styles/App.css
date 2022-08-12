@@ -232,6 +232,7 @@ iframe {
 
 @media only screen and (max-width: 600px) {
   .profile {
+    border-radius: 0;
 width: 100vw;
   }
   #like-icon, #dislike-icon{
@@ -250,7 +251,22 @@ width: 100vw;
   #dislike-icon{
     left: 10vw;
   }
-  .ShownUserName, .bio, .image-post, .displayed_pfp img {
-width: 85vw
+  .ShownUserName, .bio, .image-post img, .displayed_pfp img, .gender-orientation, iframe{
+width: 85vw;
+
   }
+  .gender-orientation{
+    justify-content: space-around;
+  }
+  .gender{
+    width: 30vw;
+  }
+  .gender img{
+    width: 6vw;
+    height: 6vw;
+  }
+.social-img img{
+  width: 8vw;
+  justify-content: space-around
+}
 }
