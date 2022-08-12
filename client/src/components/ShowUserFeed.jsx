@@ -6,7 +6,7 @@ import WrittenPosts from './WrittenPosts'
 const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
-    if (posts.userId === displayedUser.id) {
+      if (parseInt(posts[i].userId) === parseInt(displayedUser.id)) {
       p.push(posts[i])
     }
   }
@@ -50,6 +50,16 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
           </a>
         </div>
       )
+    }
+  }
+
+  const showPost = (post) => {
+    if (post.type === "image") {
+      return <ImagePosts post={post} displayedUser={displayedUser} />
+    } if (post.type === "video") {
+      return <VideoPosts post={post} displayedUser={displayedUser} />
+    } if (post.type === "written") {
+      return <WrittenPosts post={post} displayedUser={displayedUser} />
     }
   }
 
@@ -118,12 +128,18 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
             <h4>{displayedUser.bio}</h4>
           </div>
         </div>
+        {
+          p.map((post) => (
+            <div key={post.id}>
+              {showPost(post)}
+            </div>
+          ))
+        }
         <div className="socials">
           {showIg()}
           {showFb()}
           {showLi()}
         </div>
-        {/* MAP POSTS HERE */}
       </div>
     </div>
   ) : (
