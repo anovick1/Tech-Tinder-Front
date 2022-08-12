@@ -103,3 +103,7 @@ nav {
 .displayed_pfp {
   padding: 0;
 }
+
+.box-title {
+  border-bottom: 1px lightgray solid;
+}

@@ -31,10 +31,15 @@ const ShowUserFeed = ({ currentUser, posts, users, count, setCount }) => {
           <img src={displayedUser.pfp_link} alt="pfp" />
         </div>
         <div className="bio">
-          <h2>Bio</h2>
-          <h4>displayedUser.bio</h4>
+          <div className="box-title">
+            <h2>Bio</h2>
+          </div>
+          <h4>{displayedUser.bio}</h4>
         </div>
         <div className="stats">
+          <div className="box-title">
+            <h2>Stats</h2>
+          </div>
           <h4>
             Location: {displayedUser.city}, {displayedUser.state}
           </h4>
