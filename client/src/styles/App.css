@@ -246,7 +246,15 @@ iframe {
   height: 80vh;
   justify-content: center;
 }
-
+.edit-icon img {
+  width: 3vw;
+  border-radius: 0;
+}
+.edit-icon {
+  width: 57vw;
+  margin-top: 2vh;
+  text-align: end;
+}
 /*  */
 /* FOR MOBILE */
 /*  */
