@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ShowUserFeed from '../components/ShowUserFeed'
 import LikeDislikeButtons from '../components/LikeDislikeButtons'
+import ComeAgain from '../components/ComeAgain'
 
 const Home = ({ currentUser, posts, users }) => {
   const [count, setCount] = useState(0)
@@ -32,7 +33,7 @@ const Home = ({ currentUser, posts, users }) => {
             />
           </>
         ) : (
-          <div>test</div>
+          <ComeAgain currentUser={currentUser} />
         )
       }
       if (currentUser.orientation === 'Female') {
@@ -58,7 +59,7 @@ const Home = ({ currentUser, posts, users }) => {
             />
           </>
         ) : (
-          <div>test</div>
+          <ComeAgain currentUser={currentUser} />
         )
       }
       if (currentUser.orientation === 'Both') {
@@ -84,7 +85,7 @@ const Home = ({ currentUser, posts, users }) => {
             />
           </>
         ) : (
-          <div>test</div>
+          <ComeAgain currentUser={currentUser} />
         )
       }
     } else {

@@ -1,4 +1,3 @@
-
 header {
   background-color: rgba(255, 255, 255, 0.501);
   border-bottom: 1px solid black;
@@ -72,7 +71,8 @@ nav {
 .home-nav {
   padding: 0 1vw 0;
 }
-.feed {
+.feed,
+.feed2 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,7 +184,8 @@ nav {
   height: 3vh;
 }
 
-.post-image img, iframe {
+.post-image img,
+iframe {
   border-radius: 16px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -213,29 +214,49 @@ iframe {
   width: 32vw;
 }
 
-.bio, .image-post, .displayed_pfp, .ShownUserName {
+.bio,
+.image-post,
+.displayed_pfp,
+.ShownUserName {
   margin: 1vh;
 }
 
-#like-icon, #dislike-icon{
+#like-icon,
+#dislike-icon {
   width: 5vw;
   position: fixed;
   bottom: 10%;
 }
 
-#like-icon{
+#like-icon {
   right: 25vw;
 }
-#dislike-icon{
+#dislike-icon {
   left: 25vw;
 }
 
+.come-again {
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 5vw;
+}
+
+.feed2 {
+  height: 80vh;
+  justify-content: center;
+}
+
+/*  */
+/* FOR MOBILE */
+/*  */
 @media only screen and (max-width: 600px) {
   .profile {
     border-radius: 0;
-width: 100vw;
+    width: 100vw;
   }
-  #like-icon, #dislike-icon{
+  #like-icon,
+  #dislike-icon {
     width: 15vw;
     position: fixed;
     bottom: 10%;
@@ -244,29 +265,33 @@ width: 100vw;
     border: 1px black solid;
     padding: 3vw;
   }
-  
-  #like-icon{
+
+  #like-icon {
     right: 10vw;
   }
-  #dislike-icon{
+  #dislike-icon {
     left: 10vw;
   }
-  .ShownUserName, .bio, .image-post img, .displayed_pfp img, .gender-orientation, iframe{
-width: 85vw;
-
+  .ShownUserName,
+  .bio,
+  .image-post img,
+  .displayed_pfp img,
+  .gender-orientation,
+  iframe {
+    width: 85vw;
   }
-  .gender-orientation{
+  .gender-orientation {
     justify-content: space-around;
   }
-  .gender{
+  .gender {
     width: 30vw;
   }
-  .gender img{
+  .gender img {
     width: 6vw;
     height: 6vw;
   }
-.social-img img{
-  width: 8vw;
-  justify-content: space-around
-}
+  .social-img img {
+    width: 8vw;
+    justify-content: space-around;
+  }
 }
