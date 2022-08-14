@@ -71,7 +71,7 @@ const ShowProfileFeed = ({
       return <WrittenPosts post={post} displayedUser={displayedUser} />
     }
   }
-
+  console.log(displayedUser.orientation)
   const showGender = (gender) => {
     if (gender === 'Male') {
       return (

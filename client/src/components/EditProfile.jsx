@@ -36,10 +36,10 @@ const ProfileEditForm = ({
     currentUser.gender === 'Female'
   )
   const [orientationMClick, setOrientationMClick] = useState(
-    currentUser.orientation === 'Male'
+    currentUser.orientation === 'Male' || currentUser.orientation === 'Both'
   )
   const [orientationFClick, setOrientationFClick] = useState(
-    currentUser.orientation === 'Female'
+    currentUser.orientation === 'Female' || currentUser.orientation === 'Both'
   )
 
   const handleSubmit = async (e) => {
@@ -57,7 +57,6 @@ const ProfileEditForm = ({
     // change use state boolean to sign in
     // navigate('/signin')
   }
-  console.log(formValues.ig_link)
   const p = []
   for (let i = 0; i < posts.length; i++) {
     if (parseInt(posts[i].userId) === parseInt(currentUser.id)) {
@@ -176,7 +175,7 @@ const ProfileEditForm = ({
     }
   }
   const onClickMOrientation = () => {
-    if (orientationMClick === true) {
+    if (orientationMClick === true && orientationFClick === true) {
       setOrientationMClick(false)
     }
     if (orientationMClick === true && orientationFClick === false) {
@@ -187,7 +186,7 @@ const ProfileEditForm = ({
     }
   }
   const onClickFOrientation = () => {
-    if (orientationFClick === true) {
+    if (orientationFClick === true && orientationMClick === true) {
       setOrientationFClick(false)
     }
     if (orientationFClick === true && orientationMClick === false) {
@@ -271,12 +270,30 @@ const ProfileEditForm = ({
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
+
+  console.log('M ' + orientationMClick)
+  console.log('F ' + orientationFClick)
+  console.log(formValues.orientation)
   const confirm = async () => {
-    setEdit(false)
+    if (orientationMClick === true && orientationFClick === false) {
+      console.log('test1')
+      await setFormValues({ ...formValues, orientation: 'Male' })
+    }
+    if (orientationMClick === true && orientationFClick === true) {
+      console.log('test2')
+
+      await setFormValues({ ...formValues, orientation: 'Both' })
+    }
+    if (orientationMClick === false && orientationFClick === true) {
+      console.log('test3')
+
+      await setFormValues({ ...formValues, orientation: 'Female' })
+    }
     await updateUser(currentUser.id, formValues)
-    setCurrentUser(formValues)
+    await setCurrentUser(formValues)
     localStorage.clear()
     StayLogged(currentUser)
+    await setEdit(false)
   }
   const cancel = async () => {
     setEdit(false)
