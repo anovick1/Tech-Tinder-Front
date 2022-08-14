@@ -130,6 +130,9 @@ nav {
   border-radius: 0;
   margin-left: 1vw;
 }
+.gender img:hover {
+  cursor: pointer;
+}
 .social-img img {
   width: 3vw;
   border-radius: 0;
@@ -268,13 +271,34 @@ iframe {
 .input-label {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .first-last-age,
 .city-state {
   display: flex;
+  margin-top: 2vh;
 }
 .first-last-age {
   justify-content: space-between;
+}
+.city-state {
+  justify-content: space-evenly;
+}
+.pfp-label input {
+  width: 15vw;
+  margin-left: 3vw;
+}
+.pfp-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+#selected-gender {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
 }
 /*  */
 /* FOR MOBILE */

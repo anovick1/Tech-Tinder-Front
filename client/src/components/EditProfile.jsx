@@ -29,6 +29,18 @@ const ProfileEditForm = ({
     pfp_link: currentUser.pfp_link,
     bio: currentUser.bio
   })
+  const [genderMClick, setGenderMClick] = useState(
+    currentUser.gender === 'Male'
+  )
+  const [genderFClick, setGenderFClick] = useState(
+    currentUser.gender === 'Female'
+  )
+  const [orientationMClick, setOrientationMClick] = useState(
+    currentUser.orientation === 'Male'
+  )
+  const [orientationFClick, setOrientationFClick] = useState(
+    currentUser.orientation === 'Female'
+  )
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -107,29 +119,95 @@ const ProfileEditForm = ({
     }
   }
 
+  const onClickGender = () => {
+    console.log('rest')
+    if (genderMClick === true) {
+      setGenderMClick(false)
+      setGenderFClick(true)
+    } else {
+      setGenderMClick(true)
+      setGenderFClick(false)
+    }
+  }
+
   const showGender = (gender) => {
-    if (gender === 'Male') {
+    if (genderMClick === true) {
       return (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
-          alt="male-icon"
-        />
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            id="selected-gender"
+            onClick={() => onClickGender()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            onClick={() => onClickGender()}
+          />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            onClick={() => onClickGender()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickGender()}
+          />
+        </div>
       )
     }
-    if (gender === 'Female') {
-      return (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
-          alt="female-icon"
-        />
-      )
+  }
+  const onClickOrientation = () => {
+    console.log('rest')
+    if (genderMClick === true) {
+      setOrientationMClick(false)
+      setOrientationFClick(true)
+    } else {
+      setOrientationMClick(true)
+      setOrientationFClick(false)
     }
-    if (gender === 'Both') {
+  }
+
+  const showOrientation = (gender) => {
+    if (genderMClick === true) {
       return (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2545/2545911.png"
-          alt="both-icon"
-        />
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            id="selected-gender"
+            onClick={() => onClickGender()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            onClick={() => onClickGender()}
+          />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            onClick={() => onClickGender()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickGender()}
+          />
+        </div>
       )
     }
   }
@@ -147,7 +225,6 @@ const ProfileEditForm = ({
   const cancel = async () => {
     setEdit(false)
   }
-  console.log(formValues.firstName)
   return currentUser ? (
     <div className="feed">
       <div className="profile">
@@ -164,6 +241,13 @@ const ProfileEditForm = ({
           />
         </div>
         <div className="ShownUserName">
+          <h1>
+            {formValues.firstName} {formValues.lastName},{formValues.age}
+          </h1>
+          <h3>
+            {' '}
+            {formValues.city}, {formValues.state}
+          </h3>
           <div>
             <div className="first-last-age">
               <div className="input-label">
@@ -224,19 +308,26 @@ const ProfileEditForm = ({
                 <label>State</label>
               </div>
             </div>
-            <h1>
-              {currentUser.firstName} {currentUser.lastName},{currentUser.age}
-            </h1>
           </div>
-          <div>
-            <h3>
-              {' '}
-              {currentUser.city}, {currentUser.state}
-            </h3>
-          </div>
+          <div></div>
         </div>
         <div className="displayed_pfp">
-          <img src={currentUser.pfp_link} alt="pfp" />
+          <img src={formValues.pfp_link} alt="pfp" />
+        </div>
+        <div className="pfp-label">
+          <div>
+            <label>Profile Picture URL:</label>
+          </div>
+          <div>
+            <input
+              type="text"
+              defaultValue={formValues.pfp_link}
+              onChange={handleChange}
+              id={'pfp_link'}
+              placeholder={'Profile Picture URL'}
+              className="input-box"
+            />
+          </div>
         </div>
         <div className="gender-orientation">
           <div className="gender">
@@ -244,7 +335,7 @@ const ProfileEditForm = ({
             {showGender(currentUser.gender)}
           </div>
           <div className="gender" id="orientation">
-            <h4>Interested in:</h4>
+            <h4>Interest:</h4>
             {showGender(currentUser.orientation)}
           </div>
         </div>
