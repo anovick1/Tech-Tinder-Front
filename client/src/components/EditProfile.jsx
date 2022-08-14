@@ -119,13 +119,20 @@ const ProfileEditForm = ({
     }
   }
 
-  const onClickGender = () => {
+  const onClickMGender = () => {
     if (genderMClick === true) {
-      setGenderMClick(false)
-      setGenderFClick(true)
+      setGenderFClick(false)
+      setGenderMClick(true)
     } else {
       setGenderMClick(true)
-      setGenderFClick(false)
+    }
+  }
+  const onClickFGender = () => {
+    if (genderFClick === true) {
+      setGenderFClick(true)
+      setGenderMClick(false)
+    } else {
+      setGenderFClick(true)
     }
   }
 
@@ -137,12 +144,12 @@ const ProfileEditForm = ({
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
             id="selected-gender"
-            onClick={() => onClickGender()}
+            onClick={() => onClickMGender()}
           />
           <img
             src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
             alt="female-icon"
-            onClick={() => onClickGender()}
+            onClick={() => onClickFGender()}
           />
         </div>
       )
@@ -152,13 +159,13 @@ const ProfileEditForm = ({
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
-            onClick={() => onClickGender()}
+            onClick={() => onClickMGender()}
           />
           <img
             src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
             alt="female-icon"
             id="selected-gender"
-            onClick={() => onClickGender()}
+            onClick={() => onClickFGender()}
           />
         </div>
       )
@@ -257,8 +264,6 @@ const ProfileEditForm = ({
       )
     }
   }
-  console.log('orientationMClick: ' + orientationMClick)
-  console.log('orientationFClick: ' + orientationFClick)
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
