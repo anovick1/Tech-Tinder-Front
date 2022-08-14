@@ -28,7 +28,7 @@ function App() {
     const user = await CheckSession()
     setCurrentUser(user)
   }
-
+  console.log(localStorage)
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {

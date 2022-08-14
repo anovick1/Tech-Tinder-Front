@@ -16,16 +16,23 @@ const Home = ({ currentUser, posts, users }) => {
           }
         }
         displayedUser = arr[count]
-        return (
+        return count < arr.length ? (
           <>
             <ShowUserFeed
-            currentUser={currentUser}
-            posts={posts}
-            users={users}
-            displayedUser={displayedUser}
+              currentUser={currentUser}
+              posts={posts}
+              users={users}
+              displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
+            <LikeDislikeButtons
+              setCount={setCount}
+              count={count}
+              currentUser={currentUser}
+              displayedUser={displayedUser}
+            />
           </>
+        ) : (
+          <div>test</div>
         )
       }
       if (currentUser.orientation === 'Female') {
@@ -35,16 +42,23 @@ const Home = ({ currentUser, posts, users }) => {
           }
         }
         displayedUser = arr[count]
-        return (
+        return count < arr.length ? (
           <>
             <ShowUserFeed
-            currentUser={currentUser}
-            posts={posts}
-            users={users}
-            displayedUser={displayedUser}
+              currentUser={currentUser}
+              posts={posts}
+              users={users}
+              displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
+            <LikeDislikeButtons
+              setCount={setCount}
+              count={count}
+              currentUser={currentUser}
+              displayedUser={displayedUser}
+            />
           </>
+        ) : (
+          <div>test</div>
         )
       }
       if (currentUser.orientation === 'Both') {
@@ -54,16 +68,23 @@ const Home = ({ currentUser, posts, users }) => {
           }
         }
         displayedUser = arr[count]
-        return (
+        return count < arr.length ? (
           <>
             <ShowUserFeed
-            currentUser={currentUser}
-            posts={posts}
-            users={users}
-            displayedUser={displayedUser}
+              currentUser={currentUser}
+              posts={posts}
+              users={users}
+              displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
+            <LikeDislikeButtons
+              setCount={setCount}
+              count={count}
+              currentUser={currentUser}
+              displayedUser={displayedUser}
+            />
           </>
+        ) : (
+          <div>test</div>
         )
       }
     } else {
