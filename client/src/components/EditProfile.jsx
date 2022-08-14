@@ -120,7 +120,6 @@ const ProfileEditForm = ({
   }
 
   const onClickGender = () => {
-    console.log('rest')
     if (genderMClick === true) {
       setGenderMClick(false)
       setGenderFClick(true)
@@ -165,31 +164,78 @@ const ProfileEditForm = ({
       )
     }
   }
-  const onClickOrientation = () => {
-    console.log('rest')
-    if (genderMClick === true) {
+  const onClickMOrientation = () => {
+    if (orientationMClick === true) {
       setOrientationMClick(false)
-      setOrientationFClick(true)
-    } else {
+    }
+    if (orientationMClick === true && orientationFClick === false) {
       setOrientationMClick(true)
+    }
+    if (orientationMClick === false) {
+      setOrientationMClick(true)
+    }
+  }
+  const onClickFOrientation = () => {
+    if (orientationFClick === true) {
       setOrientationFClick(false)
+    }
+    if (orientationFClick === true && orientationMClick === false) {
+      setOrientationFClick(true)
+    }
+    if (orientationFClick === false) {
+      setOrientationFClick(true)
     }
   }
 
   const showOrientation = (gender) => {
-    if (genderMClick === true) {
+    if (orientationMClick === true && orientationFClick === false) {
       return (
         <div>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
             id="selected-gender"
-            onClick={() => onClickGender()}
+            onClick={() => onClickMOrientation()}
           />
           <img
             src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
             alt="female-icon"
-            onClick={() => onClickGender()}
+            onClick={() => onClickFOrientation()}
+          />
+        </div>
+      )
+    }
+    if (orientationMClick === true && orientationFClick === true) {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            id="selected-gender"
+            onClick={() => onClickMOrientation()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickFOrientation()}
+          />
+        </div>
+      )
+    }
+    if (orientationMClick === false && orientationFClick === true) {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            onClick={() => onClickMOrientation()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickFOrientation()}
           />
         </div>
       )
@@ -199,19 +245,20 @@ const ProfileEditForm = ({
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
-            onClick={() => onClickGender()}
+            onClick={() => onClickMOrientation()}
           />
           <img
             src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
             alt="female-icon"
             id="selected-gender"
-            onClick={() => onClickGender()}
+            onClick={() => onClickFOrientation()}
           />
         </div>
       )
     }
   }
-
+  console.log('orientationMClick: ' + orientationMClick)
+  console.log('orientationFClick: ' + orientationFClick)
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
@@ -336,7 +383,7 @@ const ProfileEditForm = ({
           </div>
           <div className="gender" id="orientation">
             <h4>Interest:</h4>
-            {showGender(currentUser.orientation)}
+            {showOrientation(currentUser.orientation)}
           </div>
         </div>
         <div className="bio">
