@@ -18,7 +18,7 @@ const ShowProfileFeed = ({
     }
   }
   const showIg = () => {
-    if (displayedUser.ig_link != null) {
+    if (displayedUser.ig_link != null && displayedUser.ig_link.length > 1) {
       return (
         <div className="social-img">
           <a href={displayedUser.ig_link} target="_blank" rel="noreferrer">
@@ -32,7 +32,7 @@ const ShowProfileFeed = ({
     }
   }
   const showFb = () => {
-    if (displayedUser.fb_link != null) {
+    if (displayedUser.fb_link != null && displayedUser.fb_link.length > 1) {
       return (
         <div className="social-img">
           <a href={displayedUser.fb_link} target="_blank" rel="noreferrer">
@@ -46,7 +46,7 @@ const ShowProfileFeed = ({
     }
   }
   const showLi = () => {
-    if (displayedUser.li_link != null) {
+    if (displayedUser.li_link != null && displayedUser.li_link.length > 1) {
       return (
         <div className="social-img">
           <a href="yes" target="_blank" rel="noreferrer">

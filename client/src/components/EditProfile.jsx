@@ -57,7 +57,7 @@ const ProfileEditForm = ({
     // change use state boolean to sign in
     // navigate('/signin')
   }
-
+  console.log(formValues.ig_link)
   const p = []
   for (let i = 0; i < posts.length; i++) {
     if (parseInt(posts[i].userId) === parseInt(currentUser.id)) {
@@ -65,10 +65,10 @@ const ProfileEditForm = ({
     }
   }
   const showIg = () => {
-    if (currentUser.ig_link != null) {
+    if (formValues.ig_link != null && formValues.ig_link.length > 1) {
       return (
         <div className="social-img">
-          <a href={currentUser.ig_link} target="_blank" rel="noreferrer">
+          <a href={formValues.ig_link} target="_blank" rel="noreferrer">
             <img
               src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
               alt="ig"
@@ -79,10 +79,10 @@ const ProfileEditForm = ({
     }
   }
   const showFb = () => {
-    if (currentUser.fb_link != null) {
+    if (formValues.fb_link != null && formValues.fb_link.length > 1) {
       return (
         <div className="social-img">
-          <a href={currentUser.fb_link} target="_blank" rel="noreferrer">
+          <a href={formValues.fb_link} target="_blank" rel="noreferrer">
             <img
               src="https://cdn-icons-png.flaticon.com/512/1419/1419513.png"
               alt="ig"
@@ -93,7 +93,7 @@ const ProfileEditForm = ({
     }
   }
   const showLi = () => {
-    if (currentUser.li_link != null) {
+    if (formValues.li_link != null && formValues.li_link.length > 1) {
       return (
         <div className="social-img">
           <a href="yes" target="_blank" rel="noreferrer">
@@ -392,11 +392,23 @@ const ProfileEditForm = ({
           </div>
         </div>
         <div className="bio">
-          <div className="box-title">
-            <h2>Bio</h2>
+          <div className="box-title" id="edit-bio">
+            <div>
+              <h2>Bio</h2>
+            </div>
+            <div>
+              <p>{formValues.bio.length}/255</p>
+            </div>
           </div>
-          <div className="bio-text">
-            <h4>{currentUser.bio}</h4>
+          <div className="bio-text" id="edit-bio-text">
+            <textarea
+              type="text"
+              value={formValues.bio}
+              onChange={handleChange}
+              id="bio"
+              placeholder={'bio'}
+              maxlength="255"
+            ></textarea>
           </div>
         </div>
         {p.map((post, index) => (
@@ -406,6 +418,84 @@ const ProfileEditForm = ({
           {showIg()}
           {showFb()}
           {showLi()}
+        </div>
+        <div className="edit-socials">
+          <div className="pfp-label">
+            <div>
+              <div className="social-img">
+                <a href={formValues.ig_link} target="_blank" rel="noreferrer">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+                    alt="ig"
+                  />
+                </a>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                defaultValue={formValues.ig_link}
+                onChange={handleChange}
+                id={'ig_link'}
+                placeholder={'Instagram URL'}
+                className="input-box"
+              />
+            </div>
+          </div>
+          <div className="pfp-label">
+            <div>
+              <div className="social-img">
+                <a href={formValues.fb_link} target="_blank" rel="noreferrer">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/1419/1419513.png"
+                    alt="ig"
+                  />
+                </a>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                defaultValue={formValues.fb_link}
+                onChange={handleChange}
+                id={'fb_link'}
+                placeholder={'Facebook URL'}
+                className="input-box"
+              />
+            </div>
+          </div>
+          <div className="pfp-label">
+            <div className="social-img">
+              <a href="yes" target="_blank" rel="noreferrer">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png"
+                  alt="ig"
+                />
+              </a>
+            </div>
+            <div>
+              <input
+                type="text"
+                defaultValue={formValues.li_link}
+                onChange={handleChange}
+                id={'li_link'}
+                placeholder={'LinkedIn URL'}
+                className="input-box"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="edit-icon">
+          <img
+            src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+            alt="edit"
+            onClick={() => cancel()}
+          />
+          <img
+            src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+            alt="edit"
+            onClick={() => confirm()}
+          />
         </div>
       </div>
     </div>

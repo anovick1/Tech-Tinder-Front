@@ -146,11 +146,14 @@ nav {
 
 .location,
 .age,
-.box-title,
-.bio-text {
+.box-title {
   display: flex;
   align-items: center;
   height: 5vh;
+}
+.bio-text {
+  display: flex;
+  align-items: center;
 }
 .gender h4,
 .location h4,
@@ -263,7 +266,7 @@ iframe {
 }
 .input-box {
   width: 7vw;
-  height: 3vh;
+  height: 1vh;
   border-radius: 20px;
   border: 1px black solid;
   padding: 1vh;
@@ -299,6 +302,22 @@ iframe {
   border: 1px solid black;
   border-radius: 5px;
   padding: 2px;
+}
+textarea {
+  width: 30vw;
+  height: 10vh;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 1vh;
+}
+#edit-bio {
+  justify-content: space-between;
+}
+#edit-bio-text {
+  height: 15vh;
+}
+.edit-socials {
+  margin-top: 2vh;
 }
 /*  */
 /* FOR MOBILE */
