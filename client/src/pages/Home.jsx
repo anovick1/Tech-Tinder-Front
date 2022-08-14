@@ -3,7 +3,7 @@ import ShowUserFeed from '../components/ShowUserFeed'
 import LikeDislikeButtons from '../components/LikeDislikeButtons'
 import ComeAgain from '../components/ComeAgain'
 
-const Home = ({ currentUser, posts, users }) => {
+const Home = ({ currentUser, posts, users, setCurrentUser }) => {
   const [count, setCount] = useState(0)
   const arr = []
   let displayedUser = arr[count]
