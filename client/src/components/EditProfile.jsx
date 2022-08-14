@@ -123,16 +123,20 @@ const ProfileEditForm = ({
     if (genderMClick === true) {
       setGenderFClick(false)
       setGenderMClick(true)
+      setFormValues({ ...formValues, gender: 'Male' })
     } else {
       setGenderMClick(true)
+      setFormValues({ ...formValues, gender: 'Male' })
     }
   }
   const onClickFGender = () => {
     if (genderFClick === true) {
       setGenderFClick(true)
       setGenderMClick(false)
+      setFormValues({ ...formValues, gender: 'Female' })
     } else {
       setGenderFClick(true)
+      setFormValues({ ...formValues, gender: 'Female' })
     }
   }
 
@@ -407,7 +411,7 @@ const ProfileEditForm = ({
               onChange={handleChange}
               id="bio"
               placeholder={'bio'}
-              maxlength="255"
+              maxLength="255"
             ></textarea>
           </div>
         </div>
