@@ -1,168 +1,165 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../services/Auth'
-import { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import VideoPosts from './VideoPosts'
+import ImagePosts from './ImagePosts'
+import WrittenPosts from './WrittenPosts'
 
-const ProfileEditForm = (currentUser, edit, setEdit) => {
-  let navigate = useNavigate()
-  let {id, index} = useParams()
-  console.log(currentUser)
-  const [formValues, setFormValues] = useState({
-    firstName: currentUser.firstName,
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    gender: '',
-    orientation: '',
-    city: '',
-    state: '',
-    age: '',
-    ig_link: '',
-    fb_link: '',
-    li_link: '',
-    pfp_link:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
-    bio: 'Just here to have fun!'
-  })
-
-  const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+const ProfileEditForm = ({
+  currentUser,
+  posts,
+  users,
+  displayedUser,
+  edit,
+  setEdit
+}) => {
+  const p = []
+  for (let i = 0; i < posts.length; i++) {
+    if (parseInt(posts[i].userId) === parseInt(displayedUser.id)) {
+      p.push(posts[i])
+    }
+  }
+  const showIg = () => {
+    if (displayedUser.ig_link != null) {
+      return (
+        <div className="social-img">
+          <a href={displayedUser.ig_link} target="_blank" rel="noreferrer">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+              alt="ig"
+            />
+          </a>
+        </div>
+      )
+    }
+  }
+  const showFb = () => {
+    if (displayedUser.fb_link != null) {
+      return (
+        <div className="social-img">
+          <a href={displayedUser.fb_link} target="_blank" rel="noreferrer">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1419/1419513.png"
+              alt="ig"
+            />
+          </a>
+        </div>
+      )
+    }
+  }
+  const showLi = () => {
+    if (displayedUser.li_link != null) {
+      return (
+        <div className="social-img">
+          <a href="yes" target="_blank" rel="noreferrer">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png"
+              alt="ig"
+            />
+          </a>
+        </div>
+      )
+    }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    await RegisterUser({
-      firstName: formValues.firstName,
-      lastName: formValues.lastName,
-      email: formValues.email,
-      password: formValues.password,
-      gender: formValues.gender,
-      orientation: formValues.orientation,
-      pfp_link:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
-      bio: 'Just here to have fun!'
-    })
-    setFormValues({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      gender: '',
-      orientation: ''
-    })
-    // change use state boolean to sign in
-    // navigate('/signin')
+  const showPost = (post) => {
+    if (post.type === 'image') {
+      return <ImagePosts post={post} displayedUser={displayedUser} />
+    }
+    if (post.type === 'video') {
+      return <VideoPosts post={post} displayedUser={displayedUser} />
+    }
+    if (post.type === 'written') {
+      return <WrittenPosts post={post} displayedUser={displayedUser} />
+    }
   }
 
-  return currentUser?(
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label>First Name</label>
-            <input
-              onChange={handleChange}
-              name="firstName"
-              type="text"
-              placeholder={currentUser.firstName}
-              value={currentUser.firstName}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label>Last Name</label>
-            <input
-              onChange={handleChange}
-              name="lastName"
-              type="text"
-              placeholder="Smith"
-              value={formValues.lastName}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="gender">Gender</label>
-            <input
-              onChange={handleChange}
-              type="text"
-              name="gender"
-              value={formValues.confirmPgenderassword}
-              required
-            />
-            {/* 
-            <label class="container">
-              Male
-              <input
-                type="checkbox"
-                checked="checked"
-                value={formValues.gender}
-              />
-              <span class="checkmark"></span>
-            </label>
+  const showGender = (gender) => {
+    if (gender === 'Male') {
+      return (
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+          alt="male-icon"
+        />
+      )
+    }
+    if (gender === 'Female') {
+      return (
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+          alt="female-icon"
+        />
+      )
+    }
+    if (gender === 'Both') {
+      return (
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2545/2545911.png"
+          alt="both-icon"
+        />
+      )
+    }
+  }
 
-            <label class="container">
-              Female
-              <input type="checkbox" value={formValues.gender} />
-              <span class="checkmark"></span>
-            </label> */}
+  const editBtn = () => {
+    setEdit(false)
+  }
+
+  return currentUser && displayedUser ? (
+    <div className="feed">
+      <div className="profile">
+        <div className="edit-icon">
+          <img
+            src="https://i.imgur.com/Kmxk7OM.png"
+            alt="edit"
+            onClick={() => editBtn()}
+          />
+        </div>
+        <div className="ShownUserName">
+          <div>
+            <h1>
+              {displayedUser.firstName} {displayedUser.lastName},{' EDIT'}
+              {displayedUser.age}
+            </h1>
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="gender">Interested in:</label>
-            <input
-              onChange={handleChange}
-              type="text"
-              name="orientation"
-              value={formValues.orientation}
-              required
-            />
+          <div>
+            <h3>
+              {' '}
+              {displayedUser.city}, {displayedUser.state}
+            </h3>
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="confirmPassword"
-              value={formValues.confirmPassword}
-              required
-            />
+        </div>
+        <div className="displayed_pfp">
+          <img src={displayedUser.pfp_link} alt="pfp" />
+        </div>
+        <div className="gender-orientation">
+          <div className="gender">
+            <h4>Gender:</h4>
+            {showGender(displayedUser.gender)}
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              required
-            />
+          <div className="gender" id="orientation">
+            <h4>Interested in:</h4>
+            {showGender(displayedUser.orientation)}
           </div>
-          <button
-            disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
-            }
-          >
-            Sign In
-          </button>
-        </form>
+        </div>
+        <div className="bio">
+          <div className="box-title">
+            <h2>Bio</h2>
+          </div>
+          <div className="bio-text">
+            <h4>{displayedUser.bio}</h4>
+          </div>
+        </div>
+        {p.map((post, index) => (
+          <div key={index}>{showPost(post)}</div>
+        ))}
+        <div className="socials">
+          {showIg()}
+          {showFb()}
+          {showLi()}
+        </div>
       </div>
     </div>
-  ):('')
+  ) : (
+    ''
+  )
 }
-
 export default ProfileEditForm

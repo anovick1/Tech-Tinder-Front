@@ -249,6 +249,7 @@ iframe {
 .edit-icon img {
   width: 3vw;
   border-radius: 0;
+  cursor: pointer;
 }
 .edit-icon {
   width: 57vw;

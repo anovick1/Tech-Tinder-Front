@@ -101,7 +101,6 @@ const ShowProfileFeed = ({
 
   const editBtn = () => {
     setEdit(true)
-    console.log('clicked')
   }
 
   return currentUser && displayedUser ? (
