@@ -1,168 +1,530 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../services/Auth'
-import { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import VideoPosts from './VideoPosts'
+import ImagePosts from './ImagePosts'
+import WrittenPosts from './WrittenPosts'
+import { updateUser } from '../services/UserServices'
+import { StayLogged } from '../services/Auth'
 
-const ProfileEditForm = (currentUser, edit, setEdit) => {
-  let navigate = useNavigate()
-  let {id, index} = useParams()
-  console.log(currentUser)
+const ProfileEditForm = ({
+  currentUser,
+  posts,
+  users,
+  edit,
+  setEdit,
+  setCurrentUser
+}) => {
   const [formValues, setFormValues] = useState({
+    id: parseInt(currentUser.id),
     firstName: currentUser.firstName,
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    gender: '',
-    orientation: '',
-    city: '',
-    state: '',
-    age: '',
-    ig_link: '',
-    fb_link: '',
-    li_link: '',
-    pfp_link:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
-    bio: 'Just here to have fun!'
+    lastName: currentUser.lastName,
+    email: currentUser.email,
+    city: currentUser.city,
+    state: currentUser.state,
+    age: parseInt(currentUser.age),
+    gender: currentUser.gender,
+    orientation: currentUser.orientation,
+    ig_link: currentUser.ig_link,
+    fb_link: currentUser.fb_link,
+    li_link: currentUser.li_link,
+    pfp_link: currentUser.pfp_link,
+    bio: currentUser.bio
   })
+  const [genderMClick, setGenderMClick] = useState(
+    currentUser.gender === 'Male'
+  )
+  const [genderFClick, setGenderFClick] = useState(
+    currentUser.gender === 'Female'
+  )
+  const [orientationMClick, setOrientationMClick] = useState(
+    currentUser.orientation === 'Male' || currentUser.orientation === 'Both'
+  )
+  const [orientationFClick, setOrientationFClick] = useState(
+    currentUser.orientation === 'Female' || currentUser.orientation === 'Both'
+  )
 
+  const p = []
+  for (let i = 0; i < posts.length; i++) {
+    if (parseInt(posts[i].userId) === parseInt(currentUser.id)) {
+      p.push(posts[i])
+    }
+  }
+  const showIg = () => {
+    if (formValues.ig_link != null && formValues.ig_link.length > 1) {
+      return (
+        <div className="social-img">
+          <a href={formValues.ig_link} target="_blank" rel="noreferrer">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+              alt="ig"
+            />
+          </a>
+        </div>
+      )
+    }
+  }
+  const showFb = () => {
+    if (formValues.fb_link != null && formValues.fb_link.length > 1) {
+      return (
+        <div className="social-img">
+          <a href={formValues.fb_link} target="_blank" rel="noreferrer">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1419/1419513.png"
+              alt="ig"
+            />
+          </a>
+        </div>
+      )
+    }
+  }
+  const showLi = () => {
+    if (formValues.li_link != null && formValues.li_link.length > 1) {
+      return (
+        <div className="social-img">
+          <a href="yes" target="_blank" rel="noreferrer">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png"
+              alt="ig"
+            />
+          </a>
+        </div>
+      )
+    }
+  }
+
+  const showPost = (post) => {
+    if (post.type === 'image') {
+      return <ImagePosts post={post} displayedUser={currentUser} />
+    }
+    if (post.type === 'video') {
+      return <VideoPosts post={post} displayedUser={currentUser} />
+    }
+    if (post.type === 'written') {
+      return <WrittenPosts post={post} displayedUser={currentUser} />
+    }
+  }
+
+  const onClickMGender = () => {
+    if (genderMClick === true) {
+      setGenderFClick(false)
+      setGenderMClick(true)
+      setFormValues({ ...formValues, gender: 'Male' })
+    } else {
+      setGenderMClick(true)
+      setFormValues({ ...formValues, gender: 'Male' })
+    }
+  }
+  const onClickFGender = () => {
+    if (genderFClick === true) {
+      setGenderFClick(true)
+      setGenderMClick(false)
+      setFormValues({ ...formValues, gender: 'Female' })
+    } else {
+      setGenderFClick(true)
+      setFormValues({ ...formValues, gender: 'Female' })
+    }
+  }
+
+  const showGender = (gender) => {
+    if (genderMClick === true) {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            id="selected-gender"
+            onClick={() => onClickMGender()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            onClick={() => onClickFGender()}
+          />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            onClick={() => onClickMGender()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickFGender()}
+          />
+        </div>
+      )
+    }
+  }
+  const onClickMOrientation = () => {
+    if (orientationMClick === true && orientationFClick === true) {
+      setOrientationMClick(false)
+    }
+    if (orientationMClick === true && orientationFClick === false) {
+      setOrientationMClick(true)
+    }
+    if (orientationMClick === false) {
+      setOrientationMClick(true)
+    }
+    // if (orientationMClick === true && orientationFClick === false) {
+    //   console.log('test1')
+    //   setFormValues({ ...formValues, orientation: 'Male' })
+    // } else if (orientationMClick === false && orientationFClick === true) {
+    //   console.log('test2')
+    //   setFormValues({ ...formValues, orientation: 'Female' })
+    // } else if (orientationMClick === true && orientationFClick === true) {
+    //   console.log('test3')
+    //   setFormValues({ ...formValues, orientation: 'Both' })
+    // }
+  }
+  const onClickFOrientation = () => {
+    if (orientationFClick === true && orientationMClick === true) {
+      setOrientationFClick(false)
+    }
+    if (orientationFClick === true && orientationMClick === false) {
+      setOrientationFClick(true)
+    }
+    if (orientationFClick === false) {
+      setOrientationFClick(true)
+    }
+    // if (orientationMClick === true && orientationFClick === false) {
+    //   console.log('test1')
+    //   setFormValues({ ...formValues, orientation: 'Male' })
+    // } else if (orientationMClick === false && orientationFClick === true) {
+    //   setFormValues({ ...formValues, orientation: 'Female' })
+    //   console.log('test2')
+    // } else if (orientationMClick === true && orientationFClick === true) {
+    //   console.log('test3')
+    //   setFormValues({ ...formValues, orientation: 'Both' })
+    // }
+  }
+  const showOrientation = (gender) => {
+    if (orientationMClick === true && orientationFClick === false) {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            id="selected-gender"
+            onClick={() => onClickMOrientation()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            onClick={() => onClickFOrientation()}
+          />
+        </div>
+      )
+    }
+    if (orientationMClick === true && orientationFClick === true) {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            id="selected-gender"
+            onClick={() => onClickMOrientation()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickFOrientation()}
+          />
+        </div>
+      )
+    }
+    if (orientationMClick === false && orientationFClick === true) {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            onClick={() => onClickMOrientation()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickFOrientation()}
+          />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
+            alt="male-icon"
+            onClick={() => onClickMOrientation()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
+            alt="female-icon"
+            id="selected-gender"
+            onClick={() => onClickFOrientation()}
+          />
+        </div>
+      )
+    }
+  }
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    await RegisterUser({
-      firstName: formValues.firstName,
-      lastName: formValues.lastName,
-      email: formValues.email,
-      password: formValues.password,
-      gender: formValues.gender,
-      orientation: formValues.orientation,
-      pfp_link:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
-      bio: 'Just here to have fun!'
-    })
-    setFormValues({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      gender: '',
-      orientation: ''
-    })
-    // change use state boolean to sign in
-    // navigate('/signin')
+  const checkO = () => {
+    if (orientationMClick === true && orientationFClick === false) {
+      console.log('test1')
+      setFormValues({ ...formValues, orientation: 'Male' })
+    } else if (orientationMClick === false && orientationFClick === true) {
+      console.log('test2')
+      setFormValues({ ...formValues, orientation: 'Female' })
+    } else if (orientationMClick === true && orientationFClick === true) {
+      console.log('test3')
+      setFormValues({ ...formValues, orientation: 'Both' })
+    }
+    console.log(formValues.orientation)
   }
-
-  return currentUser?(
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label>First Name</label>
+  console.log('M ' + orientationMClick)
+  console.log('F ' + orientationFClick)
+  // console.log(formValues.orientation)
+  const confirm = async () => {
+    await checkO()
+    await updateUser(currentUser.id, formValues)
+    await setCurrentUser(formValues)
+    localStorage.clear()
+    StayLogged(currentUser)
+    await setEdit(false)
+  }
+  const cancel = async () => {
+    setEdit(false)
+  }
+  return currentUser ? (
+    <div className="feed">
+      <div className="profile">
+        <div className="edit-icon">
+          <img
+            src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+            alt="edit"
+            onClick={() => cancel()}
+          />
+          <img
+            src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+            alt="edit"
+            onClick={() => confirm()}
+          />
+        </div>
+        <div className="ShownUserName">
+          <h1>
+            {formValues.firstName} {formValues.lastName},{formValues.age}
+          </h1>
+          <h3>
+            {' '}
+            {formValues.city}, {formValues.state}
+          </h3>
+          <div>
+            <div className="first-last-age">
+              <div className="input-label">
+                <input
+                  type="text"
+                  value={formValues.firstName}
+                  onChange={handleChange}
+                  id="firstName"
+                  placeholder={'First Name'}
+                  className="input-box"
+                />
+                <label>First Name</label>
+              </div>
+              <div className="input-label">
+                <input
+                  type="text"
+                  defaultValue={formValues.lastName}
+                  onChange={handleChange}
+                  id={'lastName'}
+                  placeholder={'Last Name'}
+                  className="input-box"
+                />
+                <label>Last Name</label>
+              </div>
+              <div className="input-label">
+                <input
+                  type="number"
+                  defaultValue={formValues.age}
+                  onChange={handleChange}
+                  id={'age'}
+                  placeholder={'Age'}
+                  className="input-box"
+                />
+                <label>Age</label>
+              </div>
+            </div>
+            <div className="city-state">
+              <div className="input-label">
+                <input
+                  type="text"
+                  defaultValue={formValues.city}
+                  onChange={handleChange}
+                  id={'city'}
+                  placeholder={'City'}
+                  className="input-box"
+                />
+                <label>City</label>
+              </div>
+              <div className="input-label">
+                <input
+                  type="text"
+                  defaultValue={formValues.state}
+                  onChange={handleChange}
+                  id={'state'}
+                  placeholder={'State'}
+                  className="input-box"
+                />
+                <label>State</label>
+              </div>
+            </div>
+          </div>
+          <div></div>
+        </div>
+        <div className="displayed_pfp">
+          <img src={formValues.pfp_link} alt="pfp" />
+        </div>
+        <div className="pfp-label">
+          <div>
+            <label>Profile Picture URL:</label>
+          </div>
+          <div>
             <input
-              onChange={handleChange}
-              name="firstName"
               type="text"
-              placeholder={currentUser.firstName}
-              value={currentUser.firstName}
-              required
+              defaultValue={formValues.pfp_link}
+              onChange={handleChange}
+              id={'pfp_link'}
+              placeholder={'Profile Picture URL'}
+              className="input-box"
             />
           </div>
-          <div className="input-wrapper">
-            <label>Last Name</label>
-            <input
-              onChange={handleChange}
-              name="lastName"
-              type="text"
-              placeholder="Smith"
-              value={formValues.lastName}
-              required
-            />
+        </div>
+        <div className="gender-orientation">
+          <div className="gender">
+            <h4>Gender:</h4>
+            {showGender(currentUser.gender)}
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-              required
-            />
+          <div className="gender" id="orientation">
+            <h4>Interest:</h4>
+            {showOrientation(currentUser.orientation)}
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="gender">Gender</label>
-            <input
-              onChange={handleChange}
+        </div>
+        <div className="bio">
+          <div className="box-title" id="edit-bio">
+            <div>
+              <h2>Bio</h2>
+            </div>
+            <div>
+              <p>{formValues.bio.length}/255</p>
+            </div>
+          </div>
+          <div className="bio-text" id="edit-bio-text">
+            <textarea
               type="text"
-              name="gender"
-              value={formValues.confirmPgenderassword}
-              required
-            />
-            {/* 
-            <label class="container">
-              Male
+              value={formValues.bio}
+              onChange={handleChange}
+              id="bio"
+              placeholder={'bio'}
+              maxLength="255"
+            ></textarea>
+          </div>
+        </div>
+        {p.map((post, index) => (
+          <div key={index}>{showPost(post)}</div>
+        ))}
+        <div className="socials">
+          {showIg()}
+          {showFb()}
+          {showLi()}
+        </div>
+        <div className="edit-socials">
+          <div className="pfp-label">
+            <div>
+              <div className="social-img">
+                <a href={formValues.ig_link} target="_blank" rel="noreferrer">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+                    alt="ig"
+                  />
+                </a>
+              </div>
+            </div>
+            <div>
               <input
-                type="checkbox"
-                checked="checked"
-                value={formValues.gender}
+                type="text"
+                defaultValue={formValues.ig_link}
+                onChange={handleChange}
+                id={'ig_link'}
+                placeholder={'Instagram URL'}
+                className="input-box"
               />
-              <span class="checkmark"></span>
-            </label>
-
-            <label class="container">
-              Female
-              <input type="checkbox" value={formValues.gender} />
-              <span class="checkmark"></span>
-            </label> */}
+            </div>
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="gender">Interested in:</label>
-            <input
-              onChange={handleChange}
-              type="text"
-              name="orientation"
-              value={formValues.orientation}
-              required
-            />
+          <div className="pfp-label">
+            <div>
+              <div className="social-img">
+                <a href={formValues.fb_link} target="_blank" rel="noreferrer">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/1419/1419513.png"
+                    alt="ig"
+                  />
+                </a>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                defaultValue={formValues.fb_link}
+                onChange={handleChange}
+                id={'fb_link'}
+                placeholder={'Facebook URL'}
+                className="input-box"
+              />
+            </div>
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="confirmPassword"
-              value={formValues.confirmPassword}
-              required
-            />
+          <div className="pfp-label">
+            <div className="social-img">
+              <a href="yes" target="_blank" rel="noreferrer">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png"
+                  alt="ig"
+                />
+              </a>
+            </div>
+            <div>
+              <input
+                type="text"
+                defaultValue={formValues.li_link}
+                onChange={handleChange}
+                id={'li_link'}
+                placeholder={'LinkedIn URL'}
+                className="input-box"
+              />
+            </div>
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              required
-            />
-          </div>
-          <button
-            disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
-            }
-          >
-            Sign In
-          </button>
-        </form>
+        </div>
+        <div className="edit-icon">
+          <img
+            src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+            alt="edit"
+            onClick={() => cancel()}
+          />
+          <img
+            src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+            alt="edit"
+            onClick={() => confirm()}
+          />
+        </div>
       </div>
     </div>
-  ):('')
+  ) : (
+    ''
+  )
 }
-
 export default ProfileEditForm

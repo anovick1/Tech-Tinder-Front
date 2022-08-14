@@ -9,6 +9,15 @@ export const SignInUser = async (data) => {
     throw error
   }
 }
+export const StayLogged = async (data) => {
+  try {
+    const res = await Client.post('/auth/staylogged', data)
+    localStorage.setItem('token', res.data.token)
+    return res.data.user
+  } catch (error) {
+    throw error
+  }
+}
 
 export const RegisterUser = async (data) => {
   try {

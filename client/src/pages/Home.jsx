@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import ShowUserFeed from '../components/ShowUserFeed'
 import LikeDislikeButtons from '../components/LikeDislikeButtons'
+import ComeAgain from '../components/ComeAgain'
 
-const Home = ({ currentUser, posts, users }) => {
+const Home = ({ currentUser, posts, users, setCurrentUser }) => {
   const [count, setCount] = useState(0)
   const arr = []
   let displayedUser = arr[count]
@@ -16,16 +17,23 @@ const Home = ({ currentUser, posts, users }) => {
           }
         }
         displayedUser = arr[count]
-        return (
+        return count < arr.length ? (
           <>
             <ShowUserFeed
-            currentUser={currentUser}
-            posts={posts}
-            users={users}
-            displayedUser={displayedUser}
+              currentUser={currentUser}
+              posts={posts}
+              users={users}
+              displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
+            <LikeDislikeButtons
+              setCount={setCount}
+              count={count}
+              currentUser={currentUser}
+              displayedUser={displayedUser}
+            />
           </>
+        ) : (
+          <ComeAgain currentUser={currentUser} />
         )
       }
       if (currentUser.orientation === 'Female') {
@@ -35,16 +43,23 @@ const Home = ({ currentUser, posts, users }) => {
           }
         }
         displayedUser = arr[count]
-        return (
+        return count < arr.length ? (
           <>
             <ShowUserFeed
-            currentUser={currentUser}
-            posts={posts}
-            users={users}
-            displayedUser={displayedUser}
+              currentUser={currentUser}
+              posts={posts}
+              users={users}
+              displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
+            <LikeDislikeButtons
+              setCount={setCount}
+              count={count}
+              currentUser={currentUser}
+              displayedUser={displayedUser}
+            />
           </>
+        ) : (
+          <ComeAgain currentUser={currentUser} />
         )
       }
       if (currentUser.orientation === 'Both') {
@@ -54,16 +69,23 @@ const Home = ({ currentUser, posts, users }) => {
           }
         }
         displayedUser = arr[count]
-        return (
+        return count < arr.length ? (
           <>
             <ShowUserFeed
-            currentUser={currentUser}
-            posts={posts}
-            users={users}
-            displayedUser={displayedUser}
+              currentUser={currentUser}
+              posts={posts}
+              users={users}
+              displayedUser={displayedUser}
             />
-            <LikeDislikeButtons setCount={setCount} count={count} currentUser={currentUser} displayedUser={displayedUser} />
+            <LikeDislikeButtons
+              setCount={setCount}
+              count={count}
+              currentUser={currentUser}
+              displayedUser={displayedUser}
+            />
           </>
+        ) : (
+          <ComeAgain currentUser={currentUser} />
         )
       }
     } else {

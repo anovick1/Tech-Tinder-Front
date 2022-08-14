@@ -3,15 +3,22 @@ import VideoPosts from './VideoPosts'
 import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
 
-const ShowProfileFeed = ({ currentUser, posts, users, displayedUser, edit, setEdit }) => {
+const ShowProfileFeed = ({
+  currentUser,
+  posts,
+  users,
+  displayedUser,
+  edit,
+  setEdit
+}) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
-      if (parseInt(posts[i].userId) === parseInt(displayedUser.id)) {
+    if (parseInt(posts[i].userId) === parseInt(displayedUser.id)) {
       p.push(posts[i])
     }
   }
   const showIg = () => {
-    if (displayedUser.ig_link != null) {
+    if (displayedUser.ig_link != null && displayedUser.ig_link.length > 1) {
       return (
         <div className="social-img">
           <a href={displayedUser.ig_link} target="_blank" rel="noreferrer">
@@ -25,7 +32,7 @@ const ShowProfileFeed = ({ currentUser, posts, users, displayedUser, edit, setEd
     }
   }
   const showFb = () => {
-    if (displayedUser.fb_link != null) {
+    if (displayedUser.fb_link != null && displayedUser.fb_link.length > 1) {
       return (
         <div className="social-img">
           <a href={displayedUser.fb_link} target="_blank" rel="noreferrer">
@@ -39,7 +46,7 @@ const ShowProfileFeed = ({ currentUser, posts, users, displayedUser, edit, setEd
     }
   }
   const showLi = () => {
-    if (displayedUser.li_link != null) {
+    if (displayedUser.li_link != null && displayedUser.li_link.length > 1) {
       return (
         <div className="social-img">
           <a href="yes" target="_blank" rel="noreferrer">
@@ -54,15 +61,16 @@ const ShowProfileFeed = ({ currentUser, posts, users, displayedUser, edit, setEd
   }
 
   const showPost = (post) => {
-    if (post.type === "image") {
+    if (post.type === 'image') {
       return <ImagePosts post={post} displayedUser={displayedUser} />
-    } if (post.type === "video") {
+    }
+    if (post.type === 'video') {
       return <VideoPosts post={post} displayedUser={displayedUser} />
-    } if (post.type === "written") {
+    }
+    if (post.type === 'written') {
       return <WrittenPosts post={post} displayedUser={displayedUser} />
     }
   }
-
   const showGender = (gender) => {
     if (gender === 'Male') {
       return (
@@ -90,29 +98,32 @@ const ShowProfileFeed = ({ currentUser, posts, users, displayedUser, edit, setEd
     }
   }
 
-  const editBtn= () => {
+  const editBtn = () => {
     setEdit(true)
-    console.log('clicked')
   }
 
   return currentUser && displayedUser ? (
     <div className="feed">
       <div className="profile">
-      <img id='edit-icon' src='https://i.imgur.com/Kmxk7OM.png' onClick={()=> editBtn()}/>
+        <div className="edit-icon">
+          <img
+            src="https://i.imgur.com/Kmxk7OM.png"
+            alt="edit"
+            onClick={() => editBtn()}
+          />
+        </div>
         <div className="ShownUserName">
           <div>
             <h1>
               {displayedUser.firstName} {displayedUser.lastName},{' '}
               {displayedUser.age}
             </h1>
-            
           </div>
           <div>
             <h3>
               {' '}
               {displayedUser.city}, {displayedUser.state}
             </h3>
-            
           </div>
         </div>
         <div className="displayed_pfp">
@@ -136,13 +147,9 @@ const ShowProfileFeed = ({ currentUser, posts, users, displayedUser, edit, setEd
             <h4>{displayedUser.bio}</h4>
           </div>
         </div>
-        {
-          p.map((post, index) => (
-            <div key={index}>
-              {showPost(post)}
-            </div>
-          ))
-        }
+        {p.map((post, index) => (
+          <div key={index}>{showPost(post)}</div>
+        ))}
         <div className="socials">
           {showIg()}
           {showFb()}

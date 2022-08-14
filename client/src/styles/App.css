@@ -1,4 +1,3 @@
-
 header {
   background-color: rgba(255, 255, 255, 0.501);
   border-bottom: 1px solid black;
@@ -72,7 +71,8 @@ nav {
 .home-nav {
   padding: 0 1vw 0;
 }
-.feed {
+.feed,
+.feed2 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,6 +130,9 @@ nav {
   border-radius: 0;
   margin-left: 1vw;
 }
+.gender img:hover {
+  cursor: pointer;
+}
 .social-img img {
   width: 3vw;
   border-radius: 0;
@@ -143,11 +146,14 @@ nav {
 
 .location,
 .age,
-.box-title,
-.bio-text {
+.box-title {
   display: flex;
   align-items: center;
   height: 5vh;
+}
+.bio-text {
+  display: flex;
+  align-items: center;
 }
 .gender h4,
 .location h4,
@@ -184,7 +190,8 @@ nav {
   height: 3vh;
 }
 
-.post-image img, iframe {
+.post-image img,
+iframe {
   border-radius: 16px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -213,29 +220,115 @@ iframe {
   width: 32vw;
 }
 
-.bio, .image-post, .displayed_pfp, .ShownUserName {
+.bio,
+.image-post,
+.displayed_pfp,
+.ShownUserName {
   margin: 1vh;
 }
 
-#like-icon, #dislike-icon{
+#like-icon,
+#dislike-icon {
   width: 5vw;
   position: fixed;
   bottom: 10%;
 }
 
-#like-icon{
+#like-icon {
   right: 25vw;
 }
-#dislike-icon{
+#dislike-icon {
   left: 25vw;
 }
 
+.come-again {
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 5vw;
+}
+
+.feed2 {
+  height: 80vh;
+  justify-content: center;
+}
+.edit-icon img {
+  width: 3vw;
+  border-radius: 0;
+  cursor: pointer;
+}
+.edit-icon {
+  width: 57vw;
+  margin-top: 2vh;
+  text-align: end;
+  display: flex;
+  justify-content: space-between;
+}
+.input-box {
+  width: 7vw;
+  height: 1vh;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 1vh;
+}
+.input-label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.first-last-age,
+.city-state {
+  display: flex;
+  margin-top: 2vh;
+}
+.first-last-age {
+  justify-content: space-between;
+}
+.city-state {
+  justify-content: space-evenly;
+}
+.pfp-label input {
+  width: 15vw;
+  margin-left: 3vw;
+}
+.pfp-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+#selected-gender {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+}
+textarea {
+  width: 30vw;
+  height: 10vh;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 1vh;
+}
+#edit-bio {
+  justify-content: space-between;
+}
+#edit-bio-text {
+  height: 15vh;
+}
+.edit-socials {
+  margin-top: 2vh;
+}
+/*  */
+/* FOR MOBILE */
+/*  */
 @media only screen and (max-width: 600px) {
   .profile {
     border-radius: 0;
-width: 100vw;
+    width: 100vw;
   }
-  #like-icon, #dislike-icon{
+  #like-icon,
+  #dislike-icon {
     width: 15vw;
     position: fixed;
     bottom: 10%;
@@ -244,29 +337,33 @@ width: 100vw;
     border: 1px black solid;
     padding: 3vw;
   }
-  
-  #like-icon{
+
+  #like-icon {
     right: 10vw;
   }
-  #dislike-icon{
+  #dislike-icon {
     left: 10vw;
   }
-  .ShownUserName, .bio, .image-post img, .displayed_pfp img, .gender-orientation, iframe{
-width: 85vw;
-
+  .ShownUserName,
+  .bio,
+  .image-post img,
+  .displayed_pfp img,
+  .gender-orientation,
+  iframe {
+    width: 85vw;
   }
-  .gender-orientation{
+  .gender-orientation {
     justify-content: space-around;
   }
-  .gender{
+  .gender {
     width: 30vw;
   }
-  .gender img{
+  .gender img {
     width: 6vw;
     height: 6vw;
   }
-.social-img img{
-  width: 8vw;
-  justify-content: space-around
-}
+  .social-img img {
+    width: 8vw;
+    justify-content: space-around;
+  }
 }
