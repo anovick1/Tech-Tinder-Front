@@ -17,6 +17,7 @@ const SignInForm = ({ setCurrentUser, currentUser }) => {
     setCurrentUser(payload)
     navigate('/home')
   }
+
   return (
     <div className="signin col">
       <div className="card-overlay centered">

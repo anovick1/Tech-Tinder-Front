@@ -13,10 +13,9 @@ const ProfileEditForm = ({
   setEdit,
   setCurrentUser
 }) => {
-  console.log(currentUser)
   const [formValues, setFormValues] = useState({
     id: parseInt(currentUser.id),
-    firstName: 'Test',
+    firstName: currentUser.firstName,
     lastName: currentUser.lastName,
     email: currentUser.email,
     city: currentUser.city,
@@ -134,29 +133,99 @@ const ProfileEditForm = ({
       )
     }
   }
-  const editBtn = async () => {
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.id]: e.target.value })
+  }
+  const confirm = async () => {
     setEdit(false)
-    updateUser(currentUser.id, formValues)
-    await setCurrentUser(formValues)
+    await updateUser(currentUser.id, formValues)
+    setCurrentUser(formValues)
     localStorage.clear()
     StayLogged(currentUser)
-    console.log(currentUser)
   }
+  const cancel = async () => {
+    setEdit(false)
+  }
+  console.log(formValues.firstName)
   return currentUser ? (
     <div className="feed">
       <div className="profile">
         <div className="edit-icon">
           <img
-            src="https://i.imgur.com/Kmxk7OM.png"
+            src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
             alt="edit"
-            onClick={() => editBtn()}
+            onClick={() => cancel()}
+          />
+          <img
+            src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+            alt="edit"
+            onClick={() => confirm()}
           />
         </div>
         <div className="ShownUserName">
           <div>
+            <div className="first-last-age">
+              <div className="input-label">
+                <input
+                  type="text"
+                  value={formValues.firstName}
+                  onChange={handleChange}
+                  id="firstName"
+                  placeholder={'First Name'}
+                  className="input-box"
+                />
+                <label>First Name</label>
+              </div>
+              <div className="input-label">
+                <input
+                  type="text"
+                  defaultValue={formValues.lastName}
+                  onChange={handleChange}
+                  id={'lastName'}
+                  placeholder={'Last Name'}
+                  className="input-box"
+                />
+                <label>Last Name</label>
+              </div>
+              <div className="input-label">
+                <input
+                  type="number"
+                  defaultValue={formValues.age}
+                  onChange={handleChange}
+                  id={'age'}
+                  placeholder={'Age'}
+                  className="input-box"
+                />
+                <label>Age</label>
+              </div>
+            </div>
+            <div className="city-state">
+              <div className="input-label">
+                <input
+                  type="text"
+                  defaultValue={formValues.city}
+                  onChange={handleChange}
+                  id={'city'}
+                  placeholder={'City'}
+                  className="input-box"
+                />
+                <label>City</label>
+              </div>
+              <div className="input-label">
+                <input
+                  type="text"
+                  defaultValue={formValues.state}
+                  onChange={handleChange}
+                  id={'state'}
+                  placeholder={'State'}
+                  className="input-box"
+                />
+                <label>State</label>
+              </div>
+            </div>
             <h1>
-              {currentUser.firstName} {currentUser.lastName},{' EDIT'}
-              {currentUser.age}
+              {currentUser.firstName} {currentUser.lastName},{currentUser.age}
             </h1>
           </div>
           <div>

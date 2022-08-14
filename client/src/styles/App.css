@@ -255,6 +255,26 @@ iframe {
   width: 57vw;
   margin-top: 2vh;
   text-align: end;
+  display: flex;
+  justify-content: space-between;
+}
+.input-box {
+  width: 7vw;
+  height: 3vh;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 1vh;
+}
+.input-label {
+  display: flex;
+  flex-direction: column;
+}
+.first-last-age,
+.city-state {
+  display: flex;
+}
+.first-last-age {
+  justify-content: space-between;
 }
 /*  */
 /* FOR MOBILE */
