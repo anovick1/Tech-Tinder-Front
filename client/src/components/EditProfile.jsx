@@ -42,21 +42,6 @@ const ProfileEditForm = ({
     currentUser.orientation === 'Female' || currentUser.orientation === 'Both'
   )
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    await updateUser({
-      firstName: formValues.firstName,
-      lastName: formValues.lastName,
-      email: formValues.email,
-      password: formValues.password,
-      gender: formValues.gender,
-      orientation: formValues.orientation,
-      pfp_link: formValues.pfp_link,
-      bio: formValues.bio
-    })
-    // change use state boolean to sign in
-    // navigate('/signin')
-  }
   const p = []
   for (let i = 0; i < posts.length; i++) {
     if (parseInt(posts[i].userId) === parseInt(currentUser.id)) {
@@ -184,6 +169,16 @@ const ProfileEditForm = ({
     if (orientationMClick === false) {
       setOrientationMClick(true)
     }
+    // if (orientationMClick === true && orientationFClick === false) {
+    //   console.log('test1')
+    //   setFormValues({ ...formValues, orientation: 'Male' })
+    // } else if (orientationMClick === false && orientationFClick === true) {
+    //   console.log('test2')
+    //   setFormValues({ ...formValues, orientation: 'Female' })
+    // } else if (orientationMClick === true && orientationFClick === true) {
+    //   console.log('test3')
+    //   setFormValues({ ...formValues, orientation: 'Both' })
+    // }
   }
   const onClickFOrientation = () => {
     if (orientationFClick === true && orientationMClick === true) {
@@ -195,8 +190,17 @@ const ProfileEditForm = ({
     if (orientationFClick === false) {
       setOrientationFClick(true)
     }
+    // if (orientationMClick === true && orientationFClick === false) {
+    //   console.log('test1')
+    //   setFormValues({ ...formValues, orientation: 'Male' })
+    // } else if (orientationMClick === false && orientationFClick === true) {
+    //   setFormValues({ ...formValues, orientation: 'Female' })
+    //   console.log('test2')
+    // } else if (orientationMClick === true && orientationFClick === true) {
+    //   console.log('test3')
+    //   setFormValues({ ...formValues, orientation: 'Both' })
+    // }
   }
-
   const showOrientation = (gender) => {
     if (orientationMClick === true && orientationFClick === false) {
       return (
@@ -270,25 +274,24 @@ const ProfileEditForm = ({
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
-
-  console.log('M ' + orientationMClick)
-  console.log('F ' + orientationFClick)
-  console.log(formValues.orientation)
-  const confirm = async () => {
+  const checkO = () => {
     if (orientationMClick === true && orientationFClick === false) {
       console.log('test1')
-      await setFormValues({ ...formValues, orientation: 'Male' })
-    }
-    if (orientationMClick === true && orientationFClick === true) {
+      setFormValues({ ...formValues, orientation: 'Male' })
+    } else if (orientationMClick === false && orientationFClick === true) {
       console.log('test2')
-
-      await setFormValues({ ...formValues, orientation: 'Both' })
-    }
-    if (orientationMClick === false && orientationFClick === true) {
+      setFormValues({ ...formValues, orientation: 'Female' })
+    } else if (orientationMClick === true && orientationFClick === true) {
       console.log('test3')
-
-      await setFormValues({ ...formValues, orientation: 'Female' })
+      setFormValues({ ...formValues, orientation: 'Both' })
     }
+    console.log(formValues.orientation)
+  }
+  console.log('M ' + orientationMClick)
+  console.log('F ' + orientationFClick)
+  // console.log(formValues.orientation)
+  const confirm = async () => {
+    await checkO()
     await updateUser(currentUser.id, formValues)
     await setCurrentUser(formValues)
     localStorage.clear()
