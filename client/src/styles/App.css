@@ -226,7 +226,7 @@ nav {
   flex-direction: column;
 }
 
-#image_url {
+#image_url, #video_url, #title {
   margin-left: 0;
   width: 30vw;
 }
@@ -245,7 +245,7 @@ nav {
 } */
 
 .post-image img,
-iframe {
+iframe, .image-post img {
   border-radius: 16px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -405,6 +405,16 @@ textarea {
 .delete-buttons img:hover {
   border: 2px solid black;
 }
+
+.image-post img {
+  min-width: 32vw;
+  min-height: 19vw;
+}
+
+#written-post {
+  min-height: 19vw;
+}
+
 /*  */
 /* FOR MOBILE */
 /*  */

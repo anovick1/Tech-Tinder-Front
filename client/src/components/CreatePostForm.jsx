@@ -119,6 +119,20 @@ const CreatePostForm = ({ currentUser, post }) => {
                   className="edit-bio-text"
                 ></textarea>
               </div>
+              <div>
+                  <div className="edit-post-icon">
+                    <img
+                      src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+                      alt="edit"
+                      // onClick={() => cancel()}
+                    />
+                    <img
+                      src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+                      alt="edit"
+                      // onClick={() => confirm()}
+                    />
+                  </div>
+                </div>
             </div>
           </div>
       )
@@ -128,26 +142,40 @@ const CreatePostForm = ({ currentUser, post }) => {
               <div className="box-title">
                 <WrittenPosts post={formValues} />
               </div>
-              <div className="new-media">
-                <div className="title-input">
-                <input
-                  type="text"
-                  defaultValue={formValues.title}
-                  onChange={handleChange}
-                  id={'title'}
-                  placeholder={'Post Title'}
-                  className="input-box"
-                />
+              <div className="media-inputs">
+                <div className="url-input">
+                  <input
+                    type="text"
+                    defaultValue={formValues.title}
+                    onChange={handleChange}
+                    id={'title'}
+                    placeholder={'Post Title'}
+                    className="input-box"
+                  />
                 </div>
                 <div className="text-input">
-                <textarea
-                  type="text"
-                  defaultValue={formValues.text}
-                  onChange={handleChange}
-                  id={'text'}
-                  placeholder={'Post Text'}
-                  className="edit-bio-text"
-                ></textarea>
+                  <textarea
+                    type="text"
+                    defaultValue={formValues.text}
+                    onChange={handleChange}
+                    id={'text'}
+                    placeholder={'Post Text'}
+                    className="edit-bio-text"
+                  ></textarea>
+                </div>
+                <div>
+                  <div className="edit-post-icon">
+                    <img
+                      src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+                      alt="edit"
+                      // onClick={() => cancel()}
+                    />
+                    <img
+                      src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+                      alt="edit"
+                      // onClick={() => confirm()}
+                    />
+                  </div>
                 </div>
                 </div>
           </div>

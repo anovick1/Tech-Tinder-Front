@@ -2,7 +2,7 @@ import React from 'react'
 
 const WrittenPosts = ({post}) => {
   return (
-    <div className="bio">
+    <div className="bio" id="written-post">
           <div className="box-title">
             <h2>{post.title}</h2>
           </div>
