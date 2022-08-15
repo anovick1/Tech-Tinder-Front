@@ -39,6 +39,7 @@ nav {
 }
 .dropbtn:hover {
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .user-nav-dropdown {
@@ -51,7 +52,7 @@ nav {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.501);
   min-width: 10vw;
-  box-shadow: 0px 8px 16px 0px rgba(230, 181, 129, 0.502);
+  background-color: rgba(255, 255, 255, 0.8);
   z-index: 1;
 }
 
@@ -63,7 +64,7 @@ nav {
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(230, 181, 129, 0.502);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 #post-up {
   bottom: 100%;
@@ -97,7 +98,8 @@ html {
   width: 60vw;
   border: 2px solid black;
   border-radius: 20px;
-  background-color: rgb(231, 229, 229);
+  /* background-color: rgb(231, 229, 229); */
+  background-color: rgba(250, 143, 143, 0.5);
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
@@ -112,7 +114,7 @@ html {
   border: 2px solid black;
   border-radius: 20px;
   padding: 1vw;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   margin: 1vh;
   width: 30vw;
 }
@@ -208,7 +210,7 @@ html {
   border: 2px solid black;
   border-radius: 30px;
   padding: 0.5vh 1vw;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   /* width: 14vw; */
   justify-content: space-evenly;
   display: flex;
@@ -224,7 +226,7 @@ html {
   border: 2px solid black;
   border-radius: 20px;
   padding: 1vw;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   align-items: center;
   margin-top: 1vh;
 }
@@ -257,10 +259,6 @@ html {
   min-width: 30vw;
 }
 
-/* #add-media:hover {
-  height: 20vh;
-} */
-
 .post-image img,
 iframe,
 .image-post img {
@@ -276,7 +274,7 @@ iframe,
 .image-post {
   border: 2px solid black;
   border-radius: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   margin: 1vh;
 }
 
@@ -307,10 +305,19 @@ iframe {
   width: 5vw;
   position: fixed;
   bottom: 10%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1vh;
+  border-radius: 20px;
+}
+#like-icon:hover,
+#dislike-icon:hover {
+  border: 2px solid black;
+  cursor: pointer;
 }
 .user-profile:hover {
   cursor: pointer;
   border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 #like-icon {
   right: 25vw;
@@ -362,7 +369,7 @@ iframe {
 }
 .reg-form-gender {
   padding: 0.5vh 1vw;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   width: 13vw;
   justify-content: space-evenly;
   display: flex;
@@ -494,7 +501,7 @@ textarea {
   flex-direction: column;
   border: 2px solid black;
   border-radius: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   margin: 1vh 1vh 5vh 1vh;
   width: 25vw;
   /* box-shadow: 10px 10px lightblue; */
