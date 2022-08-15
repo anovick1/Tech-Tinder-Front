@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
 import { useState } from 'react'
 
-const RegisterForm = () => {
+const RegisterForm = ({ register, setRegister }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     firstName: '',
@@ -44,17 +44,18 @@ const RegisterForm = () => {
       gender: '',
       orientation: ''
     })
-    // change use state boolean to sign in
-    // navigate('/signin')
+    setRegister(false)
   }
 
   return (
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <h3>New to the site? Create an account to continue:</h3>
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label>First Name</label>
+    <div className="card-overlay">
+      <h3>Create an account:</h3>
+      <form className="col" onSubmit={handleSubmit}>
+        <div className="input-wrapper">
+          <div>
+            <label>First Name:</label>
+          </div>
+          <div>
             <input
               onChange={handleChange}
               name="firstName"
@@ -64,84 +65,70 @@ const RegisterForm = () => {
               required
             />
           </div>
-          <div className="input-wrapper">
-            <label>Last Name</label>
-            <input
-              onChange={handleChange}
-              name="lastName"
-              type="text"
-              placeholder="Smith"
-              value={formValues.lastName}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="gender">Gender</label>
-            <input
-              onChange={handleChange}
-              type="text"
-              name="gender"
-              value={formValues.confirmPgenderassword}
-              required
-            />
-            {/* 
-            <label class="container">
-              Male
-              <input
-                type="checkbox"
-                checked="checked"
-                value={formValues.gender}
-              />
-              <span class="checkmark"></span>
-            </label>
-
-            <label class="container">
-              Female
-              <input type="checkbox" value={formValues.gender} />
-              <span class="checkmark"></span>
-            </label> */}
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="gender">Interested in:</label>
-            <input
-              onChange={handleChange}
-              type="text"
-              name="orientation"
-              value={formValues.orientation}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="confirmPassword"
-              value={formValues.confirmPassword}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              required
-            />
-          </div>
+        </div>
+        <div className="input-wrapper">
+          <label>Last Name:</label>
+          <input
+            onChange={handleChange}
+            name="lastName"
+            type="text"
+            placeholder="Smith"
+            value={formValues.lastName}
+            required
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="email">Email</label>
+          <input
+            onChange={handleChange}
+            name="email"
+            type="email"
+            placeholder="example@example.com"
+            value={formValues.email}
+            required
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="gender">Gender</label>
+          <input
+            onChange={handleChange}
+            type="text"
+            name="gender"
+            value={formValues.confirmPgenderassword}
+            required
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="gender">Interested in:</label>
+          <input
+            onChange={handleChange}
+            type="text"
+            name="orientation"
+            value={formValues.orientation}
+            required
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="password">Password</label>
+          <input
+            onChange={handleChange}
+            type="password"
+            name="password"
+            value={formValues.password}
+            required
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            onChange={handleChange}
+            type="password"
+            name="confirmPassword"
+            value={formValues.confirmPassword}
+            required
+          />
+        </div>
+        <div className="signup-btn">
           <button
             disabled={
               !formValues.email ||
@@ -149,10 +136,10 @@ const RegisterForm = () => {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Sign In
+            Sign Up
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   )
 }
