@@ -368,7 +368,6 @@ textarea {
   }
 }
 
-
 /* .signin{
   display: inline-flex;
 } */
@@ -377,23 +376,23 @@ textarea {
   justify-content: center;
 } */
 
-.login-page{
+.login-page {
   display: flex;
   justify-content: center;
-  
+
   margin: 5em;
   margin-top: 25vh;
-  
 }
-html{
+html {
   background-image: url('https://i.imgur.com/E9M8uTD.jpg');
+  /* background-size: cover; */
 }
 
-.intro-words{
+.intro-words {
   color: white;
 }
 
-.signin{
+.signin {
   display: flex;
   flex-direction: column;
   border: 2px solid black;
@@ -403,7 +402,6 @@ html{
   box-shadow: 10px 10px lightblue;
 }
 
-.card-overlay{
+.card-overlay {
   margin: 1em;
-  
 }
