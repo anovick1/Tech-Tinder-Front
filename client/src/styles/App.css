@@ -264,6 +264,7 @@ iframe {
 .edit-icon {
   width: 57vw;
   margin-top: 2vh;
+  margin-bottom: 2vh;
   text-align: end;
   display: flex;
   justify-content: space-between;
@@ -324,6 +325,32 @@ textarea {
 }
 .edit-socials {
   margin-top: 2vh;
+}
+
+.delete-buttons img {
+  width: 2vw;
+  border-radius: 20px;
+  padding: 0.5vh;
+  cursor: pointer;
+}
+.delete-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.Delete {
+  background-color: rgb(250, 160, 160);
+  padding: 1vh;
+  border: 2px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+#delete-show:hover {
+  background-color: rgb(250, 109, 109);
+}
+.delete-buttons img:hover {
+  border: 2px solid black;
 }
 /*  */
 /* FOR MOBILE */

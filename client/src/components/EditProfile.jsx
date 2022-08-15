@@ -4,6 +4,7 @@ import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
 import { updateUser } from '../services/UserServices'
 import { StayLogged } from '../services/Auth'
+import DeleteUser from './DeleteUser'
 
 const ProfileEditForm = ({
   currentUser,
@@ -474,6 +475,7 @@ const ProfileEditForm = ({
             </div>
           </div>
         </div>
+        <DeleteUser currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <div className="edit-icon">
           <img
             src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"

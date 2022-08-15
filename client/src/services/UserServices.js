@@ -8,6 +8,14 @@ export const GetUserById = async (id) => {
     throw error
   }
 }
+export const DeleteUserAccount = async (user_id) => {
+  try {
+    const res = await Client.delete('/users/' + user_id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
 export const GetUsers = async (id) => {
   try {
     const res = await Client.get('/users/all')
