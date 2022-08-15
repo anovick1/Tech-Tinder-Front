@@ -3,7 +3,7 @@ import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-const SignInForm = ({ setCurrentUser, currentUser }) => {
+const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
   const handleChange = (e) => {
@@ -17,38 +17,53 @@ const SignInForm = ({ setCurrentUser, currentUser }) => {
     setCurrentUser(payload)
     navigate('/home')
   }
-
+  const toRegister = () => {
+    setRegister(true)
+  }
   return (
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <h3>or Sign-In</h3>
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-              required
-            />
+    <div className="card-overlay">
+      <h3>Sign-In</h3>
+      <form className="col" onSubmit={handleSubmit}>
+        <div className="input-wrapper">
+          <input
+            onChange={handleChange}
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={formValues.email}
+            required
+            className="input-box-mid"
+          />
+        </div>
+        <div className="input-wrapper">
+          <input
+            onChange={handleChange}
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formValues.password}
+            required
+            className="input-box-mid"
+          />
+        </div>
+        <div className="already-member">
+          <div>
+            <p>New to Tech-Tinder? </p>
           </div>
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              required
-            />
+          <div>
+            <p>
+              <span id="already-member" onClick={() => toRegister()}>
+                Register Here
+              </span>
+            </p>
           </div>
+        </div>
+        <div className="signup-btn ">
           <button disabled={!formValues.email || !formValues.password}>
             Sign In
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   )
 }
