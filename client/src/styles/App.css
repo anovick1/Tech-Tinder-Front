@@ -367,3 +367,43 @@ textarea {
     justify-content: space-around;
   }
 }
+
+
+/* .signin{
+  display: inline-flex;
+} */
+/* .col {
+  display:flex;
+  justify-content: center;
+} */
+
+.login-page{
+  display: flex;
+  justify-content: center;
+  
+  margin: 5em;
+  margin-top: 25vh;
+  
+}
+html{
+  background-image: url('https://i.imgur.com/E9M8uTD.jpg');
+}
+
+.intro-words{
+  color: white;
+}
+
+.signin{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: white;
+  margin: 1vh;
+  box-shadow: 10px 10px lightblue;
+}
+
+.card-overlay{
+  margin: 1em;
+  
+}

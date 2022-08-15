@@ -21,6 +21,7 @@ const SignInForm = ({ setCurrentUser, currentUser }) => {
   return (
     <div className="signin col">
       <div className="card-overlay centered">
+        <h3>or Sign-In</h3>
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>
