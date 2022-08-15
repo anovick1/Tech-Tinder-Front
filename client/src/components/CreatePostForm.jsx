@@ -132,7 +132,7 @@ const CreatePostForm = ({ currentUser, post }) => {
                     <img
                       src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
                       alt="edit"
-                      // onClick={() => confirm()}
+                      onClick={() => confirmVideoPost()}
                     />
                   </div>
                 </div>
@@ -176,7 +176,7 @@ const CreatePostForm = ({ currentUser, post }) => {
                     <img
                       src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
                       alt="edit"
-                      // onClick={() => confirm()}
+                      onClick={() => confirmWrittenPost()}
                     />
                   </div>
                 </div>
@@ -210,16 +210,30 @@ const CreatePostForm = ({ currentUser, post }) => {
 
   const confirmVideoPost = async () => {
     const type = {
-      type: "video"
+      type: "video",
+      caption: formValues.caption,
+      video_url: formValues.video_url,
+      userId: parseInt(currentUser.id),
+      createdAt: new Date(),
+      updatedAt: new Date()
+
     }
-    await CreateVideoPost(currentUser.id, formValues.caption, formValues.video_url, type)
+    await CreateVideoPost(type)
     await setSelectImage(false)
     await setSelectVideo(false)
     await setSelectWritten(false)
   }
 
   const confirmWrittenPost = async () => {
-    await CreateWrittenPost(currentUser.id, formValues)
+    const type = {
+      type: "written",
+      title: formValues.title,
+      text: formValues.text,
+      userId: parseInt(currentUser.id),
+      createdAt: new Date(),
+      updatedAt: new Date()
+  }
+    await CreateWrittenPost(type)
     await setSelectImage(false)
     await setSelectVideo(false)
     await setSelectWritten(false)

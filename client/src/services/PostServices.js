@@ -36,18 +36,18 @@ export const CreateImagePost = async (body) => {
   }
 }
 
-export const CreateVideoPost = async () => {
+export const CreateVideoPost = async (body) => {
   try {
-    const res = await Client.post('/videoposts')
+    const res = await Client.post('/videoposts', body)
     return res.data
   } catch (error) {
     throw error
   }
 }
 
-export const CreateWrittenPost = async () => {
+export const CreateWrittenPost = async (body) => {
   try {
-    const res = await Client.post('/writtenposts')
+    const res = await Client.post('/writtenposts', body)
     return res.data
   } catch (error) {
     throw error
