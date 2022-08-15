@@ -411,11 +411,6 @@ textarea {
 #written-post {
   min-height: 19vw;
 }
-.user-nav-dropdown {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .new-media input,
 #video_url,
 #title {
