@@ -107,7 +107,7 @@ const ProfileEditForm = ({
     if (genderMClick === true) {
       setGenderFClick(false)
       setGenderMClick(true)
-      setFormValues({ ...formValues, gender: 'Male' })
+      setFormValues({ ...formValues, firstName: 'Male' })
     } else {
       setGenderMClick(true)
       setFormValues({ ...formValues, gender: 'Male' })
@@ -159,47 +159,31 @@ const ProfileEditForm = ({
       )
     }
   }
+
   const onClickMOrientation = () => {
     if (orientationMClick === true && orientationFClick === true) {
       setOrientationMClick(false)
-    }
-    if (orientationMClick === true && orientationFClick === false) {
+      checkO()
+    } else if (orientationMClick === true && orientationFClick === false) {
       setOrientationMClick(true)
-    }
-    if (orientationMClick === false) {
+      checkO()
+    } else if (orientationMClick === false) {
       setOrientationMClick(true)
+      checkO()
     }
-    // if (orientationMClick === true && orientationFClick === false) {
-    //   console.log('test1')
-    //   setFormValues({ ...formValues, orientation: 'Male' })
-    // } else if (orientationMClick === false && orientationFClick === true) {
-    //   console.log('test2')
-    //   setFormValues({ ...formValues, orientation: 'Female' })
-    // } else if (orientationMClick === true && orientationFClick === true) {
-    //   console.log('test3')
-    //   setFormValues({ ...formValues, orientation: 'Both' })
-    // }
   }
   const onClickFOrientation = () => {
+    // checkO()
     if (orientationFClick === true && orientationMClick === true) {
       setOrientationFClick(false)
-    }
-    if (orientationFClick === true && orientationMClick === false) {
+      checkO()
+    } else if (orientationFClick === true && orientationMClick === false) {
       setOrientationFClick(true)
-    }
-    if (orientationFClick === false) {
+      checkO()
+    } else if (orientationFClick === false) {
       setOrientationFClick(true)
+      checkO()
     }
-    // if (orientationMClick === true && orientationFClick === false) {
-    //   console.log('test1')
-    //   setFormValues({ ...formValues, orientation: 'Male' })
-    // } else if (orientationMClick === false && orientationFClick === true) {
-    //   setFormValues({ ...formValues, orientation: 'Female' })
-    //   console.log('test2')
-    // } else if (orientationMClick === true && orientationFClick === true) {
-    //   console.log('test3')
-    //   setFormValues({ ...formValues, orientation: 'Both' })
-    // }
   }
   const showOrientation = (gender) => {
     if (orientationMClick === true && orientationFClick === false) {
@@ -218,8 +202,7 @@ const ProfileEditForm = ({
           />
         </div>
       )
-    }
-    if (orientationMClick === true && orientationFClick === true) {
+    } else if (orientationMClick === true && orientationFClick === true) {
       return (
         <div>
           <img
@@ -236,8 +219,7 @@ const ProfileEditForm = ({
           />
         </div>
       )
-    }
-    if (orientationMClick === false && orientationFClick === true) {
+    } else if (orientationMClick === false && orientationFClick === true) {
       return (
         <div>
           <img
@@ -264,7 +246,6 @@ const ProfileEditForm = ({
           <img
             src="https://cdn-icons-png.flaticon.com/512/2284/2284886.png"
             alt="female-icon"
-            id="selected-gender"
             onClick={() => onClickFOrientation()}
           />
         </div>
@@ -277,21 +258,28 @@ const ProfileEditForm = ({
   const checkO = () => {
     if (orientationMClick === true && orientationFClick === false) {
       console.log('test1')
+      console.log('M ' + orientationMClick)
+      console.log('F ' + orientationFClick)
       setFormValues({ ...formValues, orientation: 'Male' })
+      console.log(formValues.orientation)
     } else if (orientationMClick === false && orientationFClick === true) {
       console.log('test2')
+      console.log('M ' + orientationMClick)
+      console.log('F ' + orientationFClick)
       setFormValues({ ...formValues, orientation: 'Female' })
+      console.log(formValues.orientation)
     } else if (orientationMClick === true && orientationFClick === true) {
       console.log('test3')
+      console.log('M ' + orientationMClick)
+      console.log('F ' + orientationFClick)
       setFormValues({ ...formValues, orientation: 'Both' })
+      console.log(formValues.orientation)
     }
-    console.log(formValues.orientation)
   }
-  console.log('M ' + orientationMClick)
-  console.log('F ' + orientationFClick)
+
   // console.log(formValues.orientation)
   const confirm = async () => {
-    await checkO()
+    checkO()
     await updateUser(currentUser.id, formValues)
     await setCurrentUser(formValues)
     localStorage.clear()
