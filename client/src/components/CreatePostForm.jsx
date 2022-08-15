@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import VideoPosts from './VideoPosts'
 import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
+import { CreateWrittenPost, CreateImagePost, CreateVideoPost } from '../services/PostServices'
 
 const CreatePostForm = ({ currentUser, post }) => {
   const [formValues, setFormValues] = useState({
@@ -10,8 +11,10 @@ const CreatePostForm = ({ currentUser, post }) => {
     text: "",
     img_url: "",
     video_url: "",
-    caption: ""
+    caption: "",
+    userId: parseInt(currentUser.id)
   })
+  console.log(parseInt(currentUser.id))
 
   const [selectImage, setSelectImage] = useState(false)
   const [selectVideo, setSelectVideo] = useState(false)
@@ -58,9 +61,9 @@ const CreatePostForm = ({ currentUser, post }) => {
                 <div className="url-input">
                   <input
                     type="text"
-                    defaultValue={formValues.image_url}
+                    defaultValue={formValues.img_url}
                     onChange={handleChange}
-                    id={'image_url'}
+                    id={'img_url'}
                     placeholder={'Image URL'}
                     className="input-box"
                   />
@@ -85,7 +88,7 @@ const CreatePostForm = ({ currentUser, post }) => {
                     <img
                       src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
                       alt="edit"
-                      // onClick={() => confirm()}
+                      onClick={() => confirmImagePost()}
                     />
                   </div>
                 </div>
@@ -189,19 +192,44 @@ const CreatePostForm = ({ currentUser, post }) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
 
-  // const confirm = async () => {
-  //   await updateUser(currentUser.id, formValues)
-  //   await setCurrentUser(formValues)
-  //   localStorage.clear()
-  //   StayLogged(currentUser)
-  //   await setSelectImage(false)
-  //   await setSelectVideo(false)
-  //   await setSelectWritten(false)
-  // }
+  const confirmImagePost = async () => {
+    const type = {
+      type: "image",
+      caption: formValues.caption,
+      img_url: formValues.img_url,
+      userId: parseInt(currentUser.id),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+    console.log(type)
+    await CreateImagePost(type)
+    await setSelectImage(false)
+    await setSelectVideo(false)
+    await setSelectWritten(false)
+  }
 
-  // const cancel = async () => {
+  const confirmVideoPost = async () => {
+    const type = {
+      type: "video"
+    }
+    await CreateVideoPost(currentUser.id, formValues.caption, formValues.video_url, type)
+    await setSelectImage(false)
+    await setSelectVideo(false)
+    await setSelectWritten(false)
+  }
 
-  // }
+  const confirmWrittenPost = async () => {
+    await CreateWrittenPost(currentUser.id, formValues)
+    await setSelectImage(false)
+    await setSelectVideo(false)
+    await setSelectWritten(false)
+  }
+
+  const cancel = async () => {
+    await setSelectImage(false)
+    await setSelectVideo(false)
+    await setSelectWritten(false)
+  }
 
       return (
         <div>
