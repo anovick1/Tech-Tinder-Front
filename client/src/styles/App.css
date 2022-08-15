@@ -81,7 +81,7 @@ html {
   align-items: center;
 }
 #feed-login {
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
 }
 .profile,
@@ -93,6 +93,8 @@ html {
   border: 2px solid black;
   border-radius: 20px;
   background-color: rgb(231, 229, 229);
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .profile img {
@@ -356,7 +358,8 @@ iframe {
   height: 4vh;
 }
 .input-box-mid,
-.reg-form-gender {
+.reg-form-gender,
+.signup-btn button {
   border-radius: 8px;
   border: 1px black solid;
 }
@@ -492,6 +495,28 @@ textarea {
   text-align: center;
   margin: 3vh;
 }
+.signup-btn button {
+  padding: 1vh;
+  cursor: pointer;
+}
+.already-member {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+#already-member {
+  text-decoration: underline;
+  cursor: pointer;
+}
+#already-member:hover {
+  color: blue;
+}
+#already-member:active {
+  color: rgb(99, 99, 255);
+}
+.already-member p {
+  margin: 1vh;
+}
 
 /*  */
 /* FOR MOBILE */
@@ -541,20 +566,3 @@ textarea {
     justify-content: space-around;
   }
 }
-
-/* .signin{
-  display: inline-flex;
-} */
-/* .col {
-  display:flex;
-  justify-content: center;
-} */
-
-/* .login-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 5em;
-  margin-top: 25vh;
-  background-color: lightgrey;
-} */

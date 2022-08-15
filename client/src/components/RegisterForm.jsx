@@ -51,6 +51,9 @@ const RegisterForm = ({ register, setRegister }) => {
     })
     setRegister(false)
   }
+  const toLogin = () => {
+    setRegister(false)
+  }
 
   return (
     <div className="card-overlay">
@@ -126,6 +129,18 @@ const RegisterForm = ({ register, setRegister }) => {
             className="input-box-mid"
             placeholder="Confirm Password"
           />
+        </div>
+        <div className="already-member">
+          <div>
+            <p>Already a member?</p>
+          </div>
+          <div>
+            <p>
+              <span id="already-member" onClick={() => toLogin()}>
+                Login Here
+              </span>
+            </p>
+          </div>
         </div>
         <div className="signup-btn">
           <button
