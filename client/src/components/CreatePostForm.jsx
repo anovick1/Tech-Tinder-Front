@@ -3,15 +3,19 @@ import { useEffect, useState } from 'react'
 import VideoPosts from './VideoPosts'
 import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
-import { CreateWrittenPost, CreateImagePost, CreateVideoPost } from '../services/PostServices'
+import {
+  CreateWrittenPost,
+  CreateImagePost,
+  CreateVideoPost
+} from '../services/PostServices'
 
 const CreatePostForm = ({ currentUser, post }) => {
   const [formValues, setFormValues] = useState({
-    title: "",
-    text: "",
-    img_url: "",
-    video_url: "",
-    caption: "",
+    title: '',
+    text: '',
+    img_url: '',
+    video_url: '',
+    caption: '',
     userId: parseInt(currentUser.id)
   })
   console.log(parseInt(currentUser.id))
@@ -52,139 +56,139 @@ const CreatePostForm = ({ currentUser, post }) => {
 
   const checkInputForm = () => {
     if (selectImage === true) {
-      return(
+      return (
         <div className="new-media">
-              <div className="box-title">
-                <ImagePosts post={formValues} displayedUser={currentUser} />
-              </div>
-              <div className="media-inputs">
-                <div className="url-input">
-                  <input
-                    type="text"
-                    defaultValue={formValues.img_url}
-                    onChange={handleChange}
-                    id={'img_url'}
-                    placeholder={'Image URL'}
-                    className="input-box"
-                  />
-                </div>
-                <div className="text-input">
-                  <textarea
-                    type="text"
-                    defaultValue={formValues.caption}
-                    onChange={handleChange}
-                    id={'caption'}
-                    placeholder={'Image Caption'}
-                    className="edit-bio-text"
-                  ></textarea>
-                </div>
-                <div>
-                  <div className="edit-post-icon">
-                    <img
-                      src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
-                      alt="edit"
-                      // onClick={() => cancel()}
-                    />
-                    <img
-                      src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
-                      alt="edit"
-                      onClick={() => confirmImagePost()}
-                    />
-                  </div>
-                </div>
+          <div className="box-title">
+            <ImagePosts post={formValues} displayedUser={currentUser} />
+          </div>
+          <div className="media-inputs">
+            <div className="url-input">
+              <input
+                type="text"
+                defaultValue={formValues.img_url}
+                onChange={handleChange}
+                id={'img_url'}
+                placeholder={'Image URL'}
+                className="input-box"
+              />
+            </div>
+            <div className="text-input">
+              <textarea
+                type="text"
+                defaultValue={formValues.caption}
+                onChange={handleChange}
+                id={'caption'}
+                placeholder={'Image Caption'}
+                className="edit-bio-text"
+              ></textarea>
+            </div>
+            <div>
+              <div className="edit-post-icon">
+                <img
+                  src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+                  alt="edit"
+                  // onClick={() => cancel()}
+                />
+                <img
+                  src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+                  alt="edit"
+                  onClick={() => confirmImagePost()}
+                />
               </div>
             </div>
+          </div>
+        </div>
       )
     } else if (selectVideo === true) {
       return (
         <div className="new-media">
-            <div className="box-title">
-              <VideoPosts post={formValues} displayedUser={currentUser} />
+          <div className="box-title">
+            <VideoPosts post={formValues} displayedUser={currentUser} />
+          </div>
+          <div className="media-inputs">
+            <div className="url-input">
+              <input
+                type="text"
+                defaultValue={formValues.video_url}
+                onChange={handleChange}
+                id={'video_url'}
+                placeholder={'Video URL'}
+                className="input-box"
+              />
             </div>
-            <div className="media-inputs">
-              <div className="url-input">
-                <input
-                  type="text"
-                  defaultValue={formValues.video_url}
-                  onChange={handleChange}
-                  id={'video_url'}
-                  placeholder={'Video URL'}
-                  className="input-box"
+            <div classname="text-input">
+              <textarea
+                type="text"
+                defaultValue={formValues.caption}
+                onChange={handleChange}
+                id={'caption'}
+                placeholder={'Video Caption'}
+                className="edit-bio-text"
+              ></textarea>
+            </div>
+            <div>
+              <div className="edit-post-icon">
+                <img
+                  src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+                  alt="edit"
+                  // onClick={() => cancel()}
+                />
+                <img
+                  src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+                  alt="edit"
+                  onClick={() => confirmVideoPost()}
                 />
               </div>
-              <div classname="text-input">
-                <textarea
-                  type="text"
-                  defaultValue={formValues.caption}
-                  onChange={handleChange}
-                  id={'caption'}
-                  placeholder={'Video Caption'}
-                  className="edit-bio-text"
-                ></textarea>
-              </div>
-              <div>
-                  <div className="edit-post-icon">
-                    <img
-                      src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
-                      alt="edit"
-                      // onClick={() => cancel()}
-                    />
-                    <img
-                      src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
-                      alt="edit"
-                      onClick={() => confirmVideoPost()}
-                    />
-                  </div>
-                </div>
             </div>
           </div>
+        </div>
       )
     } else if (selectWritten === true) {
       return (
         <div className="new-media">
-              <div className="box-title">
-                <WrittenPosts post={formValues} />
-              </div>
-              <div className="media-inputs">
-                <div className="url-input">
-                  <input
-                    type="text"
-                    defaultValue={formValues.title}
-                    onChange={handleChange}
-                    id={'title'}
-                    placeholder={'Post Title'}
-                    className="input-box"
-                  />
-                </div>
-                <div className="text-input">
-                  <textarea
-                    type="text"
-                    defaultValue={formValues.text}
-                    onChange={handleChange}
-                    id={'text'}
-                    placeholder={'Post Text'}
-                    className="edit-bio-text"
-                  ></textarea>
-                </div>
-                <div>
-                  <div className="edit-post-icon">
-                    <img
-                      src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
-                      alt="edit"
-                      // onClick={() => cancel()}
-                    />
-                    <img
-                      src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
-                      alt="edit"
-                      onClick={() => confirmWrittenPost()}
-                    />
-                  </div>
-                </div>
-                </div>
+          <div className="box-title">
+            <WrittenPosts post={formValues} />
           </div>
+          <div className="media-inputs">
+            <div className="url-input">
+              <input
+                type="text"
+                defaultValue={formValues.title}
+                onChange={handleChange}
+                id={'title'}
+                placeholder={'Post Title'}
+                className="input-box"
+              />
+            </div>
+            <div className="text-input">
+              <textarea
+                type="text"
+                defaultValue={formValues.text}
+                onChange={handleChange}
+                id={'text'}
+                placeholder={'Post Text'}
+                className="edit-bio-text"
+              ></textarea>
+            </div>
+            <div>
+              <div className="edit-post-icon">
+                <img
+                  src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+                  alt="edit"
+                  // onClick={() => cancel()}
+                />
+                <img
+                  src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+                  alt="edit"
+                  onClick={() => confirmWrittenPost()}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       )
     } else {
-    return ""
+      return ''
     }
   }
 
@@ -194,7 +198,7 @@ const CreatePostForm = ({ currentUser, post }) => {
 
   const confirmImagePost = async () => {
     const type = {
-      type: "image",
+      type: 'image',
       caption: formValues.caption,
       img_url: formValues.img_url,
       userId: parseInt(currentUser.id),
@@ -210,13 +214,12 @@ const CreatePostForm = ({ currentUser, post }) => {
 
   const confirmVideoPost = async () => {
     const type = {
-      type: "video",
+      type: 'video',
       caption: formValues.caption,
       video_url: formValues.video_url,
       userId: parseInt(currentUser.id),
       createdAt: new Date(),
       updatedAt: new Date()
-
     }
     await CreateVideoPost(type)
     await setSelectImage(false)
@@ -226,13 +229,13 @@ const CreatePostForm = ({ currentUser, post }) => {
 
   const confirmWrittenPost = async () => {
     const type = {
-      type: "written",
+      type: 'written',
       title: formValues.title,
       text: formValues.text,
       userId: parseInt(currentUser.id),
       createdAt: new Date(),
       updatedAt: new Date()
-  }
+    }
     await CreateWrittenPost(type)
     await setSelectImage(false)
     await setSelectVideo(false)
@@ -245,31 +248,28 @@ const CreatePostForm = ({ currentUser, post }) => {
     await setSelectWritten(false)
   }
 
-      return (
-        <div>
-          <div className="user-nav-dropdown">
-            <button className="dropbtn" id="add-media">
-              <div className="gender">
-                Add Media
-              </div>
-            </button>
-            <div className="dropdown-content">
-              <div className="user-profile">
-                <h4 onClick={() => imageInputForm()}>Image</h4>
-              </div>
-              
-              <div className="user-profile">
-                <h4 onClick={() => videoInputForm()}>Video</h4>
-              </div>
-              <div>
-                <h4 onClick={() => writtenInputForm()}>Written</h4>
-              </div>
-            </div>
+  return (
+    <div className="whole-media">
+      <div className="user-nav-dropdown">
+        <button className="dropbtn" id="add-media">
+          <div className="gender">Add Media</div>
+        </button>
+        <div className="dropdown-content">
+          <div className="user-profile">
+            <h4 onClick={() => imageInputForm()}>Image</h4>
           </div>
-            {checkInputForm()}
+
+          <div className="user-profile">
+            <h4 onClick={() => videoInputForm()}>Video</h4>
+          </div>
+          <div>
+            <h4 onClick={() => writtenInputForm()}>Written</h4>
+          </div>
         </div>
-        
-      )
+      </div>
+      {checkInputForm()}
+    </div>
+  )
 }
 
 export default CreatePostForm
