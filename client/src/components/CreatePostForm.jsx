@@ -21,7 +21,6 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     caption: '',
     userId: parseInt(currentUser.id)
   })
-  
 
   const [selectImage, setSelectImage] = useState(false)
   const [selectVideo, setSelectVideo] = useState(false)
@@ -61,6 +60,9 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     if (selectImage === true) {
       return (
         <div className="new-media">
+          <div>
+            <h3>New Image Post</h3>
+          </div>
           <div className="box-title">
             <ImagePosts post={formValues} displayedUser={currentUser} />
           </div>
@@ -105,6 +107,9 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     } else if (selectVideo === true) {
       return (
         <div className="new-media">
+          <div>
+            <h3>New Video Post</h3>
+          </div>
           <div className="box-title">
             <VideoPosts post={formValues} displayedUser={currentUser} />
           </div>
@@ -149,6 +154,9 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     } else if (selectWritten === true) {
       return (
         <div className="new-media">
+          <div>
+            <h3>New Written Post</h3>
+          </div>
           <div className="box-title">
             <WrittenPosts post={formValues} />
           </div>
@@ -205,21 +213,20 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
       allPosts.push(res[i])
     }
   }
-  
+
   const confirmImagePost = async () => {
     let newTime = new Date()
     const type = {
       time: newTime.getTime(),
       type: 'image',
-      
+
       caption: formValues.caption,
       img_url: formValues.img_url,
       userId: parseInt(currentUser.id),
       createdAt: new Date(),
       updatedAt: new Date()
     }
-    
-    
+
     await CreateImagePost(type)
     await setSelectImage(false)
     await setSelectVideo(false)
@@ -232,15 +239,14 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
       caption: '',
       userId: parseInt(currentUser.id)
     })
-    
+
     await GetImagePosts().then((res) => chicken(res))
     await GetVideoPosts().then((res) => chicken(res))
     await GetWrittenPosts().then((res) => chicken(res))
     const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
-    
+
     await setPosts(sortPosts)
   }
-  
 
   const confirmVideoPost = async () => {
     let newTime = new Date()
@@ -257,21 +263,21 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     await setSelectImage(false)
     await setSelectVideo(false)
     await setSelectWritten(false)
-     setFormValues({
-    title: '',
-    text: '',
-    img_url: '',
-    video_url: '',
-    caption: '',
-    userId: parseInt(currentUser.id)
-  })
-  
-  await GetImagePosts().then((res) => chicken(res))
-  await GetVideoPosts().then((res) => chicken(res))
-  await GetWrittenPosts().then((res) => chicken(res))
-  const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
-  
-  await setPosts(sortPosts)
+    setFormValues({
+      title: '',
+      text: '',
+      img_url: '',
+      video_url: '',
+      caption: '',
+      userId: parseInt(currentUser.id)
+    })
+
+    await GetImagePosts().then((res) => chicken(res))
+    await GetVideoPosts().then((res) => chicken(res))
+    await GetWrittenPosts().then((res) => chicken(res))
+    const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
+
+    await setPosts(sortPosts)
   }
 
   const confirmWrittenPost = async () => {
@@ -281,7 +287,7 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
       type: 'written',
       title: formValues.title,
       text: formValues.text,
-      
+
       userId: parseInt(currentUser.id),
       createdAt: new Date(),
       updatedAt: new Date()
@@ -302,7 +308,7 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     await GetVideoPosts().then((res) => chicken(res))
     await GetWrittenPosts().then((res) => chicken(res))
     const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
-    
+
     await setPosts(sortPosts)
   }
 
@@ -320,24 +326,22 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     })
   }
 
- 
-
   return (
     <div className="whole-media">
-      <div className="user-nav-dropdown">
+      <div className="user-nav-dropdown" id="post-up">
         <button className="dropbtn" id="add-media">
           <div className="gender">Add Media</div>
         </button>
-        <div className="dropdown-content">
-          <div className="user-profile">
-            <h4 onClick={() => imageInputForm()}>Image</h4>
+        <div className="dropdown-content" id="post-up">
+          <div className="user-profile" onClick={() => imageInputForm()}>
+            <h4>Image</h4>
           </div>
 
-          <div className="user-profile">
-            <h4 onClick={() => videoInputForm()}>Video</h4>
+          <div className="user-profile" onClick={() => videoInputForm()}>
+            <h4>Video</h4>
           </div>
-          <div className="user-profile">
-            <h4 onClick={() => writtenInputForm()}>Written</h4>
+          <div className="user-profile" onClick={() => writtenInputForm()}>
+            <h4>Written</h4>
           </div>
         </div>
       </div>

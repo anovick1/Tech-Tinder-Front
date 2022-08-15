@@ -37,6 +37,9 @@ nav {
   min-width: 10vw;
   text-align: center;
 }
+.dropbtn:hover {
+  cursor: pointer;
+}
 
 .user-nav-dropdown {
   position: relative;
@@ -62,7 +65,9 @@ nav {
 .dropdown-content a:hover {
   background-color: rgba(230, 181, 129, 0.502);
 }
-
+#post-up {
+  bottom: 100%;
+}
 .user-nav-dropdown:hover .dropdown-content {
   display: block;
 }
@@ -126,6 +131,9 @@ html {
 }
 .ShownUserName h3 {
   margin: 0;
+}
+.whole-media {
+  text-align: center;
 }
 .ShownUserName h1 {
   margin-bottom: 1vh;
@@ -193,6 +201,7 @@ html {
 .gender-orientation {
   display: flex;
   width: 32vw;
+  justify-content: space-around;
 }
 
 .gender {
@@ -299,7 +308,10 @@ iframe {
   position: fixed;
   bottom: 10%;
 }
-
+.user-profile:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}
 #like-icon {
   right: 25vw;
 }
@@ -473,7 +485,6 @@ textarea {
   display: flex;
   justify-content: flex-start;
   margin: 2vh;
-  width: ;
 }
 .card-overlay {
   display: flex;
