@@ -20,9 +20,7 @@ const Navbar = ({ currentUser }) => {
             <Link to={'/profile'} className="user-profile">
               <h4>Profile</h4>
             </Link>
-            <Link to={'/create-post'} className="user-profile">
-              <h4>Make Post</h4>
-            </Link>
+
             <Link to="/">
               <h4>Logout</h4>
             </Link>
