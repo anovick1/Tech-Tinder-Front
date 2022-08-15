@@ -161,6 +161,10 @@ nav {
 .bio-text h4 {
   margin: 0;
 }
+.box-title,
+.bio-text {
+  margin-bottom: 2vh;
+}
 
 .location {
   margin-top: 2vh;
@@ -312,9 +316,11 @@ textarea {
 }
 #edit-bio {
   justify-content: space-between;
+  margin-bottom: 0;
 }
 #edit-bio-text {
   height: 15vh;
+  margin-bottom: 0;
 }
 .edit-socials {
   margin-top: 2vh;
