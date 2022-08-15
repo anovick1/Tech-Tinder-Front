@@ -27,8 +27,29 @@ export const GetWrittenPosts = async () => {
   }
 }
 
-// module.exports = {
-//   GetImagePosts,
-//   GetVideoPosts,
-//   GetWrittenPosts
-// }
+export const CreateImagePost = async (body) => {
+  try {
+    const res = await Client.post('/imageposts', body)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const CreateVideoPost = async (body) => {
+  try {
+    const res = await Client.post('/videoposts', body)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const CreateWrittenPost = async (body) => {
+  try {
+    const res = await Client.post('/writtenposts', body)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
