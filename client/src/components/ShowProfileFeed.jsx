@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import VideoPosts from './VideoPosts'
 import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
+import CreatePostForm from './CreatePostForm'
 
 const ShowProfileFeed = ({
   currentUser,
@@ -150,6 +151,9 @@ const ShowProfileFeed = ({
         {p.map((post, index) => (
           <div key={index}>{showPost(post)}</div>
         ))}
+        <div>
+          <CreatePostForm currentUser={currentUser} />
+        </div>
         <div className="socials">
           {showIg()}
           {showFb()}

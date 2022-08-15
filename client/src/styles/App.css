@@ -194,6 +194,17 @@ nav {
   height: 3vh;
 }
 
+.new-media {
+  display: flex;
+  flex-direction: column;
+  width: 32vw;
+  height: 20vw;
+}
+
+/* #add-media:hover {
+  height: 20vh;
+} */
+
 .post-image img,
 iframe {
   border-radius: 16px;
