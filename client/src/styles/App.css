@@ -149,7 +149,7 @@ nav {
 .box-title {
   display: flex;
   align-items: center;
-  height: 5vh;
+  min-height: 5vh;
 }
 .bio-text {
   display: flex;
@@ -198,7 +198,46 @@ nav {
   display: flex;
   flex-direction: column;
   width: 32vw;
-  height: 20vw;
+  min-height: 40vw;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 1vw;
+  background-color: white;
+  align-items: center;
+  margin-top: 1vh;
+}
+
+.edit-post-icon img {
+  width: 3vw;
+  border-radius: 0;
+  cursor: pointer;
+}
+.edit-post-icon {
+  width: 32vw;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  text-align: end;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.media-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+#image_url {
+  margin-left: 0;
+  width: 30vw;
+}
+
+.url-input {
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+
+.image-post {
+  min-width: 30vw;
 }
 
 /* #add-media:hover {
@@ -211,6 +250,9 @@ iframe {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid black;
+  min-width: 30vw;
+  min-height: 5vw;
+  text-align: center;
 }
 
 .image-post {
@@ -303,7 +345,7 @@ iframe {
 .city-state {
   justify-content: space-evenly;
 }
-.pfp-label input {
+.pfp-label input, .new-media input {
   width: 15vw;
   margin-left: 3vw;
 }

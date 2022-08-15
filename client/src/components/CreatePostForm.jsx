@@ -54,24 +54,41 @@ const CreatePostForm = ({ currentUser, post }) => {
               <div className="box-title">
                 <ImagePosts post={formValues} displayedUser={currentUser} />
               </div>
-                <input
-                  type="text"
-                  defaultValue={formValues.image_url}
-                  onChange={handleChange}
-                  id={'image_url'}
-                  placeholder={'Image URL'}
-                  className="input-box"
-                />
-                <textarea
-                  type="text"
-                  defaultValue={formValues.caption}
-                  onChange={handleChange}
-                  id={'caption'}
-                  placeholder={'Image Caption'}
-                  className="edit-bio-text"
-                ></textarea>
-              <div className="post-text">
-                <h4>{formValues.caption}</h4>
+              <div className="media-inputs">
+                <div className="url-input">
+                  <input
+                    type="text"
+                    defaultValue={formValues.image_url}
+                    onChange={handleChange}
+                    id={'image_url'}
+                    placeholder={'Image URL'}
+                    className="input-box"
+                  />
+                </div>
+                <div className="text-input">
+                  <textarea
+                    type="text"
+                    defaultValue={formValues.caption}
+                    onChange={handleChange}
+                    id={'caption'}
+                    placeholder={'Image Caption'}
+                    className="edit-bio-text"
+                  ></textarea>
+                </div>
+                <div>
+                  <div className="edit-post-icon">
+                    <img
+                      src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
+                      alt="edit"
+                      // onClick={() => cancel()}
+                    />
+                    <img
+                      src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
+                      alt="edit"
+                      // onClick={() => confirm()}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
       )
@@ -81,24 +98,27 @@ const CreatePostForm = ({ currentUser, post }) => {
             <div className="box-title">
               <VideoPosts post={formValues} displayedUser={currentUser} />
             </div>
-              <input
-                type="text"
-                defaultValue={formValues.video_url}
-                onChange={handleChange}
-                id={'video_url'}
-                placeholder={'Video URL'}
-                className="input-box"
-              />
-              <textarea
-                type="text"
-                defaultValue={formValues.caption}
-                onChange={handleChange}
-                id={'caption'}
-                placeholder={'Video Caption'}
-                className="edit-bio-text"
-              ></textarea>
-              <div className="post-text">
-                <h4>{formValues.caption}</h4>
+            <div className="media-inputs">
+              <div className="url-input">
+                <input
+                  type="text"
+                  defaultValue={formValues.video_url}
+                  onChange={handleChange}
+                  id={'video_url'}
+                  placeholder={'Video URL'}
+                  className="input-box"
+                />
+              </div>
+              <div classname="text-input">
+                <textarea
+                  type="text"
+                  defaultValue={formValues.caption}
+                  onChange={handleChange}
+                  id={'caption'}
+                  placeholder={'Video Caption'}
+                  className="edit-bio-text"
+                ></textarea>
+              </div>
             </div>
           </div>
       )
@@ -108,6 +128,8 @@ const CreatePostForm = ({ currentUser, post }) => {
               <div className="box-title">
                 <WrittenPosts post={formValues} />
               </div>
+              <div className="new-media">
+                <div className="title-input">
                 <input
                   type="text"
                   defaultValue={formValues.title}
@@ -116,6 +138,8 @@ const CreatePostForm = ({ currentUser, post }) => {
                   placeholder={'Post Title'}
                   className="input-box"
                 />
+                </div>
+                <div className="text-input">
                 <textarea
                   type="text"
                   defaultValue={formValues.text}
@@ -124,9 +148,8 @@ const CreatePostForm = ({ currentUser, post }) => {
                   placeholder={'Post Text'}
                   className="edit-bio-text"
                 ></textarea>
-              <div className="post-text">
-                <h4>{formValues.text}</h4>
-              </div>
+                </div>
+                </div>
           </div>
       )
     } else {
@@ -137,6 +160,20 @@ const CreatePostForm = ({ currentUser, post }) => {
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
+
+  // const confirm = async () => {
+  //   await updateUser(currentUser.id, formValues)
+  //   await setCurrentUser(formValues)
+  //   localStorage.clear()
+  //   StayLogged(currentUser)
+  //   await setSelectImage(false)
+  //   await setSelectVideo(false)
+  //   await setSelectWritten(false)
+  // }
+
+  // const cancel = async () => {
+
+  // }
 
       return (
         <div>
@@ -159,7 +196,7 @@ const CreatePostForm = ({ currentUser, post }) => {
               </div>
             </div>
           </div>
-          {checkInputForm()}
+            {checkInputForm()}
         </div>
         
       )
