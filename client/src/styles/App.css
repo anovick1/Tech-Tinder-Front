@@ -226,11 +226,6 @@ nav {
   flex-direction: column;
 }
 
-#image_url, #video_url, #title {
-  margin-left: 0;
-  width: 30vw;
-}
-
 .url-input {
   margin-top: 1vh;
   margin-bottom: 2vh;
@@ -245,7 +240,8 @@ nav {
 } */
 
 .post-image img,
-iframe, .image-post img {
+iframe,
+.image-post img {
   border-radius: 16px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -345,7 +341,8 @@ iframe {
 .city-state {
   justify-content: space-evenly;
 }
-.pfp-label input, .new-media input {
+.pfp-label input,
+.new-media input {
   width: 15vw;
   margin-left: 3vw;
 }
@@ -414,7 +411,17 @@ textarea {
 #written-post {
   min-height: 19vw;
 }
-
+.user-nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.new-media input,
+#video_url,
+#title {
+  margin-left: 0;
+  width: 30vw;
+}
 /*  */
 /* FOR MOBILE */
 /*  */
