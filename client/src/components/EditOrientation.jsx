@@ -35,7 +35,7 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
   const showOrientation = (gender) => {
     if (orientationMClick === true && orientationFClick === false) {
       return (
-        <div className="gender" id="orientation">
+        <>
           <h4>Interest:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
@@ -48,11 +48,11 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
             alt="female-icon"
             onClick={() => onClickFOrientation()}
           />
-        </div>
+        </>
       )
     } else if (orientationMClick === true && orientationFClick === true) {
       return (
-        <div className="gender" id="orientation">
+        <>
           <h4>Interest:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
@@ -66,11 +66,11 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
             id="selected-gender"
             onClick={() => onClickFOrientation()}
           />
-        </div>
+        </>
       )
     } else if (orientationMClick === false && orientationFClick === true) {
       return (
-        <div className="gender" id="orientation">
+        <>
           <h4>Interest:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
@@ -83,11 +83,11 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
             id="selected-gender"
             onClick={() => onClickFOrientation()}
           />
-        </div>
+        </>
       )
     } else {
       return (
-        <div className="gender" id="orientation">
+        <>
           <h4>Interest:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
@@ -99,7 +99,7 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
             alt="female-icon"
             onClick={() => onClickFOrientation()}
           />
-        </div>
+        </>
       )
     }
   }

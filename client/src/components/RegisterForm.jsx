@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
 import { useState } from 'react'
+import EditGender from './EditGender'
+import EditOrientation from './EditOrientation'
 
 const RegisterForm = ({ register, setRegister }) => {
   let navigate = useNavigate()
@@ -21,7 +23,10 @@ const RegisterForm = ({ register, setRegister }) => {
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
-
+  const currentUser = {
+    gender: 'Male',
+    orientation: 'Male'
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterUser({
@@ -49,83 +54,77 @@ const RegisterForm = ({ register, setRegister }) => {
 
   return (
     <div className="card-overlay">
-      <h3>Create an account:</h3>
+      <div className="reg-title">
+        <h3>Create an account:</h3>
+      </div>
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
-          <div>
-            <label>First Name:</label>
-          </div>
-          <div>
-            <input
-              onChange={handleChange}
-              name="firstName"
-              type="text"
-              placeholder="John"
-              value={formValues.firstName}
-              required
-            />
-          </div>
+          <input
+            onChange={handleChange}
+            name="firstName"
+            type="text"
+            placeholder="First Name"
+            value={formValues.firstName}
+            required
+            className="input-box-mid"
+          />
         </div>
         <div className="input-wrapper">
-          <label>Last Name:</label>
           <input
             onChange={handleChange}
             name="lastName"
             type="text"
-            placeholder="Smith"
+            placeholder="Last Name"
             value={formValues.lastName}
             required
+            className="input-box-mid"
           />
         </div>
         <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
           <input
             onChange={handleChange}
             name="email"
             type="email"
-            placeholder="example@example.com"
+            placeholder="Email"
             value={formValues.email}
             required
+            className="input-box-mid"
+          />
+        </div>
+        <div className="reg-form-gender">
+          <EditGender
+            currentUser={currentUser}
+            formValues={formValues}
+            setFormValues={setFormValues}
+          />
+        </div>
+        <div className="reg-form-gender">
+          <EditOrientation
+            currentUser={currentUser}
+            formValues={formValues}
+            setFormValues={setFormValues}
           />
         </div>
         <div className="input-wrapper">
-          <label htmlFor="gender">Gender</label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="gender"
-            value={formValues.confirmPgenderassword}
-            required
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="gender">Interested in:</label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="orientation"
-            value={formValues.orientation}
-            required
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
           <input
             onChange={handleChange}
             type="password"
             name="password"
             value={formValues.password}
+            placeholder="Password"
             required
+            className="input-box-mid"
           />
         </div>
         <div className="input-wrapper">
-          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             onChange={handleChange}
             type="password"
             name="confirmPassword"
             value={formValues.confirmPassword}
             required
+            className="input-box-mid"
+            placeholder="Confirm Password"
           />
         </div>
         <div className="signup-btn">

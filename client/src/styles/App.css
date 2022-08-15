@@ -132,13 +132,15 @@ html {
 .ShownUserName h3 {
   margin: 0;
 }
-.gender img {
+.gender img,
+.reg-form-gender img {
   width: 2vw;
   height: 2vw;
   border-radius: 0;
   margin-left: 1vw;
 }
-.gender img:hover {
+.gender img:hover,
+.reg-form-gender img:hover {
   cursor: pointer;
 }
 .social-img img {
@@ -166,7 +168,8 @@ html {
 .gender h4,
 .location h4,
 .age h4,
-.bio-text h4 {
+.bio-text h4,
+.reg-form-gender {
   margin: 0;
 }
 .box-title,
@@ -195,7 +198,7 @@ html {
   border-radius: 30px;
   padding: 0.5vh 1vw;
   background-color: white;
-  width: 14vw;
+  /* width: 14vw; */
   justify-content: space-evenly;
   display: flex;
   align-items: center;
@@ -329,9 +332,33 @@ iframe {
 .input-box {
   width: 7vw;
   height: 1vh;
-  border-radius: 20px;
+  border-radius: 6px;
   border: 1px black solid;
   padding: 1vh;
+}
+.email-reg {
+  display: flex;
+  justify-content: center;
+}
+
+.input-box-mid {
+  width: 14vw;
+  height: 3vh;
+  padding: 1vh;
+}
+.reg-form-gender {
+  padding: 0.5vh 1vw;
+  background-color: white;
+  width: 13vw;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  height: 4vh;
+}
+.input-box-mid,
+.reg-form-gender {
+  border-radius: 8px;
+  border: 1px black solid;
 }
 .input-label {
   display: flex;
@@ -339,14 +366,16 @@ iframe {
   text-align: center;
 }
 .first-last-age,
-.city-state {
+.city-state,
+.first-last-reg {
   display: flex;
   margin-top: 2vh;
 }
 .first-last-age {
   justify-content: space-between;
 }
-.city-state {
+.city-state,
+.first-last-reg {
   justify-content: space-evenly;
 }
 .pfp-label input,
@@ -435,6 +464,13 @@ textarea {
   flex-direction: column;
   justify-content: space-between;
   margin: 2vh;
+  text-align: center;
+}
+.reg-form-gender {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2vh;
+  width: ;
 }
 .card-overlay {
   display: flex;
@@ -449,10 +485,14 @@ textarea {
   width: 25vw;
   /* box-shadow: 10px 10px lightblue; */
 }
+.reg-title {
+  text-align: center;
+}
 .signup-btn {
   text-align: center;
   margin: 3vh;
 }
+
 /*  */
 /* FOR MOBILE */
 /*  */
@@ -482,7 +522,6 @@ textarea {
   .bio,
   .image-post img,
   .displayed_pfp img,
-  .gender-orientation,
   iframe {
     width: 85vw;
   }
@@ -492,7 +531,8 @@ textarea {
   .gender {
     width: 30vw;
   }
-  .gender img {
+  .gender img,
+  .reg-form-gender img {
     width: 6vw;
     height: 6vw;
   }

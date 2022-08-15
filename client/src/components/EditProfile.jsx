@@ -212,16 +212,20 @@ const ProfileEditForm = ({
           </div>
         </div>
         <div className="gender-orientation">
-          <EditGender
-            currentUser={currentUser}
-            formValues={formValues}
-            setFormValues={setFormValues}
-          />
-          <EditOrientation
-            currentUser={currentUser}
-            formValues={formValues}
-            setFormValues={setFormValues}
-          />
+          <div className="gender">
+            <EditGender
+              currentUser={currentUser}
+              formValues={formValues}
+              setFormValues={setFormValues}
+            />
+          </div>
+          <div className="gender" id="orientation">
+            <EditOrientation
+              currentUser={currentUser}
+              formValues={formValues}
+              setFormValues={setFormValues}
+            />
+          </div>
         </div>
         <div className="bio">
           <div className="box-title" id="edit-bio">

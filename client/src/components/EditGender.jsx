@@ -32,7 +32,7 @@ const EditGender = ({ currentUser, formValues, setFormValues }) => {
   const showGender = (gender) => {
     if (genderMClick === true) {
       return (
-        <div className="gender">
+        <>
           <h4>Gender:</h4>
 
           <img
@@ -46,11 +46,13 @@ const EditGender = ({ currentUser, formValues, setFormValues }) => {
             alt="female-icon"
             onClick={() => onClickFGender()}
           />
-        </div>
+        </>
       )
     } else {
       return (
-        <div className="gender">
+        <>
+          <h4>Gender:</h4>
+
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
@@ -62,7 +64,7 @@ const EditGender = ({ currentUser, formValues, setFormValues }) => {
             id="selected-gender"
             onClick={() => onClickFGender()}
           />
-        </div>
+        </>
       )
     }
   }
