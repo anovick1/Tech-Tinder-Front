@@ -6,10 +6,13 @@ import WrittenPosts from './WrittenPosts'
 import {
   CreateWrittenPost,
   CreateImagePost,
-  CreateVideoPost
+  CreateVideoPost,
+  GetImagePosts,
+  GetVideoPosts,
+  GetWrittenPosts
 } from '../services/PostServices'
 
-const CreatePostForm = ({ currentUser, post }) => {
+const CreatePostForm = ({ currentUser, post, setPosts }) => {
   const [formValues, setFormValues] = useState({
     title: '',
     text: '',
@@ -18,7 +21,7 @@ const CreatePostForm = ({ currentUser, post }) => {
     caption: '',
     userId: parseInt(currentUser.id)
   })
-  console.log(parseInt(currentUser.id))
+  
 
   const [selectImage, setSelectImage] = useState(false)
   const [selectVideo, setSelectVideo] = useState(false)
@@ -87,7 +90,7 @@ const CreatePostForm = ({ currentUser, post }) => {
                 <img
                   src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
                   alt="edit"
-                  // onClick={() => cancel()}
+                  onClick={() => cancel()}
                 />
                 <img
                   src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
@@ -131,7 +134,7 @@ const CreatePostForm = ({ currentUser, post }) => {
                 <img
                   src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
                   alt="edit"
-                  // onClick={() => cancel()}
+                  onClick={() => cancel()}
                 />
                 <img
                   src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
@@ -175,7 +178,7 @@ const CreatePostForm = ({ currentUser, post }) => {
                 <img
                   src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
                   alt="edit"
-                  // onClick={() => cancel()}
+                  onClick={() => cancel()}
                 />
                 <img
                   src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
@@ -196,24 +199,53 @@ const CreatePostForm = ({ currentUser, post }) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
 
+  const allPosts = []
+  const chicken = (res) => {
+    for (let i = 0; i < res.length; i++) {
+      allPosts.push(res[i])
+    }
+  }
+  
   const confirmImagePost = async () => {
+    let newTime = new Date()
     const type = {
+      time: newTime.getTime(),
       type: 'image',
+      
       caption: formValues.caption,
       img_url: formValues.img_url,
       userId: parseInt(currentUser.id),
       createdAt: new Date(),
       updatedAt: new Date()
     }
-    console.log(type)
+    
+    
     await CreateImagePost(type)
     await setSelectImage(false)
     await setSelectVideo(false)
     await setSelectWritten(false)
+    setFormValues({
+      title: '',
+      text: '',
+      img_url: '',
+      video_url: '',
+      caption: '',
+      userId: parseInt(currentUser.id)
+    })
+    
+    await GetImagePosts().then((res) => chicken(res))
+    await GetVideoPosts().then((res) => chicken(res))
+    await GetWrittenPosts().then((res) => chicken(res))
+    const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
+    
+    await setPosts(sortPosts)
   }
+  
 
   const confirmVideoPost = async () => {
+    let newTime = new Date()
     const type = {
+      time: newTime.getTime(),
       type: 'video',
       caption: formValues.caption,
       video_url: formValues.video_url,
@@ -225,13 +257,31 @@ const CreatePostForm = ({ currentUser, post }) => {
     await setSelectImage(false)
     await setSelectVideo(false)
     await setSelectWritten(false)
+     setFormValues({
+    title: '',
+    text: '',
+    img_url: '',
+    video_url: '',
+    caption: '',
+    userId: parseInt(currentUser.id)
+  })
+  
+  await GetImagePosts().then((res) => chicken(res))
+  await GetVideoPosts().then((res) => chicken(res))
+  await GetWrittenPosts().then((res) => chicken(res))
+  const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
+  
+  await setPosts(sortPosts)
   }
 
   const confirmWrittenPost = async () => {
+    let newTime = new Date()
     const type = {
+      time: newTime.getTime(),
       type: 'written',
       title: formValues.title,
       text: formValues.text,
+      
       userId: parseInt(currentUser.id),
       createdAt: new Date(),
       updatedAt: new Date()
@@ -240,13 +290,37 @@ const CreatePostForm = ({ currentUser, post }) => {
     await setSelectImage(false)
     await setSelectVideo(false)
     await setSelectWritten(false)
+    setFormValues({
+      title: '',
+      text: '',
+      img_url: '',
+      video_url: '',
+      caption: '',
+      userId: parseInt(currentUser.id)
+    })
+    await GetImagePosts().then((res) => chicken(res))
+    await GetVideoPosts().then((res) => chicken(res))
+    await GetWrittenPosts().then((res) => chicken(res))
+    const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
+    
+    await setPosts(sortPosts)
   }
 
   const cancel = async () => {
     await setSelectImage(false)
     await setSelectVideo(false)
     await setSelectWritten(false)
+    setFormValues({
+      title: '',
+      text: '',
+      img_url: '',
+      video_url: '',
+      caption: '',
+      userId: parseInt(currentUser.id)
+    })
   }
+
+ 
 
   return (
     <div className="whole-media">
@@ -262,7 +336,7 @@ const CreatePostForm = ({ currentUser, post }) => {
           <div className="user-profile">
             <h4 onClick={() => videoInputForm()}>Video</h4>
           </div>
-          <div>
+          <div className="user-profile">
             <h4 onClick={() => writtenInputForm()}>Written</h4>
           </div>
         </div>

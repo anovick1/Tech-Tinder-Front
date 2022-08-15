@@ -10,7 +10,8 @@ const ShowProfileFeed = ({
   users,
   displayedUser,
   edit,
-  setEdit
+  setEdit,
+  setPosts
 }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
@@ -148,11 +149,12 @@ const ShowProfileFeed = ({
             <h4>{displayedUser.bio}</h4>
           </div>
         </div>
+        <CreatePostForm currentUser={currentUser} setPosts={setPosts} />
         {p.map((post, index) => (
           <div key={index}>{showPost(post)}</div>
         ))}
         <div>
-          <CreatePostForm currentUser={currentUser} />
+          
         </div>
         <div className="socials">
           {showIg()}
