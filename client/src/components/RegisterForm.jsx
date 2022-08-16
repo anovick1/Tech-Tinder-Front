@@ -4,8 +4,9 @@ import { RegisterUser } from '../services/Auth'
 import { useState } from 'react'
 import EditGender from './EditGender'
 import EditOrientation from './EditOrientation'
+import {LikeUser, GetUsers} from '../services/UserServices'
 
-const RegisterForm = ({ register, setRegister }) => {
+const RegisterForm = ({ register, setRegister, users, setUsers}) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     firstName: '',
@@ -40,6 +41,12 @@ const RegisterForm = ({ register, setRegister }) => {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
       bio: 'Just here to have fun!'
     })
+
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].passwordDigest === 'test') {
+      await LikeUser(parseInt(users[i].id), parseInt(users.length + 1))
+      }
+    }
     setFormValues({
       firstName: '',
       lastName: '',
