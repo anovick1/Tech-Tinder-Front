@@ -10,12 +10,15 @@ import {
   GetVideoPosts,
   GetWrittenPosts
 } from './services/PostServices'
-import { GetUsers } from './services/UserServices'
+import { GetUsers, GetLikedMe, GetUserLikes } from './services/UserServices'
 import { CheckSession } from './services/Auth'
 
 function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
+  const [connections, setConnections] = useState([])
+  const [likes, setLikes] = useState([])
+  const [likedMe, setLikedMe] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   const [profile, setProfile] = useState(true)
   const [count, setCount] = useState(0)
@@ -52,6 +55,7 @@ function App() {
   useEffect(() => {
     GetUsers().then((res) => setUsers(res))
   }, [])
+
   return (
     <div>
       <main>
@@ -88,6 +92,12 @@ function App() {
                   setPosts={setPosts}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  connections={connections}
+                  setConnections={setConnections}
+                  likes={likes}
+                  setLikes={setLikes}
+                  likedMe={likedMe}
+                  setLikedMe={setLikedMe}
                 />
               </>
             }
@@ -111,6 +121,12 @@ function App() {
                   setCurrentUser={setCurrentUser}
                   profile={profile}
                   setProfile={setProfile}
+                  connections={connections}
+                  setConnections={setConnections}
+                  likes={likes}
+                  setLikes={setLikes}
+                  likedMe={likedMe}
+                  setLikedMe={setLikedMe}
                 />
               </>
             }

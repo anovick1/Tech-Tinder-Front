@@ -14,7 +14,12 @@ const ShowProfileFeed = ({
   setEdit,
   setPosts,
   profile,
-  setProfile
+  setProfile,
+  likes,
+  setLikes,
+  likedMe,
+  setLikedMe,
+  connections
 }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
@@ -185,6 +190,12 @@ const ShowProfileFeed = ({
           profile={profile}
           setProfile={setProfile}
           displayedUser={currentUser}
+          likes={likes}
+          setLikes={setLikes}
+          likedMe={likedMe}
+          setLikedMe={setLikedMe}
+          connections={connections}
+          users={users}
         />
       )}
     </div>

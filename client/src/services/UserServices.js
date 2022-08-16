@@ -41,6 +41,14 @@ export const GetUserLikes = async (id) => {
     throw error
   }
 }
+export const GetLikedMe = async (id) => {
+  try {
+    const res = await Client.get('/users/likedme/' + id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
 
 export const updateUser = async (user_id, body) => {
   try {
@@ -59,6 +67,15 @@ export const updateUser = async (user_id, body) => {
       bio: body.bio
     })
     return user.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const DeleteLike = async (userId, liked_id) => {
+  try {
+    const res = await Client.delete('/users/like/' + userId + '/' + liked_id)
+    return res.data
   } catch (error) {
     throw error
   }

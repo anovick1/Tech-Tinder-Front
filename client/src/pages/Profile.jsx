@@ -10,7 +10,12 @@ const Profile = ({
   setCurrentUser,
   setPosts,
   profile,
-  setProfile
+  setProfile,
+  connections,
+  likes,
+  setLikes,
+  likedMe,
+  setLikedMe
 }) => {
   const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
@@ -25,6 +30,10 @@ const Profile = ({
         edit={edit}
         setEdit={setEdit}
         setCurrentUser={setCurrentUser}
+        likes={likes}
+        setLikes={setLikes}
+        likedMe={likedMe}
+        setLikedMe={setLikedMe}
       />
     ) : (
       <ShowProfileFeed
@@ -38,6 +47,7 @@ const Profile = ({
         setPosts={setPosts}
         profile={profile}
         setProfile={setProfile}
+        connections={connections}
       />
     )
   ) : (

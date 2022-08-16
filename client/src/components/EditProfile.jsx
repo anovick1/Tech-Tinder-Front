@@ -14,7 +14,11 @@ const ProfileEditForm = ({
   users,
   edit,
   setEdit,
-  setCurrentUser
+  setCurrentUser,
+  likes,
+  setLikes,
+  likedMe,
+  setLikedMe
 }) => {
   const [formValues, setFormValues] = useState({
     id: parseInt(currentUser.id),
@@ -321,7 +325,14 @@ const ProfileEditForm = ({
             </div>
           </div>
         </div>
-        <DeleteUser currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        <DeleteUser
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          likes={likes}
+          setLikes={setLikes}
+          likedMe={likedMe}
+          setLikedMe={setLikedMe}
+        />
         <div className="edit-icon">
           <img
             src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
