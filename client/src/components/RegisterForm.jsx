@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import EditGender from './EditGender'
 import EditOrientation from './EditOrientation'
 import { LikeUser, GetUsers } from '../services/UserServices'
@@ -28,8 +28,10 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
     gender: 'Male',
     orientation: 'Male'
   }
+  useEffect(() => {
+    GetUsers().then((res) => setUsers(res))
+  }, [])
 
-  console.log(users.length)
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterUser({
@@ -43,11 +45,11 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
       bio: 'Just here to have fun!'
     })
-    await GetUsers().then((res) => setUsers(res))
-
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].passwordDigest === 'test') {
-        await LikeUser(parseInt(users[i].id), parseInt(users.length + 2))
+    let u = await GetUsers()
+    await setUsers(u)
+    for (let i = 0; i < u.length; i++) {
+      if (u[i].passwordDigest === 'test') {
+        await LikeUser(parseInt(users[i].id), parseInt(u[u.length - 1].id))
       }
     }
     setFormValues({

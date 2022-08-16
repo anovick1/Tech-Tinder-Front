@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import ShowProfileFeed from '../components/ShowProfileFeed'
 import ProfileEditForm from '../components/EditProfile'
+import { GetUsers, GetLikedMe, GetUserLikes } from '../services/UserServices'
 
 const Profile = ({
   currentUser,
@@ -15,10 +16,34 @@ const Profile = ({
   likes,
   setLikes,
   likedMe,
-  setLikedMe
+  setLikedMe,
+  setConnections
 }) => {
   const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
+  console.log(likes)
+  useEffect(() => {
+    if (currentUser != null) {
+      console.log('test')
+      GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
+      GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
+    }
+  }, [currentUser])
+
+  useEffect(() => {
+    if (currentUser != null) {
+      let c = []
+      for (let i = 0; i < likes.length; i++) {
+        for (let j = 0; j < likedMe.length; j++) {
+          if (likes[i].id === likedMe[j].id) {
+            c.push(likes[i].id)
+          }
+        }
+      }
+      console.log(c)
+      setConnections(c)
+    }
+  }, [likes])
 
   return currentUser && displayedUser ? (
     edit ? (

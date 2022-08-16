@@ -22,9 +22,14 @@ const Home = ({
 
   useEffect(() => {
     if (currentUser != null) {
+      console.log('test')
       GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
       GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
+    }
+  }, [currentUser])
 
+  useEffect(() => {
+    if (currentUser != null) {
       let c = []
       for (let i = 0; i < likes.length; i++) {
         for (let j = 0; j < likedMe.length; j++) {
@@ -33,9 +38,10 @@ const Home = ({
           }
         }
       }
+      console.log(c)
       setConnections(c)
     }
-  }, [currentUser])
+  }, [likes])
 
   const showFeed = () => {
     if (currentUser != null) {
