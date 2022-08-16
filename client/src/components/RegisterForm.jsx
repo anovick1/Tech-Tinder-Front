@@ -13,8 +13,8 @@ const RegisterForm = ({ register, setRegister }) => {
     email: '',
     password: '',
     confirmPassword: '',
-    gender: '',
-    orientation: '',
+    gender: 'Male',
+    orientation: 'Male',
     pfp_link:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOpe1MAvkqPwwTU0KLsa6FMh1rAZWg3OR_Q&usqp=CAU',
     bio: 'Just here to have fun!'
