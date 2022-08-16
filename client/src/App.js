@@ -10,12 +10,14 @@ import {
   GetVideoPosts,
   GetWrittenPosts
 } from './services/PostServices'
-import { GetUsers } from './services/UserServices'
+import { GetUsers, GetLikedMe, GetUserLikes } from './services/UserServices'
 import { CheckSession } from './services/Auth'
 
 function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
+  const [connections, setConnections] = useState([])
+
   const [currentUser, setCurrentUser] = useState(null)
   const [profile, setProfile] = useState(true)
   const [count, setCount] = useState(0)
@@ -52,6 +54,22 @@ function App() {
   useEffect(() => {
     GetUsers().then((res) => setUsers(res))
   }, [])
+
+  // useEffect(() => {
+  //   GetLikedMe(currentUser.id).then((res) => setLikedMe(res))
+  //   GetUserLikes(currentUser.id).then((res) => setLikes(res))
+  //   // let c
+  //   // for (let i = 0; i < likes.likes.length; i++) {
+  //   //   for (let j = 0; i < likedMe.liked_me.length; j++) {
+  //   //     console.log(likes[i])
+  //   //     if (likes.likes[i].id === likedMe.liked_me[i].id) {
+  //   //       c.push(likes[i].id)
+  //   //     }
+  //   //   }
+  //   // }
+
+  //   // setConnections(c)
+  // }, [])
   return (
     <div>
       <main>
@@ -88,6 +106,8 @@ function App() {
                   setPosts={setPosts}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  connections={connections}
+                  setConnections={setConnections}
                 />
               </>
             }
@@ -111,6 +131,8 @@ function App() {
                   setCurrentUser={setCurrentUser}
                   profile={profile}
                   setProfile={setProfile}
+                  connections={connections}
+                  setConnections={setConnections}
                 />
               </>
             }

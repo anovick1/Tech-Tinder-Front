@@ -2,11 +2,37 @@ import React, { useState, useEffect } from 'react'
 import ShowUserFeed from '../components/ShowUserFeed'
 import LikeDislikeButtons from '../components/LikeDislikeButtons'
 import ComeAgain from '../components/ComeAgain'
+import { GetUsers, GetLikedMe, GetUserLikes } from '../services/UserServices'
 
-const Home = ({ currentUser, posts, users, setCurrentUser }) => {
+const Home = ({
+  currentUser,
+  posts,
+  users,
+  setCurrentUser,
+  connections,
+  setConnections
+}) => {
   const [count, setCount] = useState(0)
   const arr = []
   let displayedUser = arr[count]
+
+  const [likes, setLikes] = useState([])
+  const [likedMe, setLikedMe] = useState([])
+  useEffect(() => {
+    if (currentUser != null) {
+      GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
+      GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
+      let c = []
+      for (let i = 0; i < likes.length; i++) {
+        for (let j = 0; j < likedMe.length; j++) {
+          if (likes[i].id === likedMe[j].id) {
+            c.push(likes[i].id)
+          }
+        }
+      }
+      setConnections(c)
+    }
+  }, [])
 
   const showFeed = () => {
     if (currentUser != null) {
@@ -30,6 +56,10 @@ const Home = ({ currentUser, posts, users, setCurrentUser }) => {
               count={count}
               currentUser={currentUser}
               displayedUser={displayedUser}
+              connections={connections}
+              setConnections={setConnections}
+              likes={likes}
+              likedMe={likedMe}
             />
           </>
         ) : (
@@ -56,6 +86,10 @@ const Home = ({ currentUser, posts, users, setCurrentUser }) => {
               count={count}
               currentUser={currentUser}
               displayedUser={displayedUser}
+              connections={connections}
+              setConnections={setConnections}
+              likes={likes}
+              likedMe={likedMe}
             />
           </>
         ) : (
@@ -82,6 +116,10 @@ const Home = ({ currentUser, posts, users, setCurrentUser }) => {
               count={count}
               currentUser={currentUser}
               displayedUser={displayedUser}
+              connections={connections}
+              setConnections={setConnections}
+              likes={likes}
+              likedMe={likedMe}
             />
           </>
         ) : (

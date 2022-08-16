@@ -1,15 +1,22 @@
-import React from 'react'
-import { LikeUser } from '../services/UserServices'
+import React, { useState, useEffect } from 'react'
+import { LikeUser, GetLikedMe, GetUserLikes } from '../services/UserServices'
 
 const LikeDislikeButtons = ({
   setCount,
   count,
   currentUser,
-  displayedUser
+  displayedUser,
+  connections,
+  setConnections,
+  likes,
+  likedMe
 }) => {
+  const [connect, setConnect] = useState(false)
+
   const likeClick = () => {
     let likeCount = count + 1
-    setCount(likeCount)
+
+    // setCount(likeCount)
     LikeUser(currentUser.id, displayedUser.id)
   }
 
