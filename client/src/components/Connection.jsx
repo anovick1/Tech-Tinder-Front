@@ -13,14 +13,19 @@ const Connection = ({
     for (let i = 0; i < users.length; i++) {
       if (users[i].id === c) {
         return (
-          <div className="connection">
-            <div className="connect-pfp">
-              <img src={users[i].pfp_link} alt="pfp" />
+          <div className="each-connection">
+            <div className="match-icon-connections">
+              <img src="https://cdn-icons-png.flaticon.com/512/3771/3771451.png" />
             </div>
-            <div className="connect-name">
-              <h2>
-                {users[i].firstName} {users[i].lastName}
-              </h2>
+            <div className="connection">
+              <div className="connect-pfp">
+                <img src={users[i].pfp_link} alt="pfp" />
+              </div>
+              <div className="connect-name">
+                <h2>
+                  {users[i].firstName} {users[i].lastName}
+                </h2>
+              </div>
             </div>
           </div>
         )
@@ -46,10 +51,10 @@ const Connection = ({
           </div>
         </div>
       </div>
-      <div className="ShownUserName">
-        <div>
-          <h1>{displayedUser.firstName}'s Connections:</h1>
-        </div>
+      <div className="shown-connections">
+        {/* <div className="ShownUserName">
+          <h1>{displayedUser.firstName}'s Connections</h1>
+        </div> */}
         {connections.map((c, index) => (
           <div key={index}>{showConnect(c)}</div>
         ))}

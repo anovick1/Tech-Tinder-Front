@@ -47,11 +47,10 @@ const Navbar = ({ currentUser, profile, setProfile }) => {
   return (
     <header>
       <nav>
-        <div className="home-nav">
-          <Link to="/home">
-            <h2>Home</h2>
-          </Link>
-        </div>
+        <Link to="/home" className="home-nav">
+          <img src="https://cdn-icons-png.flaticon.com/512/3771/3771451.png" />
+        </Link>
+
         {authUser()}
       </nav>
     </header>

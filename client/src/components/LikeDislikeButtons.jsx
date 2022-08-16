@@ -13,7 +13,6 @@ const LikeDislikeButtons = ({
   connect,
   setConnect
 }) => {
-  console.log(likedMe)
   const likeClick = () => {
     LikeUser(currentUser.id, displayedUser.id)
     for (let i = 0; i < likedMe.length; i++) {
