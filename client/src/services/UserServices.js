@@ -25,9 +25,17 @@ export const GetUsers = async (id) => {
   }
 }
 
-export const GetUsersLikes = async (user_id, liked_id) => {
+export const LikeUser = async (user_id, liked_id) => {
   try {
     const res = await Client.post(`/users/like/${user_id}/${liked_id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+export const GetUserLikes = async (id) => {
+  try {
+    const res = await Client.get('/users/liked/' + id)
     return res.data
   } catch (error) {
     throw error
