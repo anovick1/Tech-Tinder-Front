@@ -21,10 +21,8 @@ const Profile = ({
 }) => {
   const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
-  console.log(likes)
   useEffect(() => {
     if (currentUser != null) {
-      console.log('test')
       GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
       GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     }
@@ -40,7 +38,6 @@ const Profile = ({
           }
         }
       }
-      console.log(c)
       setConnections(c)
     }
   }, [likes])

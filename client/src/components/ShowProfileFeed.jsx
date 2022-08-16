@@ -19,7 +19,9 @@ const ShowProfileFeed = ({
   setLikes,
   likedMe,
   setLikedMe,
-  connections
+  connections,
+  connect,
+  setConnect
 }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {

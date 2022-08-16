@@ -98,6 +98,8 @@ function App() {
                   setLikes={setLikes}
                   likedMe={likedMe}
                   setLikedMe={setLikedMe}
+                  profile={profile}
+                  setProfile={setProfile}
                 />
               </>
             }
