@@ -28,17 +28,14 @@ const DeleteUser = ({
   }
   const deleteUserAcc = async () => {
     await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
-    if (likes.length > 1) {
+    if (likes.length >= 1) {
       for (let i = 0; i < likes.length; i++) {
-        console.log(likes[i].id)
         await DeleteLike(parseInt(currentUser.id), parseInt(likes[i].id))
       }
     }
     await GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
-    if (likedMe.length > 1) {
+    if (likedMe.length >= 1) {
       for (let i = 0; i < likedMe.length; i++) {
-        console.log(likedMe[i].id)
-
         await DeleteLike(parseInt(likedMe[i].id), parseInt(currentUser.id))
       }
     }
