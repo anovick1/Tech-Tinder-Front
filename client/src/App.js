@@ -17,6 +17,7 @@ function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
+  const [profile, setProfile] = useState(true)
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
     setCurrentUser(null)
@@ -74,7 +75,8 @@ function App() {
                 <Navbar
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
-                  users={users}
+                  profile={profile}
+                  setProfile={setProfile}
                 />
                 <Home
                   users={users}
@@ -95,6 +97,8 @@ function App() {
                 <Navbar
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  profile={profile}
+                  setProfile={setProfile}
                 />
                 <Profile
                   users={users}
@@ -102,6 +106,8 @@ function App() {
                   setPosts={setPosts}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  profile={profile}
+                  setProfile={setProfile}
                 />
               </>
             }

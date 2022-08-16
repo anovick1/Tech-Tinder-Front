@@ -36,7 +36,7 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
     if (orientationMClick === true && orientationFClick === false) {
       return (
         <>
-          <h4>Interest:</h4>
+          <h4>Sexuality:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
@@ -53,7 +53,7 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
     } else if (orientationMClick === true && orientationFClick === true) {
       return (
         <>
-          <h4>Interest:</h4>
+          <h4>Sexuality:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
@@ -71,7 +71,7 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
     } else if (orientationMClick === false && orientationFClick === true) {
       return (
         <>
-          <h4>Interest:</h4>
+          <h4>Sexuality:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"
@@ -88,7 +88,7 @@ const EditOrientation = ({ currentUser, formValues, setFormValues }) => {
     } else {
       return (
         <>
-          <h4>Interest:</h4>
+          <h4>Sexuality:</h4>
           <img
             src="https://cdn-icons-png.flaticon.com/512/4080/4080288.png"
             alt="male-icon"

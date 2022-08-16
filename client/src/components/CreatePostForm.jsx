@@ -328,22 +328,55 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
 
   return (
     <div className="whole-media">
-      <div className="user-nav-dropdown" id="post-up">
-        <button className="dropbtn" id="add-media">
-          <div className="gender">Add Media</div>
-        </button>
-        <div className="dropdown-content" id="post-up">
-          <div className="user-profile" onClick={() => imageInputForm()}>
-            <h4>Image</h4>
+      <div className="bio-conditional">
+        {selectImage ? (
+          <div
+            className="bio-conditional-type"
+            onClick={() => imageInputForm()}
+            id="bio-selected-type"
+          >
+            <h4>Add Image</h4>
           </div>
-
-          <div className="user-profile" onClick={() => videoInputForm()}>
-            <h4>Video</h4>
+        ) : (
+          <div
+            className="bio-conditional-type"
+            onClick={() => imageInputForm()}
+          >
+            <h4>Add Image</h4>
           </div>
-          <div className="user-profile" onClick={() => writtenInputForm()}>
-            <h4>Written</h4>
+        )}
+        {selectVideo ? (
+          <div
+            className="bio-conditional-type"
+            id="bio-selected-type"
+            onClick={() => videoInputForm()}
+          >
+            <h4>Add Video</h4>
           </div>
-        </div>
+        ) : (
+          <div
+            className="bio-conditional-type"
+            onClick={() => videoInputForm()}
+          >
+            <h4>Add Video</h4>
+          </div>
+        )}
+        {selectWritten ? (
+          <div
+            className="bio-conditional-type"
+            id="bio-selected-type"
+            onClick={() => writtenInputForm()}
+          >
+            <h4>Add Text</h4>
+          </div>
+        ) : (
+          <div
+            className="bio-conditional-type"
+            onClick={() => writtenInputForm()}
+          >
+            <h4>Add Text</h4>
+          </div>
+        )}
       </div>
       {checkInputForm()}
     </div>

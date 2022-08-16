@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ currentUser }) => {
+const Navbar = ({ currentUser, profile, setProfile }) => {
   const authUser = () => {
     if (currentUser != null) {
       return (
@@ -37,7 +37,7 @@ const Navbar = ({ currentUser }) => {
       <nav>
         <div className="home-nav">
           <Link to="/home">
-            <h2> Home</h2>
+            <h2>Home</h2>
           </Link>
         </div>
         {authUser()}

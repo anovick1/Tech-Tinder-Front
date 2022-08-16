@@ -3,7 +3,15 @@ import React, { useState, useEffect } from 'react'
 import ShowProfileFeed from '../components/ShowProfileFeed'
 import ProfileEditForm from '../components/EditProfile'
 
-const Profile = ({ currentUser, posts, users, setCurrentUser, setPosts }) => {
+const Profile = ({
+  currentUser,
+  posts,
+  users,
+  setCurrentUser,
+  setPosts,
+  profile,
+  setProfile
+}) => {
   const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
 
@@ -28,6 +36,8 @@ const Profile = ({ currentUser, posts, users, setCurrentUser, setPosts }) => {
         setEdit={setEdit}
         setCurrentUser={setCurrentUser}
         setPosts={setPosts}
+        profile={profile}
+        setProfile={setProfile}
       />
     )
   ) : (

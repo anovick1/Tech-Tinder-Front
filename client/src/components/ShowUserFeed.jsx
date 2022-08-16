@@ -118,7 +118,7 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
             {showGender(displayedUser.gender)}
           </div>
           <div className="gender" id="orientation">
-            <h4>Interested in:</h4>
+            <h4>Sexuality:</h4>
             {showGender(displayedUser.orientation)}
           </div>
         </div>

@@ -141,7 +141,7 @@ const ProfileEditForm = ({
                   placeholder={'First Name'}
                   className="input-box"
                 />
-                <label>First Name</label>
+                {/* <label>First Name</label> */}
               </div>
               <div className="input-label">
                 <input
@@ -152,7 +152,7 @@ const ProfileEditForm = ({
                   placeholder={'Last Name'}
                   className="input-box"
                 />
-                <label>Last Name</label>
+                {/* <label>Last Name</label> */}
               </div>
               <div className="input-label">
                 <input
@@ -163,7 +163,7 @@ const ProfileEditForm = ({
                   placeholder={'Age'}
                   className="input-box"
                 />
-                <label>Age</label>
+                {/* <label>Age</label> */}
               </div>
             </div>
             <div className="city-state">
@@ -176,7 +176,7 @@ const ProfileEditForm = ({
                   placeholder={'City'}
                   className="input-box"
                 />
-                <label>City</label>
+                {/* <label>City</label> */}
               </div>
               <div className="input-label">
                 <input
@@ -187,7 +187,7 @@ const ProfileEditForm = ({
                   placeholder={'State'}
                   className="input-box"
                 />
-                <label>State</label>
+                {/* <label>State</label> */}
               </div>
             </div>
           </div>
