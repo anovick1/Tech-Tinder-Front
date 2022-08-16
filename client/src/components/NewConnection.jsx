@@ -29,16 +29,26 @@ const NewConnection = ({
 
   return connect ? (
     <div className="newConnection">
-      <div className="newConnection-text">
-        <h1>It's a Match!</h1>
-        <p>You and {displayedUser.firstName} are connected!</p>
-        <div className="match-options">
-          <div className="keep-swipe" onClick={() => viewConnections()}>
-            <h3>View Connections</h3>
-          </div>
-          <div className="keep-swipe" onClick={() => keepSwiping()}>
-            <h3>Keep Swiping</h3>
-          </div>
+      <div className="connect-pfps">
+        <div className="match-pfp">
+          <img src={displayedUser.pfp_link} />
+        </div>
+        <div className="match-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3771/3771451.png" />
+        </div>
+        <div className="match-pfp">
+          <img src={currentUser.pfp_link} />
+        </div>
+      </div>
+      <div>
+        <h1>Match!</h1>
+      </div>
+      <div className="match-options">
+        <div className="match-type-option" onClick={() => viewConnections()}>
+          <h5>View Connections</h5>
+        </div>
+        <div className="match-type-option" onClick={() => keepSwiping()}>
+          <h5>Keep Swiping</h5>
         </div>
       </div>
     </div>

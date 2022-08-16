@@ -31,7 +31,7 @@ const LikeDislikeButtons = ({
     setCount(likeCount)
   }
 
-  return currentUser ? (
+  return currentUser && !connect ? (
     <div>
       <img
         src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"
