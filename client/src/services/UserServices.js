@@ -71,3 +71,12 @@ export const updateUser = async (user_id, body) => {
     throw error
   }
 }
+
+export const DeleteLike = async (userId, liked_id) => {
+  try {
+    const res = await Client.delete('/users/like/' + userId + '/' + liked_id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

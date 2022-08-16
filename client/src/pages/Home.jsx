@@ -35,7 +35,7 @@ const Home = ({
       }
       setConnections(c)
     }
-  }, [])
+  }, [currentUser])
 
   const showFeed = () => {
     if (currentUser != null) {
