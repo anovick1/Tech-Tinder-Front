@@ -629,9 +629,10 @@ textarea {
 }
 .match-type-option:hover {
   cursor: pointer;
-  background-color: white;
+  box-shadow: 0px 0px 300px 0px rgba(0, 0, 0, 0.6);
 }
 .match-type-option:active {
+  transform: scale(0.8);
   box-shadow: 0px 0px 300px 0px rgba(0, 0, 0, 0.6);
 }
 .match-pfp img {
@@ -696,6 +697,11 @@ textarea {
   position: relative;
   bottom: 1vh;
   z-index: 2;
+}
+#like-icon:active,
+#dislike-icon:active {
+  transform: scale(0.8);
+  box-shadow: 0px 0px 300px 0px rgba(0, 0, 0);
 }
 /*  */
 /* FOR MOBILE */

@@ -21,7 +21,9 @@ const ShowProfileFeed = ({
   setLikedMe,
   connections,
   connect,
-  setConnect
+  setConnect,
+  viewMatch,
+  setViewMatch
 }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
@@ -198,6 +200,8 @@ const ShowProfileFeed = ({
           setLikedMe={setLikedMe}
           connections={connections}
           users={users}
+          viewMatch={viewMatch}
+          setViewMatch={setViewMatch}
         />
       )}
     </div>

@@ -17,7 +17,9 @@ const Profile = ({
   setLikes,
   likedMe,
   setLikedMe,
-  setConnections
+  setConnections,
+  viewMatch,
+  setViewMatch
 }) => {
   const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
@@ -70,6 +72,8 @@ const Profile = ({
         profile={profile}
         setProfile={setProfile}
         connections={connections}
+        viewMatch={viewMatch}
+        setViewMatch={setViewMatch}
       />
     )
   ) : (
