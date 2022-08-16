@@ -107,7 +107,7 @@ const ShowProfileFeed = ({
   return currentUser && displayedUser ? (
     <div className="feed">
       <div className="profile">
-        <div className="edit-icon">
+        <div className="edit-icon" id="edit-profile-right">
           <img
             src="https://i.imgur.com/Kmxk7OM.png"
             alt="edit"
@@ -137,7 +137,7 @@ const ShowProfileFeed = ({
             {showGender(displayedUser.gender)}
           </div>
           <div className="gender" id="orientation">
-            <h4>Interested in:</h4>
+            <h4>Sexuality:</h4>
             {showGender(displayedUser.orientation)}
           </div>
         </div>
@@ -153,9 +153,7 @@ const ShowProfileFeed = ({
         {p.map((post, index) => (
           <div key={index}>{showPost(post)}</div>
         ))}
-        <div>
-          
-        </div>
+        <div></div>
         <div className="socials">
           {showIg()}
           {showFb()}

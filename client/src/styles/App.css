@@ -94,17 +94,17 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60vw;
+  width: 52vw;
   border: 2px solid black;
   border-radius: 20px;
-  /* background-color: rgb(231, 229, 229); */
+
   background-color: rgba(255, 255, 255, 0.8);
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
 
 .profile img {
-  width: 32vw;
+  width: 25vw;
   border-radius: 20px;
 }
 .ShownUserName,
@@ -115,7 +115,7 @@ html {
   padding: 1vw;
   background-color: rgba(250, 143, 143, 0.5);
   margin: 1vh;
-  width: 30vw;
+  width: 23vw;
 }
 .displayed_pfp img {
   padding: 0;
@@ -124,7 +124,7 @@ html {
 }
 
 .box-title {
-  border-bottom: 1px lightgray solid;
+  border-bottom: 1px black solid;
 }
 .ShownUserName {
   display: flex;
@@ -133,9 +133,7 @@ html {
 .ShownUserName h3 {
   margin: 0;
 }
-.whole-media {
-  text-align: center;
-}
+
 .ShownUserName h1 {
   margin-bottom: 1vh;
   margin-top: 1vh;
@@ -161,7 +159,7 @@ html {
 
 .socials {
   display: flex;
-  width: 30vw;
+  width: 23vw;
   justify-content: space-evenly;
 }
 
@@ -201,13 +199,13 @@ html {
 }
 .gender-orientation {
   display: flex;
-  width: 32vw;
+  width: 25vw;
   justify-content: space-around;
 }
 
 .gender {
   border: 2px solid black;
-  border-radius: 30px;
+  border-radius: 23px;
   padding: 0.5vh 1vw;
   background-color: rgba(250, 143, 143, 0.5);
   /* width: 14vw; */
@@ -220,14 +218,14 @@ html {
 .new-media {
   display: flex;
   flex-direction: column;
-  width: 32vw;
+  width: 25vw;
   min-height: 40vw;
   border: 2px solid black;
   border-radius: 20px;
   padding: 1vw;
-  background-color: rgba(250, 143, 143, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   align-items: center;
-  margin-top: 1vh;
+  margin: 1vh 0 4vh 0;
 }
 
 .edit-post-icon img {
@@ -236,7 +234,7 @@ html {
   cursor: pointer;
 }
 .edit-post-icon {
-  width: 32vw;
+  width: 25vw;
   margin-top: 2vh;
   margin-bottom: 1vh;
   text-align: end;
@@ -255,7 +253,7 @@ html {
 }
 
 .image-post {
-  min-width: 30vw;
+  min-width: 23vw;
 }
 
 .post-image img,
@@ -265,7 +263,7 @@ iframe,
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid black;
-  min-width: 30vw;
+  min-width: 23vw;
   min-height: 5vw;
   text-align: center;
 }
@@ -289,7 +287,7 @@ iframe,
 }
 
 iframe {
-  width: 32vw;
+  width: 25vw;
 }
 
 .bio,
@@ -342,7 +340,7 @@ iframe {
   cursor: pointer;
 }
 .edit-icon {
-  width: 57vw;
+  width: 50vw;
   margin-top: 2vh;
   margin-bottom: 2vh;
   text-align: end;
@@ -350,7 +348,7 @@ iframe {
   justify-content: space-between;
 }
 .input-box {
-  width: 7vw;
+  width: 5vw;
   height: 1vh;
   border-radius: 6px;
   border: 1px black solid;
@@ -417,7 +415,7 @@ iframe {
   padding: 2px;
 }
 textarea {
-  width: 30vw;
+  width: 23vw;
   height: 10vh;
   border-radius: 20px;
   border: 1px black solid;
@@ -462,7 +460,7 @@ textarea {
 }
 
 .image-post img {
-  min-width: 32vw;
+  min-width: 25vw;
   min-height: 19vw;
 }
 
@@ -473,7 +471,7 @@ textarea {
 #video_url,
 #title {
   margin-left: 0;
-  width: 30vw;
+  width: 23vw;
 }
 
 .intro-words {
@@ -515,6 +513,10 @@ textarea {
 .signup-btn button {
   padding: 1vh;
   cursor: pointer;
+  background-color: white;
+}
+#edit-profile-right {
+  flex-direction: row-reverse;
 }
 .already-member {
   text-align: center;
@@ -534,7 +536,32 @@ textarea {
 .already-member p {
   margin: 1vh;
 }
-
+.whole-media {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.bio-conditional {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-width: 25vw;
+  margin-bottom: 1vh;
+  border-radius: 6px;
+  padding: 0 1vh 0vh 1vh;
+}
+.bio-conditional-type:hover {
+  cursor: pointer;
+  background-color: white;
+  padding: 0 1vh 0vh 1vh;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+#bio-selected-type {
+  background-color: white;
+  padding: 0 1vh 0vh 1vh;
+  border-radius: 6px;
+}
 /*  */
 /* FOR MOBILE */
 /*  */
@@ -571,7 +598,7 @@ textarea {
     justify-content: space-around;
   }
   .gender {
-    width: 30vw;
+    width: 23vw;
   }
   .gender img,
   .reg-form-gender img {

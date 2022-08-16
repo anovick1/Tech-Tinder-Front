@@ -22,8 +22,8 @@ const DeleteUser = ({ setCurrentUser, currentUser }) => {
   }
 
   return !deleteA ? (
-    <div className="Delete" id="delete-show">
-      <h3 onClick={() => deleteAccount()}>Delete Account</h3>
+    <div className="Delete" id="delete-show" onClick={() => deleteAccount()}>
+      <h3>Delete Account</h3>
     </div>
   ) : (
     <div className="Delete">
