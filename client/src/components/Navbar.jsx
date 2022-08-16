@@ -17,8 +17,20 @@ const Navbar = ({ currentUser, profile, setProfile }) => {
             </div>
           </button>
           <div className="dropdown-content">
-            <Link to={'/profile'} className="user-profile">
+            <Link
+              to={'/profile'}
+              className="user-profile"
+              onClick={() => setProfile(true)}
+            >
               <h4>Profile</h4>
+            </Link>
+
+            <Link
+              to={'/profile'}
+              className="user-profile"
+              onClick={() => setProfile(false)}
+            >
+              <h4>Connections</h4>
             </Link>
 
             <Link to="/">
