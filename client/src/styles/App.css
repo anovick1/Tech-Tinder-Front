@@ -573,6 +573,32 @@ textarea {
   border-radius: 6px;
   border: 1px solid black;
 }
+.connection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  margin: 5vh;
+  width: 12vw;
+  border-radius: 20px;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.connect-name h2 {
+  padding: 0;
+  text-align: center;
+}
+
+.connect-pfp img {
+  height: auto;
+  width: 12vw;
+  border-radius: 16px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 2px solid black;
+}
 /*  */
 /* FOR MOBILE */
 /*  */

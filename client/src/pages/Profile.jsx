@@ -10,7 +10,8 @@ const Profile = ({
   setCurrentUser,
   setPosts,
   profile,
-  setProfile
+  setProfile,
+  connections
 }) => {
   const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
@@ -38,6 +39,7 @@ const Profile = ({
         setPosts={setPosts}
         profile={profile}
         setProfile={setProfile}
+        connections={connections}
       />
     )
   ) : (

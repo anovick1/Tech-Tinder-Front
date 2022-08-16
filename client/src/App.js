@@ -17,7 +17,8 @@ function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
   const [connections, setConnections] = useState([])
-
+  const [likes, setLikes] = useState([])
+  const [likedMe, setLikedMe] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   const [profile, setProfile] = useState(true)
   const [count, setCount] = useState(0)
@@ -55,21 +56,6 @@ function App() {
     GetUsers().then((res) => setUsers(res))
   }, [])
 
-  // useEffect(() => {
-  //   GetLikedMe(currentUser.id).then((res) => setLikedMe(res))
-  //   GetUserLikes(currentUser.id).then((res) => setLikes(res))
-  //   // let c
-  //   // for (let i = 0; i < likes.likes.length; i++) {
-  //   //   for (let j = 0; i < likedMe.liked_me.length; j++) {
-  //   //     console.log(likes[i])
-  //   //     if (likes.likes[i].id === likedMe.liked_me[i].id) {
-  //   //       c.push(likes[i].id)
-  //   //     }
-  //   //   }
-  //   // }
-
-  //   // setConnections(c)
-  // }, [])
   return (
     <div>
       <main>
@@ -108,6 +94,10 @@ function App() {
                   setCurrentUser={setCurrentUser}
                   connections={connections}
                   setConnections={setConnections}
+                  likes={likes}
+                  setLikes={setLikes}
+                  likedMe={likedMe}
+                  setLikedMe={setLikedMe}
                 />
               </>
             }
@@ -133,6 +123,10 @@ function App() {
                   setProfile={setProfile}
                   connections={connections}
                   setConnections={setConnections}
+                  likes={likes}
+                  setLikes={setLikes}
+                  likedMe={likedMe}
+                  setLikedMe={setLikedMe}
                 />
               </>
             }

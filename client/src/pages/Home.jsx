@@ -10,18 +10,21 @@ const Home = ({
   users,
   setCurrentUser,
   connections,
-  setConnections
+  setConnections,
+  likes,
+  setLikes,
+  likedMe,
+  setLikedMe
 }) => {
   const [count, setCount] = useState(0)
   const arr = []
   let displayedUser = arr[count]
 
-  const [likes, setLikes] = useState([])
-  const [likedMe, setLikedMe] = useState([])
   useEffect(() => {
     if (currentUser != null) {
       GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
       GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
+
       let c = []
       for (let i = 0; i < likes.length; i++) {
         for (let j = 0; j < likedMe.length; j++) {
