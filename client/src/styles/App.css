@@ -577,21 +577,34 @@ textarea {
   align-items: center;
   flex-direction: column;
   background-color: white;
-  width: 12vw;
+  width: 20vw;
   border-radius: 20px;
   border-bottom: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
+  justify-content: space-around;
+}
+.connection:hover {
+}
+.connection:active {
+  box-shadow: 0px 0px 300px 0px rgba(0, 0, 0, 0.25);
+}
+.each-connection:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
-.connect-name h2 {
+.connect-name h3 {
   padding: 0;
   text-align: center;
 }
-
+.connect-name {
+  width: 20vw;
+}
 .connect-pfp img {
-  height: auto;
-  width: 12vw;
+  height: 12vw;
+  width: 20vw;
+  object-fit: cover;
   border-radius: 16px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -649,13 +662,24 @@ textarea {
 }
 .shown-connections {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  width: 50vw;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .match-icon-connections img {
   height: 3vw;
   width: 3vw;
+  margin-bottom: -3vh;
+  opacity: 1;
 }
+
+.match-icon-connections {
+  position: relative;
+  top: 0.2vh;
+  left: 8.5vw;
+}
+
 .each-connection {
   display: flex;
   flex-direction: column;

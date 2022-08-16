@@ -30,9 +30,9 @@ const Connection = ({
                 <img src={users[i].pfp_link} alt="pfp" />
               </div>
               <div className="connect-name">
-                <h2>
+                <h3>
                   {users[i].firstName} {users[i].lastName}
-                </h2>
+                </h3>
               </div>
             </div>
           </div>
