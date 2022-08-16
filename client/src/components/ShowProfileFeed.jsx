@@ -3,6 +3,7 @@ import VideoPosts from './VideoPosts'
 import ImagePosts from './ImagePosts'
 import WrittenPosts from './WrittenPosts'
 import CreatePostForm from './CreatePostForm'
+import Connection from './Connection'
 
 const ShowProfileFeed = ({
   currentUser,
@@ -11,7 +12,9 @@ const ShowProfileFeed = ({
   displayedUser,
   edit,
   setEdit,
-  setPosts
+  setPosts,
+  profile,
+  setProfile
 }) => {
   const p = []
   for (let i = 0; i < posts.length; i++) {
@@ -106,60 +109,84 @@ const ShowProfileFeed = ({
 
   return currentUser && displayedUser ? (
     <div className="feed">
-      <div className="profile">
-        <div className="edit-icon" id="edit-profile-right">
-          <img
-            src="https://i.imgur.com/Kmxk7OM.png"
-            alt="edit"
-            onClick={() => editBtn()}
-          />
-        </div>
-        <div className="ShownUserName">
-          <div>
-            <h1>
-              {displayedUser.firstName} {displayedUser.lastName},{' '}
-              {displayedUser.age}
-            </h1>
+      {profile ? (
+        <div className="profile">
+          <div className="edit-icon" id="edit-profile-right">
+            <img
+              src="https://i.imgur.com/Kmxk7OM.png"
+              alt="edit"
+              onClick={() => editBtn()}
+              id="edit-profilebtn"
+            />
+            <div className="bio-conditional">
+              <div
+                className="bio-conditional-type"
+                id="bio-selected-type"
+                onClick={() => setProfile(true)}
+              >
+                <h1>Profile</h1>
+              </div>
+              <div
+                className="bio-conditional-type"
+                onClick={() => setProfile(false)}
+              >
+                <h1>Connections</h1>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>
-              {' '}
-              {displayedUser.city}, {displayedUser.state}
-            </h3>
+          <div className="ShownUserName">
+            <div>
+              <h1>
+                {displayedUser.firstName} {displayedUser.lastName},{' '}
+                {displayedUser.age}
+              </h1>
+            </div>
+            <div>
+              <h3>
+                {' '}
+                {displayedUser.city}, {displayedUser.state}
+              </h3>
+            </div>
+          </div>
+          <div className="displayed_pfp">
+            <img src={displayedUser.pfp_link} alt="pfp" />
+          </div>
+          <div className="gender-orientation">
+            <div className="gender">
+              <h4>Gender:</h4>
+              {showGender(displayedUser.gender)}
+            </div>
+            <div className="gender" id="orientation">
+              <h4>Sexuality:</h4>
+              {showGender(displayedUser.orientation)}
+            </div>
+          </div>
+          <div className="bio">
+            <div className="box-title">
+              <h2>Bio</h2>
+            </div>
+            <div className="bio-text">
+              <h4>{displayedUser.bio}</h4>
+            </div>
+          </div>
+          <CreatePostForm currentUser={currentUser} setPosts={setPosts} />
+          {p.map((post, index) => (
+            <div key={index}>{showPost(post)}</div>
+          ))}
+          <div></div>
+          <div className="socials">
+            {showIg()}
+            {showFb()}
+            {showLi()}
           </div>
         </div>
-        <div className="displayed_pfp">
-          <img src={displayedUser.pfp_link} alt="pfp" />
-        </div>
-        <div className="gender-orientation">
-          <div className="gender">
-            <h4>Gender:</h4>
-            {showGender(displayedUser.gender)}
-          </div>
-          <div className="gender" id="orientation">
-            <h4>Sexuality:</h4>
-            {showGender(displayedUser.orientation)}
-          </div>
-        </div>
-        <div className="bio">
-          <div className="box-title">
-            <h2>Bio</h2>
-          </div>
-          <div className="bio-text">
-            <h4>{displayedUser.bio}</h4>
-          </div>
-        </div>
-        <CreatePostForm currentUser={currentUser} setPosts={setPosts} />
-        {p.map((post, index) => (
-          <div key={index}>{showPost(post)}</div>
-        ))}
-        <div></div>
-        <div className="socials">
-          {showIg()}
-          {showFb()}
-          {showLi()}
-        </div>
-      </div>
+      ) : (
+        <Connection
+          profile={profile}
+          setProfile={setProfile}
+          displayedUser={currentUser}
+        />
+      )}
     </div>
   ) : (
     ''

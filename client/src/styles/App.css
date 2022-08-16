@@ -336,6 +336,7 @@ iframe {
 }
 .edit-icon img {
   width: 3vw;
+  height: 3vw;
   border-radius: 0;
   cursor: pointer;
 }
@@ -346,6 +347,7 @@ iframe {
   text-align: end;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .input-box {
   width: 5vw;
@@ -517,6 +519,7 @@ textarea {
 }
 #edit-profile-right {
   flex-direction: row-reverse;
+  border-bottom: 1px solid black;
 }
 .already-member {
   text-align: center;
@@ -536,6 +539,9 @@ textarea {
 .already-member p {
   margin: 1vh;
 }
+#edit-profilebtn {
+  margin: 0 1vh 5vh 0;
+}
 .whole-media {
   display: flex;
   flex-direction: column;
@@ -544,23 +550,28 @@ textarea {
 .bio-conditional {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   min-width: 25vw;
   margin-bottom: 1vh;
   border-radius: 6px;
   padding: 0 1vh 0vh 1vh;
 }
-.bio-conditional-type:hover {
+#connections-cond {
+  border-bottom: 1px solid black;
+}
+.bio-conditional-type:hover,
+#bio-selected-type:hover {
   cursor: pointer;
   background-color: white;
   padding: 0 1vh 0vh 1vh;
   border-radius: 6px;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 #bio-selected-type {
   background-color: white;
   padding: 0 1vh 0vh 1vh;
   border-radius: 6px;
+  border: 1px solid black;
 }
 /*  */
 /* FOR MOBILE */
