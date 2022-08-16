@@ -9,15 +9,20 @@ const LikeDislikeButtons = ({
   connections,
   setConnections,
   likes,
-  likedMe
+  likedMe,
+  connect,
+  setConnect
 }) => {
-  const [connect, setConnect] = useState(false)
-
   const likeClick = () => {
-    let likeCount = count + 1
-
-    // setCount(likeCount)
     LikeUser(currentUser.id, displayedUser.id)
+    for (let i = 0; i < likedMe.length; i++) {
+      if (likedMe[i].id === displayedUser.id) {
+        setConnect(true)
+        let c = connections
+        c.push(likedMe[i].id)
+        setConnections(c)
+      }
+    }
   }
 
   const dislikeClick = () => {
@@ -25,7 +30,7 @@ const LikeDislikeButtons = ({
     setCount(likeCount)
   }
 
-  return currentUser ? (
+  return currentUser && !connect ? (
     <div>
       <img
         src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"

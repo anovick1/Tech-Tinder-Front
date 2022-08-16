@@ -3,6 +3,7 @@ import ShowUserFeed from '../components/ShowUserFeed'
 import LikeDislikeButtons from '../components/LikeDislikeButtons'
 import ComeAgain from '../components/ComeAgain'
 import { GetUsers, GetLikedMe, GetUserLikes } from '../services/UserServices'
+import NewConnection from '../components/NewConnection'
 
 const Home = ({
   currentUser,
@@ -14,15 +15,18 @@ const Home = ({
   likes,
   setLikes,
   likedMe,
-  setLikedMe
+  setLikedMe,
+  profile,
+  setProfile
 }) => {
   const [count, setCount] = useState(0)
+  const [connect, setConnect] = useState(false)
+
   const arr = []
   let displayedUser = arr[count]
 
   useEffect(() => {
     if (currentUser != null) {
-      console.log('test')
       GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
       GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     }
@@ -38,7 +42,6 @@ const Home = ({
           }
         }
       }
-      console.log(c)
       setConnections(c)
     }
   }, [likes])
@@ -59,6 +62,8 @@ const Home = ({
               posts={posts}
               users={users}
               displayedUser={displayedUser}
+              connect={connect}
+              setConnect={setConnect}
             />
             <LikeDislikeButtons
               setCount={setCount}
@@ -69,6 +74,18 @@ const Home = ({
               setConnections={setConnections}
               likes={likes}
               likedMe={likedMe}
+              connect={connect}
+              setConnect={setConnect}
+            />
+            <NewConnection
+              displayedUser={displayedUser}
+              currentUser={currentUser}
+              connect={connect}
+              setConnect={setConnect}
+              count={count}
+              setCount={setCount}
+              profile={profile}
+              setProfile={setProfile}
             />
           </>
         ) : (
@@ -89,6 +106,8 @@ const Home = ({
               posts={posts}
               users={users}
               displayedUser={displayedUser}
+              connect={connect}
+              setConnect={setConnect}
             />
             <LikeDislikeButtons
               setCount={setCount}
@@ -99,6 +118,18 @@ const Home = ({
               setConnections={setConnections}
               likes={likes}
               likedMe={likedMe}
+              connect={connect}
+              setConnect={setConnect}
+            />
+            <NewConnection
+              displayedUser={displayedUser}
+              currentUser={currentUser}
+              connect={connect}
+              setConnect={setConnect}
+              count={count}
+              setCount={setCount}
+              profile={profile}
+              setProfile={setProfile}
             />
           </>
         ) : (

@@ -5,6 +5,8 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import SignIn from './pages/SignIn'
+import ShowUserFeed from './components/ShowUserFeed'
+
 import {
   GetImagePosts,
   GetVideoPosts,
@@ -22,6 +24,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [profile, setProfile] = useState(true)
   const [count, setCount] = useState(0)
+  const [viewMatch, setViewMatch] = useState(null)
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
     setCurrentUser(null)
@@ -98,6 +101,8 @@ function App() {
                   setLikes={setLikes}
                   likedMe={likedMe}
                   setLikedMe={setLikedMe}
+                  profile={profile}
+                  setProfile={setProfile}
                 />
               </>
             }
@@ -127,6 +132,27 @@ function App() {
                   setLikes={setLikes}
                   likedMe={likedMe}
                   setLikedMe={setLikedMe}
+                  viewMatch={viewMatch}
+                  setViewMatch={setViewMatch}
+                />
+              </>
+            }
+          />
+          <Route
+            path="/profile/:userId"
+            element={
+              <>
+                <Navbar
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  profile={profile}
+                  setProfile={setProfile}
+                />
+                <ShowUserFeed
+                  currentUser={currentUser}
+                  posts={posts}
+                  users={users}
+                  displayedUser={viewMatch}
                 />
               </>
             }
