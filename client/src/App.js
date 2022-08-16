@@ -18,6 +18,7 @@ function App() {
   const [posts, setPosts] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   const [profile, setProfile] = useState(true)
+  const [count, setCount] = useState(0)
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
     setCurrentUser(null)
@@ -65,6 +66,8 @@ function App() {
                 setUsers={setUsers}
                 posts={posts}
                 setPosts={setPosts}
+                count={count}
+                setCount={setCount}
               />
             }
           />

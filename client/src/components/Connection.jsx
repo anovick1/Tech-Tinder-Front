@@ -1,4 +1,5 @@
 import React from 'react'
+import {LikedUser, GetUserLikes} from '../services/UserServices'
 
 const Connection = ({ profile, setProfile, displayedUser }) => {
   return (
