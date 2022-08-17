@@ -849,7 +849,7 @@ img {
     background-color: rgba(255, 255, 255, 0.8);
   }
 
-  .input-box, #video_url, #img_url, #title, .image-post, .edit-bio-text, #written-post, iframe{
+  .input-box, #video_url, #img_url, #title, .image-post, .image-post img, .edit-bio-text, #written-post, iframe{
     width: 80vw;
   }
   .post-image img {
@@ -949,5 +949,37 @@ img {
    width: 90vw;
     display: flex;
     justify-content: space-around;
+  }
+  #profile-connections{
+
+    width:80vw;
+  }
+  .edit-btn-please-dear-god-work{
+    display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  }
+  #edit-profilebtn{
+    margin: 0;
+  }
+  .trashcan-icon img{
+    height: 2vh;
+    width: auto;
+    position: static;
+    background-color: rgba(250, 143, 143, 0.5);
+    
+  }
+  .trashcan-icon {
+    position: relative;
+    height: 2vh;
+    width: 2vh;
+    bottom: 0;
+    top: 3em;
+    left: -3em ;
+  }
+  .post{
+    display: flex;
+    flex-direction: column-reverse;
+align-items: flex-end;
   }
 }
