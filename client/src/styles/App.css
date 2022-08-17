@@ -445,6 +445,12 @@ textarea {
   display: flex;
   justify-content: space-evenly;
 }
+#confirm:active {
+  transform: scale(0.8);
+}
+#cancel:active {
+  transform: scale(0.8);
+}
 .Delete {
   background-color: rgb(250, 160, 160);
   padding: 1vh;
@@ -733,13 +739,42 @@ img {
 .trashcan-icon img {
   height: 2vw;
   width: 2vw;
-  padding: 3vh;
+  padding: 1vh;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.trashcan-icon img:hover {
+  background-color: white;
+  border: 1px black solid;
+}
+.trashcan-icon img:active {
+  background-color: white;
+  border: 1px black solid;
+  transform: scale(0.8);
 }
 .trashcan-icon {
   position: relative;
   bottom: 22vh;
-  left: 25vw;
+  left: 27vw;
+  height: 0;
+  width: 0;
 }
+#deletePost {
+  background-color: white;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -11vh;
+  position: relative;
+  bottom: 19vh;
+  left: 5vw;
+  box-shadow: 0px 0px 300px 0px rgba(0, 0, 0, 0.5);
+}
+#delete-btn-post {
+  width: 15vw;
+}
+
 /*  */
 /* FOR MOBILE */
 /*  */

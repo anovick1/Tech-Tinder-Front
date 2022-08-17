@@ -77,11 +77,13 @@ const DeleteUser = ({
           src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
           alt="edit"
           onClick={() => deleteAccount()}
+          id="cancel"
         />
         <img
           src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
           alt="edit"
           onClick={() => deleteUserAcc()}
+          id="confirm"
         />
       </div>
     </div>

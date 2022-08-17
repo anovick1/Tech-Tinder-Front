@@ -44,7 +44,7 @@ const VideoPosts = ({
     setDeletePost(false)
   }
   return currentUser ? (
-    <div className="post">
+    <div className="post" key={post.text}>
       <div className="image-post">
         <div className="post-image">
           <iframe
@@ -69,18 +69,20 @@ const VideoPosts = ({
       {deletePost ? (
         <div className="Delete" id="deletePost">
           <div>
-            <h4>Are you sure you want to delete this post?</h4>
+            <h4>Are you sure you?</h4>
           </div>
-          <div className="delete-buttons">
+          <div className="delete-buttons" id="delete-btn-post">
             <img
               src="https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png"
               alt="edit"
               onClick={() => cancel()}
+              id="cancel"
             />
             <img
               src="https://freeiconshop.com/wp-content/uploads/edd/checkmark-flat.png"
               alt="edit"
               onClick={() => deletePostClick(post.id)}
+              id="confirm"
             />
           </div>
         </div>

@@ -221,7 +221,7 @@ const ShowProfileFeed = ({
             setShownPosts={setShownPosts}
           />
           {shownPosts.map((post, index) => (
-            <div key={index}>{showPost(post)}</div>
+            <>{showPost(post)}</>
           ))}
           <div></div>
           <div className="socials">
