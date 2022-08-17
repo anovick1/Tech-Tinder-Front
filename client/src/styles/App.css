@@ -199,7 +199,7 @@ html {
 }
 .gender-orientation {
   display: flex;
-  width: 25vw;
+  width: 28vw;
   justify-content: space-around;
 }
 
@@ -208,11 +208,15 @@ html {
   border-radius: 23px;
   padding: 0.5vh 1vw;
   background-color: rgba(250, 143, 143, 0.5);
-  /* width: 14vw; */
+  margin: 1vh 0;
   justify-content: space-evenly;
   display: flex;
   align-items: center;
   height: 3vh;
+}
+#edit-gender {
+  flex-direction: column;
+  width: 18vw;
 }
 
 .new-media {
@@ -298,7 +302,9 @@ iframe {
 }
 
 #like-icon-top,
-#dislike-icon-top, #like-icon-bottom, #dislike-icon-bottom {
+#dislike-icon-top,
+#like-icon-bottom,
+#dislike-icon-bottom {
   width: 5vw;
   position: relative;
   background-color: rgba(250, 143, 143, 0.5);
@@ -315,16 +321,20 @@ iframe {
 .like-icons-buttons {
   margin-top: -5vh;
 }
-#like-icon-bottom, #like-icon-top {
+#like-icon-bottom,
+#like-icon-top {
   left: 65vw;
 }
-#like-icon-top, #dislike-icon-top {
+#like-icon-top,
+#dislike-icon-top {
   top: 12vw;
 }
-#like-icon-bottom, #dislike-icon-bottom {
+#like-icon-bottom,
+#dislike-icon-bottom {
   bottom: 6vw;
 }
-#dislike-icon-bottom, #dislike-icon-top {
+#dislike-icon-bottom,
+#dislike-icon-top {
   left: 19vw;
 }
 .user-profile:hover {
@@ -355,16 +365,14 @@ iframe {
   height: 3vw;
   border-radius: 0;
   cursor: pointer;
-  
 }
-.new-edit-icon{
+.new-edit-icon {
   width: 10vw;
 }
-.edit-btn-please-dear-god-work{
+.edit-btn-please-dear-god-work {
   display: flex;
-
 }
-#edit-profilebtn-invisible{
+#edit-profilebtn-invisible {
   opacity: 0;
 }
 .edit-icon {
@@ -590,9 +598,8 @@ textarea {
   padding: 0 1vh 0vh 1vh;
   margin-top: 1vh;
 }
-#profile-connections{
-
-  width:40vw;
+#profile-connections {
+  width: 40vw;
 }
 #connections-cond {
   border-bottom: 1px solid black;
@@ -844,12 +851,32 @@ img {
   .displayed_pfp img,
   .login-page,
   .card-overlay,
-  .col, .new-media {
+  .col,
+  .new-media {
     width: 85vw;
     background-color: rgba(255, 255, 255, 0.8);
   }
+  .pfp-label {
+    width: 80vw;
+  }
+  #pfp_link,
+  #ig_link,
+  #fb_link,
+  #li_link {
+    width: 30vw;
+  }
 
-  .input-box, #video_url, #img_url, #title, .image-post, .image-post img, .edit-bio-text, #written-post, iframe{
+  .input-box {
+    width: 20vw;
+  }
+  #video_url,
+  #img_url,
+  #title,
+  .image-post,
+  .image-post img,
+  .edit-bio-text,
+  #written-post,
+  iframe {
     width: 80vw;
   }
   .post-image img {
@@ -884,18 +911,14 @@ img {
     margin: 1em;
   }
   .bio-conditional-text {
-    
     min-width: 0vw;
   }
-  /* .edit-icon{
-    width: 0;
-    
-  } */
-  #edit-profile-right{
+
+  #edit-profile-right {
     width: 85vw;
   }
 
-  #edit-profilebtn{
+  #edit-profilebtn {
     width: 10vw;
     height: auto;
 
@@ -910,12 +933,14 @@ img {
     width: 70vw;
   }
   .gender-orientation {
-    justify-content: space-around;
-  }
-  .gender {
-    width: 29vw;
+    justify-content: space-between;
+    width: 85vw;
   }
 
+  .whole-media,
+  textarea {
+    width: 85vw;
+  }
   .gender img,
   .reg-form-gender img {
     width: 6vw;
@@ -931,43 +956,41 @@ img {
   header {
     background-color: rgba(250, 143, 143, 0.5);
   }
-  .feed{
+  .feed {
     background-color: rgba(250, 143, 143, 0.5);
   }
-  .profile{
-    background-color:rgba(250, 143, 143, 0.5);
+  .profile {
+    background-color: rgba(250, 143, 143, 0.5);
   }
-  .image-post, .gender{
+  .image-post,
+  .gender {
     background-color: rgba(255, 255, 255, 0.8);
   }
-  .edit-post-icon img{
+  .edit-post-icon img {
     height: 4vh;
     width: auto;
-    
   }
   .edit-post-icon {
-   width: 90vw;
+    width: 90vw;
     display: flex;
     justify-content: space-around;
   }
-  #profile-connections{
-
-    width:80vw;
+  #profile-connections {
+    width: 80vw;
   }
-  .edit-btn-please-dear-god-work{
+  .edit-btn-please-dear-god-work {
     display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-end;
+    flex-direction: column-reverse;
+    align-items: flex-end;
   }
-  #edit-profilebtn{
+  #edit-profilebtn {
     margin: 0;
   }
-  .trashcan-icon img{
+  .trashcan-icon img {
     height: 2vh;
     width: auto;
     position: static;
     background-color: rgba(250, 143, 143, 0.5);
-    
   }
   .trashcan-icon {
     position: relative;
@@ -975,11 +998,40 @@ img {
     width: 2vh;
     bottom: 0;
     top: 3em;
-    left: -3em ;
+    left: -3em;
   }
-  .post{
+  .post {
     display: flex;
     flex-direction: column-reverse;
-align-items: flex-end;
+    align-items: flex-end;
+  }
+  #deletePost {
+    left: -23vw;
+    bottom: -8vh;
+    width: 35vw;
+  }
+  #delete-btn-post {
+    width: 35vw;
+    justify-content: space-between;
+  }
+  .delete-buttons img,
+  .edit-icon img {
+    width: 8vw;
+    height: 8vw;
+  }
+  #edit-gender {
+    width: 80vw;
+  }
+  .ShownUserName h1 {
+    margin-left: 0;
+  }
+  .ShownUserName {
+    text-align: center;
+  }
+  #edit-mobile-socials {
+    width: 55vw;
+  }
+  .Delete {
+    background-color: white;
   }
 }

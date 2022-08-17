@@ -217,7 +217,7 @@ const ProfileEditForm = ({
             />
           </div>
         </div>
-        <div className="gender-orientation">
+        <div className="gender-orientation" id="edit-gender">
           <div className="gender">
             <EditGender
               currentUser={currentUser}
@@ -225,7 +225,7 @@ const ProfileEditForm = ({
               setFormValues={setFormValues}
             />
           </div>
-          <div className="gender" id="orientation">
+          <div className="gender">
             <EditOrientation
               currentUser={currentUser}
               formValues={formValues}
@@ -260,70 +260,70 @@ const ProfileEditForm = ({
           {showIg()}
           {showFb()}
           {showLi()}
-        </div>
-        <div className="edit-socials">
-          <div className="pfp-label">
-            <div>
-              <div className="social-img">
-                <a href={formValues.ig_link} target="_blank" rel="noreferrer">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
-                    alt="ig"
-                  />
-                </a>
+          <div className="edit-socials">
+            <div className="pfp-label" id="edit-mobile-socials">
+              <div>
+                <div className="social-img">
+                  <a href={formValues.ig_link} target="_blank" rel="noreferrer">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+                      alt="ig"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
-            <div>
-              <input
-                type="text"
-                defaultValue={formValues.ig_link}
-                onChange={handleChange}
-                id={'ig_link'}
-                placeholder={'Instagram URL'}
-                className="input-box"
-              />
-            </div>
-          </div>
-          <div className="pfp-label">
-            <div>
-              <div className="social-img">
-                <a href={formValues.fb_link} target="_blank" rel="noreferrer">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/1419/1419513.png"
-                    alt="ig"
-                  />
-                </a>
-              </div>
-            </div>
-            <div>
-              <input
-                type="text"
-                defaultValue={formValues.fb_link}
-                onChange={handleChange}
-                id={'fb_link'}
-                placeholder={'Facebook URL'}
-                className="input-box"
-              />
-            </div>
-          </div>
-          <div className="pfp-label">
-            <div className="social-img">
-              <a href="yes" target="_blank" rel="noreferrer">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png"
-                  alt="ig"
+              <div>
+                <input
+                  type="text"
+                  defaultValue={formValues.ig_link}
+                  onChange={handleChange}
+                  id={'ig_link'}
+                  placeholder={'Instagram URL'}
+                  className="input-box"
                 />
-              </a>
+              </div>
             </div>
-            <div>
-              <input
-                type="text"
-                defaultValue={formValues.li_link}
-                onChange={handleChange}
-                id={'li_link'}
-                placeholder={'LinkedIn URL'}
-                className="input-box"
-              />
+            <div className="pfp-label" id="edit-mobile-socials">
+              <div>
+                <div className="social-img">
+                  <a href={formValues.fb_link} target="_blank" rel="noreferrer">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/1419/1419513.png"
+                      alt="ig"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  defaultValue={formValues.fb_link}
+                  onChange={handleChange}
+                  id={'fb_link'}
+                  placeholder={'Facebook URL'}
+                  className="input-box"
+                />
+              </div>
+            </div>
+            <div className="pfp-label" id="edit-mobile-socials">
+              <div className="social-img">
+                <a href="yes" target="_blank" rel="noreferrer">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png"
+                    alt="ig"
+                  />
+                </a>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  defaultValue={formValues.li_link}
+                  onChange={handleChange}
+                  id={'li_link'}
+                  placeholder={'LinkedIn URL'}
+                  className="input-box"
+                />
+              </div>
             </div>
           </div>
         </div>
