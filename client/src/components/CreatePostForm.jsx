@@ -12,7 +12,14 @@ import {
   GetWrittenPosts
 } from '../services/PostServices'
 
-const CreatePostForm = ({ currentUser, post, setPosts }) => {
+const CreatePostForm = ({
+  currentUser,
+  post,
+  setPosts,
+  posts,
+  shownPosts,
+  setShownPosts
+}) => {
   const [formValues, setFormValues] = useState({
     title: '',
     text: '',
@@ -21,7 +28,6 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     caption: '',
     userId: parseInt(currentUser.id)
   })
-
   const [selectImage, setSelectImage] = useState(false)
   const [selectVideo, setSelectVideo] = useState(false)
   const [selectWritten, setSelectWritten] = useState(false)
@@ -64,7 +70,13 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
             <h3>New Image Post</h3>
           </div>
           <div className="box-title">
-            <ImagePosts post={formValues} displayedUser={currentUser} />
+            <ImagePosts
+              post={formValues}
+              currentUser={currentUser}
+              newPost={true}
+              posts={posts}
+              setPosts={setPosts}
+            />
           </div>
           <div className="media-inputs">
             <div className="url-input">
@@ -111,7 +123,13 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
             <h3>New Video Post</h3>
           </div>
           <div className="box-title">
-            <VideoPosts post={formValues} displayedUser={currentUser} />
+            <VideoPosts
+              post={formValues}
+              currentUser={currentUser}
+              newPost={true}
+              posts={posts}
+              setPosts={setPosts}
+            />
           </div>
           <div className="media-inputs">
             <div className="url-input">
@@ -158,7 +176,13 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
             <h3>New Written Post</h3>
           </div>
           <div className="box-title">
-            <WrittenPosts post={formValues} />
+            <WrittenPosts
+              post={formValues}
+              newPost={true}
+              currentUser={currentUser}
+              posts={posts}
+              setPosts={setPosts}
+            />
           </div>
           <div className="media-inputs">
             <div className="url-input">
@@ -244,8 +268,14 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     await GetVideoPosts().then((res) => chicken(res))
     await GetWrittenPosts().then((res) => chicken(res))
     const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
-
     await setPosts(sortPosts)
+    const p = []
+    for (let i = 0; i < sortPosts.length; i++) {
+      if (parseInt(sortPosts[i].userId) === parseInt(currentUser.id)) {
+        p.push(sortPosts[i])
+      }
+    }
+    setShownPosts(p)
   }
 
   const confirmVideoPost = async () => {
@@ -276,8 +306,14 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     await GetVideoPosts().then((res) => chicken(res))
     await GetWrittenPosts().then((res) => chicken(res))
     const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
-
     await setPosts(sortPosts)
+    const p = []
+    for (let i = 0; i < sortPosts.length; i++) {
+      if (parseInt(sortPosts[i].userId) === parseInt(currentUser.id)) {
+        p.push(sortPosts[i])
+      }
+    }
+    setShownPosts(p)
   }
 
   const confirmWrittenPost = async () => {
@@ -308,8 +344,14 @@ const CreatePostForm = ({ currentUser, post, setPosts }) => {
     await GetVideoPosts().then((res) => chicken(res))
     await GetWrittenPosts().then((res) => chicken(res))
     const sortPosts = allPosts.slice().sort((a, b) => b.time - a.time)
-
     await setPosts(sortPosts)
+    const p = []
+    for (let i = 0; i < sortPosts.length; i++) {
+      if (parseInt(sortPosts[i].userId) === parseInt(currentUser.id)) {
+        p.push(sortPosts[i])
+      }
+    }
+    setShownPosts(p)
   }
 
   const cancel = async () => {
