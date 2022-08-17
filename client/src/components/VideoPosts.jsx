@@ -14,6 +14,15 @@ const VideoPosts = ({
   posts,
   setShownPosts
 }) => {
+  const getId = (link) => {
+    let reverse = link.split('').reverse().join('')
+    let id = ''
+    for (let i = 0; i < 11; i++) {
+      id = id + reverse[i]
+    }
+    let final = id.split('').reverse().join('')
+    return 'https://www.youtube.com/embed/' + final
+  }
   const [deletePost, setDeletePost] = useState(false)
   const cancel = () => {
     setDeletePost(false)
@@ -48,7 +57,7 @@ const VideoPosts = ({
       <div className="image-post">
         <div className="post-image">
           <iframe
-            src={post.video_url}
+            src={getId(post.video_url)}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
