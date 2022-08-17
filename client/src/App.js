@@ -26,6 +26,7 @@ function App() {
   const [profile, setProfile] = useState(true)
   const [count, setCount] = useState(0)
   const [viewMatch, setViewMatch] = useState(null)
+  const [mobile, setMobile] = useState(window.innerWidth < 600)
 
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
@@ -101,6 +102,8 @@ function App() {
                   setProfile={setProfile}
                   viewedUsers={viewedUsers}
                   setViewedUsers={setViewedUsers}
+                  mobile={mobile}
+                  setMobile={setMobile}
                 />
               </>
             }

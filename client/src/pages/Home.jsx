@@ -25,7 +25,9 @@ const Home = ({
   setProfile,
   viewedUsers,
   setViewedUsers,
-  setUsers
+  setUsers,
+  mobile,
+  setMobile
 }) => {
   const [count, setCount] = useState(0)
   const [connect, setConnect] = useState(false)
@@ -87,6 +89,28 @@ const Home = ({
         console.log(displayedUser)
         return count < arr.length ? (
           <>
+          {!mobile ? (
+            <LikeDislikeButtons
+            setCount={setCount}
+            count={count}
+            currentUser={currentUser}
+            displayedUser={displayedUser}
+            connections={connections}
+            setConnections={setConnections}
+            likes={likes}
+            likedMe={likedMe}
+            setLikedMe={setLikedMe}
+            setLikes={setLikes}
+            setViewedUsers={setViewedUsers}
+            connect={connect}
+            setConnect={setConnect}
+            topLikes={1}
+            mobile={mobile}
+            setMobile={setMobile}
+          />
+          ) : (
+            ''
+          )}
             <ShowUserFeed
               currentUser={currentUser}
               posts={posts}
@@ -109,6 +133,9 @@ const Home = ({
               setViewedUsers={setViewedUsers}
               connect={connect}
               setConnect={setConnect}
+              topLikes={0}
+              mobile={mobile}
+              setMobile={setMobile}
             />
             <NewConnection
               displayedUser={displayedUser}
@@ -129,7 +156,7 @@ const Home = ({
         )
       }
       if (currentUser.orientation === 'Female') {
-        for (let i = 0; i < users.length; i++) {
+        for (let i = 0; i < us.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
             if (us[i].id === viewedUsers[j].id) {
               us.splice(i, 1)
@@ -142,6 +169,28 @@ const Home = ({
         displayedUser = arr[count]
         return count < arr.length ? (
           <>
+          {!mobile ? (
+            <LikeDislikeButtons
+            setCount={setCount}
+            count={count}
+            currentUser={currentUser}
+            displayedUser={displayedUser}
+            connections={connections}
+            setConnections={setConnections}
+            likes={likes}
+            likedMe={likedMe}
+            setLikedMe={setLikedMe}
+            setLikes={setLikes}
+            setViewedUsers={setViewedUsers}
+            connect={connect}
+            setConnect={setConnect}
+            topLikes={1}
+            mobile={mobile}
+            setMobile={setMobile}
+          />
+          ) : (
+            ''
+          )}
             <ShowUserFeed
               currentUser={currentUser}
               posts={posts}
@@ -164,6 +213,9 @@ const Home = ({
               setLikedMe={setLikedMe}
               setLikes={setLikes}
               setViewedUsers={setViewedUsers}
+              topLikes={0}
+              mobile={mobile}
+              setMobile={setMobile}
             />
             <NewConnection
               displayedUser={displayedUser}
@@ -184,7 +236,7 @@ const Home = ({
         )
       }
       if (currentUser.orientation === 'Both') {
-        for (let i = 0; i < users.length; i++) {
+        for (let i = 0; i < us.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
             if (us[i].id === viewedUsers[j].id) {
               us.splice(i, 1)
@@ -197,6 +249,28 @@ const Home = ({
         displayedUser = arr[count]
         return count < arr.length ? (
           <>
+            {!mobile ? (
+            <LikeDislikeButtons
+            setCount={setCount}
+            count={count}
+            currentUser={currentUser}
+            displayedUser={displayedUser}
+            connections={connections}
+            setConnections={setConnections}
+            likes={likes}
+            likedMe={likedMe}
+            setLikedMe={setLikedMe}
+            setLikes={setLikes}
+            setViewedUsers={setViewedUsers}
+            connect={connect}
+            setConnect={setConnect}
+            topLikes={1}
+            mobile={mobile}
+            setMobile={setMobile}
+          />
+          ) : (
+            ''
+          )}
             <ShowUserFeed
               currentUser={currentUser}
               posts={posts}
@@ -215,6 +289,9 @@ const Home = ({
               setLikedMe={setLikedMe}
               setLikes={setLikes}
               setViewedUsers={setViewedUsers}
+              topLikes={0}
+              mobile={mobile}
+              setMobile={setMobile}
             />
           </>
         ) : (

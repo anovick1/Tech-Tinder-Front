@@ -297,30 +297,40 @@ iframe {
   margin: 1vh;
 }
 
-#like-icon,
-#dislike-icon {
+#like-icon-top,
+#dislike-icon-top, #like-icon-bottom, #dislike-icon-bottom {
   width: 5vw;
-  position: fixed;
-  bottom: 10%;
+  position: relative;
   background-color: rgba(250, 143, 143, 0.5);
   padding: 1vh;
   border-radius: 20px;
 }
-#like-icon:hover,
-#dislike-icon:hover {
+#like-icon-top:hover,
+#dislike-icon-top:hover,
+#like-icon-bottom:hover,
+#dislike-icon-bottom:hover {
   border: 2px solid black;
   cursor: pointer;
+}
+.like-icons-buttons {
+  margin-top: -5vh;
+}
+#like-icon-bottom, #like-icon-top {
+  left: 65vw;
+}
+#like-icon-top, #dislike-icon-top {
+  top: 12vw;
+}
+#like-icon-bottom, #dislike-icon-bottom {
+  bottom: 6vw;
+}
+#dislike-icon-bottom, #dislike-icon-top {
+  left: 19vw;
 }
 .user-profile:hover {
   cursor: pointer;
   border: 1px solid black;
   background-color: rgba(250, 143, 143, 0.5);
-}
-#like-icon {
-  right: 25vw;
-}
-#dislike-icon {
-  left: 25vw;
 }
 
 .come-again {
@@ -731,10 +741,13 @@ img {
   bottom: 1vh;
   z-index: 2;
 }
-#like-icon:active,
-#dislike-icon:active {
+#like-icon-top:active,
+#dislike-icon-top:active,
+#like-icon-bottom:active,
+#dislike-icon-bottom:active {
   transform: scale(0.8);
   box-shadow: 0px 0px 300px 0px rgba(0, 0, 0);
+  background-color: white;
 }
 .trashcan-icon img {
   height: 2vw;
@@ -782,23 +795,24 @@ img {
   .profile {
     border-radius: 0;
     width: 100vw;
+    border: none;
   }
-  #like-icon,
-  #dislike-icon {
-    width: 15vw;
+  #like-icon-bottom,
+  #dislike-icon-bottom {
+    width: 10vw;
     position: fixed;
-    bottom: 10%;
-    background-color: rgba(211, 211, 211, 0.709);
+    bottom: 7.5%;
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 20px;
     border: 1px black solid;
     padding: 3vw;
   }
 
-  #like-icon {
-    right: 10vw;
+  #like-icon-bottom {
+    left: 77.5vw;
   }
-  #dislike-icon {
-    left: 10vw;
+  #dislike-icon-bottom {
+    left: 6vw;
   }
   .ShownUserName,
   .bio,
@@ -863,5 +877,11 @@ img {
   .social-img img {
     width: 8vw;
     justify-content: space-around;
+  }
+  html {
+    background-image: none;
+  }
+  header {
+    background-color: rgba(250, 143, 143, 0.5);
   }
 }

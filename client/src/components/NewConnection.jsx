@@ -22,8 +22,6 @@ const NewConnection = ({
   let navigate = useNavigate()
 
   const keepSwiping = async () => {
-    let likeCount = count + 1
-    setCount(likeCount)
     setConnect(false)
     await ViewUser(currentUser.id, displayedUser.id)
 
@@ -35,8 +33,6 @@ const NewConnection = ({
   }
 
   const viewConnections = async () => {
-    let likeCount = count + 1
-    setCount(likeCount)
     setConnect(false)
     setProfile(false)
     await ViewUser(currentUser.id, displayedUser.id)
