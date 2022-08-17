@@ -31,7 +31,6 @@ const LikeDislikeButtons = ({
     await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     for (let i = 0; i < likedMe.length; i++) {
       if (likedMe[i].id === displayedUser.id) {
-        console.log(likedMe[i])
         setConnect(true)
         let c = connections
         c.push(likedMe[i].id)
@@ -40,12 +39,12 @@ const LikeDislikeButtons = ({
       }
     }
     if (!connect) {
-      console.log('here')
       let likeCount = count + 1
+      console.log('test')
+
       setCount(likeCount)
     }
   }
-console.log(topLikes)
   const dislikeClick = async () => {
     ViewUser(currentUser.id, displayedUser.id)
     await GetViewedUsers(currentUser.id).then((res) =>
@@ -54,38 +53,36 @@ console.log(topLikes)
     let likeCount = count + 1
     setCount(likeCount)
   }
-  
-console.log(window.innerWidth)
+
   return currentUser && !connect ? (
     <div className="like-icons-buttons">
-    {topLikes === 1 ? (
-      <>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"
-        id="like-icon-top"
-        onClick={() => likeClick()}
-      />
-      <img
-        src="https://cdn-icons-png.flaticon.com/128/1828/1828527.png"
-        id="dislike-icon-top"
-        onClick={() => dislikeClick()}
-      />
-    </>
-    ) : (
-      <>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"
-        id="like-icon-bottom"
-        onClick={() => likeClick()}
-      />
-      <img
-        src="https://cdn-icons-png.flaticon.com/128/1828/1828527.png"
-        id="dislike-icon-bottom"
-        onClick={() => dislikeClick()}
-      />
-    </>
-    )
-    }
+      {topLikes === 1 ? (
+        <>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"
+            id="like-icon-top"
+            onClick={() => likeClick()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/1828/1828527.png"
+            id="dislike-icon-top"
+            onClick={() => dislikeClick()}
+          />
+        </>
+      ) : (
+        <>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"
+            id="like-icon-bottom"
+            onClick={() => likeClick()}
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/1828/1828527.png"
+            id="dislike-icon-bottom"
+            onClick={() => dislikeClick()}
+          />
+        </>
+      )}
     </div>
   ) : (
     ''

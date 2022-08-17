@@ -38,7 +38,6 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
       )
     }
   }
-  console.log(p)
   const showLi = () => {
     if (displayedUser.li_link != null) {
       return (
@@ -56,13 +55,31 @@ const ShowUserFeed = ({ currentUser, posts, users, displayedUser }) => {
 
   const showPost = (post) => {
     if (post.type === 'image') {
-      return <ImagePosts post={post} displayedUser={displayedUser} currentUser={currentUser} />
+      return (
+        <ImagePosts
+          post={post}
+          displayedUser={displayedUser}
+          currentUser={currentUser}
+        />
+      )
     }
     if (post.type === 'video') {
-      return <VideoPosts post={post} displayedUser={displayedUser} currentUser={currentUser} />
+      return (
+        <VideoPosts
+          post={post}
+          displayedUser={displayedUser}
+          currentUser={currentUser}
+        />
+      )
     }
     if (post.type === 'written') {
-      return <WrittenPosts post={post} displayedUser={displayedUser} currentUser={currentUser} />
+      return (
+        <WrittenPosts
+          post={post}
+          displayedUser={displayedUser}
+          currentUser={currentUser}
+        />
+      )
     }
   }
 
