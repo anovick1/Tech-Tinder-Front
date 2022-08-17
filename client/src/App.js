@@ -26,11 +26,6 @@ function App() {
   const [profile, setProfile] = useState(true)
   const [count, setCount] = useState(0)
   const [viewMatch, setViewMatch] = useState(null)
-  const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
-    setCurrentUser(null)
-    localStorage.clear()
-  }
 
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user

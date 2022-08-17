@@ -1,6 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import {
+  GetLikedMe,
+  GetUserLikes,
+  GetViewedUsers,
+  ViewUser
+} from '../services/UserServices'
 const NewConnection = ({
   displayedUser,
   currentUser,
@@ -9,21 +14,39 @@ const NewConnection = ({
   count,
   setCount,
   profile,
-  setProfile
+  setProfile,
+  setLikedMe,
+  setLikes,
+  setViewedUsers
 }) => {
   let navigate = useNavigate()
 
-  const keepSwiping = () => {
+  const keepSwiping = async () => {
     let likeCount = count + 1
     setCount(likeCount)
     setConnect(false)
+    await ViewUser(currentUser.id, displayedUser.id)
+
+    await GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
+    await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
+    await GetViewedUsers(currentUser.id).then((res) =>
+      setViewedUsers(res[0].viewed)
+    )
   }
 
-  const viewConnections = () => {
+  const viewConnections = async () => {
     let likeCount = count + 1
     setCount(likeCount)
     setConnect(false)
     setProfile(false)
+    await ViewUser(currentUser.id, displayedUser.id)
+
+    await GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
+    await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
+    await GetViewedUsers(currentUser.id).then((res) =>
+      setViewedUsers(res[0].viewed)
+    )
+
     navigate('/profile')
   }
 

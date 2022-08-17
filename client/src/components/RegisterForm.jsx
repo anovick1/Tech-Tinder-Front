@@ -46,6 +46,7 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
       bio: 'Just here to have fun!'
     })
     let u = await GetUsers()
+    console.log(u + 'reg')
     await setUsers(u)
     for (let i = 0; i < u.length; i++) {
       if (u[i].passwordDigest === 'test') {

@@ -24,7 +24,8 @@ const Home = ({
   profile,
   setProfile,
   viewedUsers,
-  setViewedUsers
+  setViewedUsers,
+  setUsers
 }) => {
   const [count, setCount] = useState(0)
   const [connect, setConnect] = useState(false)
@@ -52,7 +53,10 @@ const Home = ({
       setConnections(c)
     }
   }, [likes])
-
+  useEffect(() => {
+    GetUsers().then((res) => setUsers(res))
+    // console.log(users)
+  }, [])
   useEffect(() => {
     if (currentUser != null) {
       GetViewedUsers(currentUser.id).then((res) =>
@@ -60,21 +64,27 @@ const Home = ({
       )
     }
   }, [currentUser])
+
   const showFeed = () => {
     if (currentUser != null) {
-      const u = users
+      let us = []
+      for (let i = 0; i < users.length; i++) {
+        us.push(users[i])
+      }
       if (currentUser.orientation === 'Male') {
-        for (let i = 0; i < u.length; i++) {
+        for (let i = 0; i < us.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
-            if (u[i].id === viewedUsers[j].id) {
-              u.splice(i, 1)
+            if (us[i].id === viewedUsers[j].id) {
+              console.log(viewedUsers[j])
+              us.splice(i, 1)
             }
           }
-          if (u[i].gender === 'Male' && u[i].id !== currentUser.id) {
-            arr.push(u[i])
+          if (us[i].gender === 'Male' && us[i].id !== currentUser.id) {
+            arr.push(us[i])
           }
         }
         displayedUser = arr[count]
+        console.log(displayedUser)
         return count < arr.length ? (
           <>
             <ShowUserFeed
@@ -94,6 +104,9 @@ const Home = ({
               setConnections={setConnections}
               likes={likes}
               likedMe={likedMe}
+              setLikedMe={setLikedMe}
+              setLikes={setLikes}
+              setViewedUsers={setViewedUsers}
               connect={connect}
               setConnect={setConnect}
             />
@@ -106,6 +119,9 @@ const Home = ({
               setCount={setCount}
               profile={profile}
               setProfile={setProfile}
+              setLikedMe={setLikedMe}
+              setLikes={setLikes}
+              setViewedUsers={setViewedUsers}
             />
           </>
         ) : (
@@ -115,12 +131,12 @@ const Home = ({
       if (currentUser.orientation === 'Female') {
         for (let i = 0; i < users.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
-            if (u[i].id === viewedUsers[j].id) {
-              u.splice(i, 1)
+            if (us[i].id === viewedUsers[j].id) {
+              us.splice(i, 1)
             }
           }
-          if (users[i].gender === 'Female' && users[i].id !== currentUser.id) {
-            arr.push(users[i])
+          if (us[i].gender === 'Female' && us[i].id !== currentUser.id) {
+            arr.push(us[i])
           }
         }
         displayedUser = arr[count]
@@ -145,6 +161,9 @@ const Home = ({
               likedMe={likedMe}
               connect={connect}
               setConnect={setConnect}
+              setLikedMe={setLikedMe}
+              setLikes={setLikes}
+              setViewedUsers={setViewedUsers}
             />
             <NewConnection
               displayedUser={displayedUser}
@@ -155,6 +174,9 @@ const Home = ({
               setCount={setCount}
               profile={profile}
               setProfile={setProfile}
+              setLikedMe={setLikedMe}
+              setLikes={setLikes}
+              setViewedUsers={setViewedUsers}
             />
           </>
         ) : (
@@ -164,12 +186,12 @@ const Home = ({
       if (currentUser.orientation === 'Both') {
         for (let i = 0; i < users.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
-            if (u[i].id === viewedUsers[j].id) {
-              u.splice(i, 1)
+            if (us[i].id === viewedUsers[j].id) {
+              us.splice(i, 1)
             }
           }
-          if (users[i].id !== currentUser.id) {
-            arr.push(users[i])
+          if (us[i].id !== currentUser.id) {
+            arr.push(us[i])
           }
         }
         displayedUser = arr[count]
@@ -190,6 +212,9 @@ const Home = ({
               setConnections={setConnections}
               likes={likes}
               likedMe={likedMe}
+              setLikedMe={setLikedMe}
+              setLikes={setLikes}
+              setViewedUsers={setViewedUsers}
             />
           </>
         ) : (
