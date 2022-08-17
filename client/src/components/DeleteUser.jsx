@@ -48,12 +48,10 @@ const DeleteUser = ({
     )
     if (viewedUsers.length >= 1) {
       for (let i = 0; i < viewedUsers.length; i++) {
-        await DeleteView(
-          parseInt(parseInt(currentUser.id), parseInt(viewedUsers[i].id))
-        )
+        await DeleteView(parseInt(currentUser.id), parseInt(viewedUsers[i].id))
       }
     }
-    let v = await GetViewedMe(currentUser.id)
+    let v = await GetViewedMe(parseInt(currentUser.id))
     let vw = v[0].viewedMe
     if (vw.length >= 1) {
       for (let i = 0; i < vw.length; i++) {
@@ -65,7 +63,6 @@ const DeleteUser = ({
     localStorage.clear()
     navigate('/')
   }
-
   return !deleteA ? (
     <div className="Delete" id="delete-show" onClick={() => deleteAccount()}>
       <h3>Delete Account</h3>
