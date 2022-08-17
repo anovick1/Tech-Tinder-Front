@@ -53,3 +53,28 @@ export const CreateWrittenPost = async (body) => {
     throw error
   }
 }
+
+export const DeleteWrittenPost = async (id) => {
+  try {
+    const res = await Client.delete('/writtenposts/' + id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+export const DeleteImagePost = async (id) => {
+  try {
+    const res = await Client.delete('/imageposts/' + id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+export const DeleteVideoPost = async (id) => {
+  try {
+    const res = await Client.delete('/videoposts/' + id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

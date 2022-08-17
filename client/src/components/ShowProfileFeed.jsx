@@ -31,6 +31,8 @@ const ShowProfileFeed = ({
       p.push(posts[i])
     }
   }
+  const [shownPosts, setShownPosts] = useState(p)
+
   const showIg = () => {
     if (displayedUser.ig_link != null && displayedUser.ig_link.length > 1) {
       return (
@@ -76,13 +78,46 @@ const ShowProfileFeed = ({
 
   const showPost = (post) => {
     if (post.type === 'image') {
-      return <ImagePosts post={post} displayedUser={displayedUser} />
+      return (
+        <ImagePosts
+          post={post}
+          displayedUser={displayedUser}
+          currentUser={currentUser}
+          newPost={false}
+          shownPosts={shownPosts}
+          setShownPosts={setShownPosts}
+          setPosts={setPosts}
+          posts={posts}
+        />
+      )
     }
     if (post.type === 'video') {
-      return <VideoPosts post={post} displayedUser={displayedUser} />
+      return (
+        <VideoPosts
+          post={post}
+          displayedUser={displayedUser}
+          currentUser={currentUser}
+          newPost={false}
+          shownPosts={shownPosts}
+          setShownPosts={setShownPosts}
+          setPosts={setPosts}
+          posts={posts}
+        />
+      )
     }
     if (post.type === 'written') {
-      return <WrittenPosts post={post} displayedUser={displayedUser} />
+      return (
+        <WrittenPosts
+          post={post}
+          displayedUser={displayedUser}
+          currentUser={currentUser}
+          newPost={false}
+          shownPosts={shownPosts}
+          setShownPosts={setShownPosts}
+          setPosts={setPosts}
+          posts={posts}
+        />
+      )
     }
   }
   const showGender = (gender) => {
@@ -178,8 +213,14 @@ const ShowProfileFeed = ({
               <h4>{displayedUser.bio}</h4>
             </div>
           </div>
-          <CreatePostForm currentUser={currentUser} setPosts={setPosts} />
-          {p.map((post, index) => (
+          <CreatePostForm
+            currentUser={currentUser}
+            posts={posts}
+            setPosts={setPosts}
+            shownPosts={shownPosts}
+            setShownPosts={setShownPosts}
+          />
+          {shownPosts.map((post, index) => (
             <div key={index}>{showPost(post)}</div>
           ))}
           <div></div>
