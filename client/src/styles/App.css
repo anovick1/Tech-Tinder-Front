@@ -737,6 +737,7 @@ img {
   .profile {
     border-radius: 0;
     width: 100vw;
+   
   }
   #like-icon,
   #dislike-icon {
@@ -758,9 +759,49 @@ img {
   .ShownUserName,
   .bio,
   .image-post img,
-  .displayed_pfp img,
+  .displayed_pfp img, .login-page, .card-overlay, .col, 
   iframe {
     width: 85vw;
+  }
+  .reg-form-gender{
+    width: 40vw;
+  }
+
+  .newConnection{
+    width: 60vw;
+    right: 20vw;
+  }
+
+  .connection, .connect-pfp img{
+    height: 25vh;
+    width: 45vw;
+  }
+  .connect-name h3{
+    margin:0;
+    padding-bottom: 3em;
+  }
+
+  .match-icon-connections img{
+    width: 10vw;
+    height: 10vw;
+  }
+ 
+    h1 {
+      font-size:1.5em;
+      margin: 1em;
+      
+    }
+  .bio-conditional{
+    left: 0vw;
+  }
+
+
+  .match-type-option{
+    margin: 1vw;
+  }
+  
+  .input-box-mid {
+    width: 76vw;
   }
   .gender-orientation {
     justify-content: space-around;
