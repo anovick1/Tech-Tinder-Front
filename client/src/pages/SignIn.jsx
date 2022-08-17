@@ -6,7 +6,16 @@ const SignIn = ({ setCurrentUser, users, count, setCount, setUsers }) => {
   const [register, setRegister] = useState(true)
   const checkForm = () => {
     if (register === true) {
-      return <RegisterForm register={register} setRegister={setRegister} users={users} count={count} setCount={setCount} setUsers={setUsers} />
+      return (
+        <RegisterForm
+          register={register}
+          setRegister={setRegister}
+          users={users}
+          count={count}
+          setCount={setCount}
+          setUsers={setUsers}
+        />
+      )
     } else {
       return (
         <SignInForm
@@ -22,7 +31,10 @@ const SignIn = ({ setCurrentUser, users, count, setCount, setUsers }) => {
       <div className="login-page">
         <div className="intro-words">
           <h1>Tech-Tinder</h1>
-          <h3>The place to meet fellow nerds and maybe find your soulmate</h3>
+          <img
+            className="signin-logo"
+            src="https://cdn-icons-png.flaticon.com/512/3771/3771451.png"
+          />
         </div>
         {checkForm()}
       </div>

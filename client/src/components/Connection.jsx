@@ -55,11 +55,19 @@ const Connection = ({
           <h1>Connections</h1>
         </div>
       </div>
-      <div className="shown-connections">
-        {connections.map((c, index) => (
-          <div key={index}>{showConnect(c)}</div>
-        ))}
-      </div>
+      {connections.length > 0 ? (
+        <div className="shown-connections">
+          {connections.map((c, index) => (
+            <div key={index}>{showConnect(c)}</div>
+          ))}
+        </div>
+      ) : (
+        <div className="no-connect">
+          <div className="come-again">
+            No connections yet . . . Keep Swiping!
+          </div>
+        </div>
+      )}
     </div>
   )
 }
