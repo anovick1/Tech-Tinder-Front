@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react'
 import ShowUserFeed from '../components/ShowUserFeed'
 import LikeDislikeButtons from '../components/LikeDislikeButtons'
 import ComeAgain from '../components/ComeAgain'
-import { GetUsers, GetLikedMe, GetUserLikes } from '../services/UserServices'
+import {
+  GetUsers,
+  GetLikedMe,
+  GetUserLikes,
+  GetViewedUsers
+} from '../services/UserServices'
 import NewConnection from '../components/NewConnection'
 
 const Home = ({
@@ -17,7 +22,9 @@ const Home = ({
   likedMe,
   setLikedMe,
   profile,
-  setProfile
+  setProfile,
+  viewedUsers,
+  setViewedUsers
 }) => {
   const [count, setCount] = useState(0)
   const [connect, setConnect] = useState(false)
@@ -46,14 +53,27 @@ const Home = ({
     }
   }, [likes])
 
+  useEffect(() => {
+    if (currentUser != null) {
+      GetViewedUsers(currentUser.id).then((res) =>
+        setViewedUsers(res[0].viewed)
+      )
+    }
+  }, [currentUser])
   const showFeed = () => {
     if (currentUser != null) {
+      const u = users
       if (currentUser.orientation === 'Male') {
-        for (let i = 0; i < users.length; i++) {
-          if (users[i].gender === 'Male' && users[i].id !== currentUser.id) {
-            arr.push(users[i])
+        for (let i = 0; i < u.length; i++) {
+          for (let j = 0; j < viewedUsers.length; j++) {
+            if (u[i].id === viewedUsers[j].id) {
+              u.splice(i, 1)
+            } else if (u[i].gender === 'Male' && u[i].id !== currentUser.id) {
+              arr.push(u[i])
+            }
           }
         }
+        console.log(arr)
         displayedUser = arr[count]
         return count < arr.length ? (
           <>
@@ -94,8 +114,16 @@ const Home = ({
       }
       if (currentUser.orientation === 'Female') {
         for (let i = 0; i < users.length; i++) {
-          if (users[i].gender === 'Female' && users[i].id !== currentUser.id) {
-            arr.push(users[i])
+          for (let j = 0; j < viewedUsers.length; j++) {
+            if (u[i].id === viewedUsers[j].id) {
+              u.splice(i, 1)
+            } else if (
+              users[i].gender === 'Female' &&
+              users[i].id !== currentUser.id &&
+              users[i].id !== viewedUsers[j].id
+            ) {
+              arr.push(users[i])
+            }
           }
         }
         displayedUser = arr[count]
@@ -138,8 +166,15 @@ const Home = ({
       }
       if (currentUser.orientation === 'Both') {
         for (let i = 0; i < users.length; i++) {
-          if (users[i].id !== currentUser.id) {
-            arr.push(users[i])
+          for (let j = 0; j < viewedUsers.length; j++) {
+            if (u[i].id === viewedUsers[j].id) {
+              u.splice(i, 1)
+            } else if (
+              users[i].id !== currentUser.id &&
+              users[i].id !== viewedUsers[j].id
+            ) {
+              arr.push(users[i])
+            }
           }
         }
         displayedUser = arr[count]

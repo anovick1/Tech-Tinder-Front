@@ -33,6 +33,14 @@ export const LikeUser = async (user_id, liked_id) => {
     throw error
   }
 }
+export const ViewUser = async (user_id, viewed_id) => {
+  try {
+    const res = await Client.post(`/users/view/${user_id}/${viewed_id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
 export const GetUserLikes = async (id) => {
   try {
     const res = await Client.get('/users/liked/' + id)
@@ -44,6 +52,14 @@ export const GetUserLikes = async (id) => {
 export const GetLikedMe = async (id) => {
   try {
     const res = await Client.get('/users/likedme/' + id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+export const GetViewedUsers = async (id) => {
+  try {
+    const res = await Client.get('/users/view/' + id)
     return res.data
   } catch (error) {
     throw error
@@ -75,6 +91,14 @@ export const updateUser = async (user_id, body) => {
 export const DeleteLike = async (userId, liked_id) => {
   try {
     const res = await Client.delete('/users/like/' + userId + '/' + liked_id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+export const DeleteView = async (userId, liked_id) => {
+  try {
+    const res = await Client.delete('/users/view/' + userId + '/' + liked_id)
     return res.data
   } catch (error) {
     throw error
