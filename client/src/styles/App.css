@@ -1,5 +1,5 @@
 header {
-  background-color: rgba(250, 143, 143, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid black;
 }
 nav {
@@ -97,10 +97,15 @@ html {
   width: 52vw;
   border: 2px solid black;
   border-radius: 20px;
-
   background-color: rgba(255, 255, 255, 0.8);
-  margin-top: 2vh;
+  margin-top: 0vh;
   margin-bottom: 2vh;
+}
+.login-page {
+  margin-top: 2vh;
+}
+.signin-logo {
+  height: 5vw;
 }
 
 .profile img {
@@ -199,7 +204,7 @@ html {
 }
 .gender-orientation {
   display: flex;
-  width: 25vw;
+  width: 28vw;
   justify-content: space-around;
 }
 
@@ -208,11 +213,15 @@ html {
   border-radius: 23px;
   padding: 0.5vh 1vw;
   background-color: rgba(250, 143, 143, 0.5);
-  /* width: 14vw; */
+  margin: 1vh 0;
   justify-content: space-evenly;
   display: flex;
   align-items: center;
   height: 3vh;
+}
+#edit-gender {
+  flex-direction: column;
+  width: 18vw;
 }
 
 .new-media {
@@ -298,7 +307,9 @@ iframe {
 }
 
 #like-icon-top,
-#dislike-icon-top, #like-icon-bottom, #dislike-icon-bottom {
+#dislike-icon-top,
+#like-icon-bottom,
+#dislike-icon-bottom {
   width: 5vw;
   position: relative;
   background-color: rgba(250, 143, 143, 0.5);
@@ -315,16 +326,20 @@ iframe {
 .like-icons-buttons {
   margin-top: -5vh;
 }
-#like-icon-bottom, #like-icon-top {
+#like-icon-bottom,
+#like-icon-top {
   left: 65vw;
 }
-#like-icon-top, #dislike-icon-top {
+#like-icon-top,
+#dislike-icon-top {
   top: 12vw;
 }
-#like-icon-bottom, #dislike-icon-bottom {
+#like-icon-bottom,
+#dislike-icon-bottom {
   bottom: 6vw;
 }
-#dislike-icon-bottom, #dislike-icon-top {
+#dislike-icon-bottom,
+#dislike-icon-top {
   left: 19vw;
 }
 .user-profile:hover {
@@ -332,9 +347,12 @@ iframe {
   border: 1px solid black;
   background-color: rgba(250, 143, 143, 0.5);
 }
-
+.no-connect {
+  height: 77vh;
+}
 .come-again {
-  background-color: lightgrey;
+  margin-top: 6vh;
+  background-color: rgba(250, 143, 143, 0.5);
   border-radius: 20px;
   border: 1px black solid;
   padding: 5vw;
@@ -355,16 +373,14 @@ iframe {
   height: 3vw;
   border-radius: 0;
   cursor: pointer;
-  
 }
-.new-edit-icon{
+.new-edit-icon {
   width: 10vw;
 }
-.edit-btn-please-dear-god-work{
+.edit-btn-please-dear-god-work {
   display: flex;
-
 }
-#edit-profilebtn-invisible{
+#edit-profilebtn-invisible {
   opacity: 0;
 }
 .edit-icon {
@@ -590,9 +606,8 @@ textarea {
   padding: 0 1vh 0vh 1vh;
   margin-top: 1vh;
 }
-#profile-connections{
-
-  width:40vw;
+#profile-connections {
+  width: 40vw;
 }
 #connections-cond {
   border-bottom: 1px solid black;
@@ -600,16 +615,12 @@ textarea {
 .bio-conditional-type:hover,
 #bio-selected-type:hover {
   cursor: pointer;
-  background-color: white;
-  padding: 0 1vh 0vh 1vh;
-  border-radius: 6px;
-  border: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 0vh 2vw;
 }
 #bio-selected-type {
-  background-color: white;
-  padding: 0 1vh 0vh 1vh;
-  border-radius: 6px;
-  border: 1px solid black;
+  border-bottom: 2px solid black;
+  padding: 0vh 2vw;
 }
 .connection {
   display: flex;
@@ -820,6 +831,12 @@ img {
     width: 100vw;
     border: none;
     margin-top: 0;
+    min-height: 90vh;
+  }
+  .feed,
+  .feed2 {
+    background-image: url(https://cdn.staticcrate.com/stock-hd/effects/footagecrate-4k-looping-tech-background-clean-red-1-prev-full.png);
+    background-size: cover;
   }
   #like-icon-bottom,
   #dislike-icon-bottom {
@@ -842,14 +859,32 @@ img {
   .bio,
   .image-post img,
   .displayed_pfp img,
-  .login-page,
-  .card-overlay,
-  .col, .new-media {
-    width: 85vw;
+  .new-media {
+    width: 80vw;
     background-color: rgba(255, 255, 255, 0.8);
   }
+  .pfp-label,
+  .socials {
+    width: 80vw;
+  }
+  #pfp_link,
+  #ig_link,
+  #fb_link,
+  #li_link {
+    width: 30vw;
+  }
 
-  .input-box, #video_url, #img_url, #title, .image-post, .image-post img, .edit-bio-text, #written-post, iframe{
+  .input-box {
+    width: 20vw;
+  }
+  #video_url,
+  #img_url,
+  #title,
+  .image-post,
+  .image-post img,
+  .edit-bio-text,
+  #written-post,
+  iframe {
     width: 80vw;
   }
   .post-image img {
@@ -884,18 +919,14 @@ img {
     margin: 1em;
   }
   .bio-conditional-text {
-    
     min-width: 0vw;
   }
-  /* .edit-icon{
-    width: 0;
-    
-  } */
-  #edit-profile-right{
+
+  #edit-profile-right {
     width: 85vw;
   }
 
-  #edit-profilebtn{
+  #edit-profilebtn {
     width: 10vw;
     height: auto;
 
@@ -907,15 +938,21 @@ img {
   }
 
   .input-box-mid {
-    width: 70vw;
+    width: 40vw;
+  }
+  .reg-form-gender {
+    margin-right: 0;
+    width: 42vw;
   }
   .gender-orientation {
-    justify-content: space-around;
-  }
-  .gender {
-    width: 29vw;
+    justify-content: space-between;
+    width: 85vw;
   }
 
+  .whole-media,
+  textarea {
+    width: 85vw;
+  }
   .gender img,
   .reg-form-gender img {
     width: 6vw;
@@ -930,44 +967,67 @@ img {
   }
   header {
     background-color: rgba(250, 143, 143, 0.5);
+    width: 100vw;
   }
-  .feed{
+  .dropbtn {
+    margin-right: 5vw;
+  }
+
+  .feed,
+  .feed2,
+  .login-page {
     background-color: rgba(250, 143, 143, 0.5);
   }
-  .profile{
-    background-color:rgba(250, 143, 143, 0.5);
+
+  .profile,
+  .login-page {
+    background-color: rgba(250, 143, 143, 0.5);
   }
-  .image-post, .gender{
+  .login-page {
+    border: 0;
+    width: 85vw;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    max-height: 95vh;
+    border: 1px solid black;
+  }
+
+  .card-overlay {
+    border: 0;
+    width: 85vw;
+    border-radius: 20px;
+    background: none;
+  }
+
+  .image-post,
+  .gender {
     background-color: rgba(255, 255, 255, 0.8);
   }
-  .edit-post-icon img{
+  .edit-post-icon img {
     height: 4vh;
     width: auto;
-    
   }
   .edit-post-icon {
-   width: 90vw;
+    width: 90vw;
     display: flex;
     justify-content: space-around;
   }
-  #profile-connections{
-
-    width:80vw;
+  #profile-connections {
+    width: 80vw;
   }
-  .edit-btn-please-dear-god-work{
+  .edit-btn-please-dear-god-work {
     display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-end;
+    flex-direction: column-reverse;
+    align-items: flex-end;
   }
-  #edit-profilebtn{
+  #edit-profilebtn {
     margin: 0;
   }
-  .trashcan-icon img{
+  .trashcan-icon img {
     height: 2vh;
     width: auto;
     position: static;
     background-color: rgba(250, 143, 143, 0.5);
-    
   }
   .trashcan-icon {
     position: relative;
@@ -975,11 +1035,98 @@ img {
     width: 2vh;
     bottom: 0;
     top: 3em;
-    left: -3em ;
+    left: -3em;
   }
-  .post{
+  .post {
     display: flex;
     flex-direction: column-reverse;
-align-items: flex-end;
+    align-items: flex-end;
+  }
+  #deletePost {
+    left: -23vw;
+    bottom: -8vh;
+    width: 35vw;
+  }
+  #delete-btn-post {
+    width: 35vw;
+    justify-content: space-between;
+  }
+  .delete-buttons img,
+  .edit-icon img {
+    width: 8vw;
+    height: 8vw;
+  }
+  #edit-gender {
+    width: 80vw;
+  }
+  .ShownUserName h1 {
+    margin-left: 0;
+  }
+  .ShownUserName {
+    text-align: center;
+  }
+  #edit-mobile-socials {
+    width: 55vw;
+  }
+  .Delete {
+    background-color: white;
+  }
+  .match-pfp img {
+    width: 30vw;
+    height: 30vw;
+  }
+  .match-icon img {
+    width: 12vw;
+    height: 12vw;
+  }
+  #displayed-match-pfp {
+    left: 8vw;
+  }
+  #current-match-pfp {
+    right: 8vw;
+  }
+  .newConnection {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 300px 0px rgb(255, 255, 255, 0.6);
+  }
+  .shown-connections {
+    margin-top: 5vh;
+    width: 80vw;
+    margin-left: -8vw;
+  }
+  .connect-pfp img,
+  .connection,
+  .each-connection {
+    height: 25vw;
+    width: 25vw;
+  }
+  .each-connection {
+    margin-bottom: 20vw;
+  }
+  .connect-name h3 {
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  .connection {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .connect-name {
+    height: 20vw;
+    background-color: white;
+    width: 25vw;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    padding-bottom: 5vw;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  .signin-logo {
+    height: 15vw;
+  }
+  .come-again {
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }

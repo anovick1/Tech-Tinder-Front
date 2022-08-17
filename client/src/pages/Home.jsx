@@ -313,7 +313,7 @@ const Home = ({
         )
       }
     } else {
-      return 'something'
+      return ''
     }
   }
   return <div>{showFeed()}</div>

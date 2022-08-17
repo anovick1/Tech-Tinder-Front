@@ -43,28 +43,31 @@ const Connection = ({
 
   return (
     <div className="profile">
-      <div className="edit-icon" id="connections-cond">
-        <div className="bio-conditional">
-          <div
-            className="bio-conditional-type"
-            onClick={() => setProfile(true)}
-          >
-            <h1>Profile</h1>
-          </div>
-          <div
-            className="bio-conditional-type"
-            id="bio-selected-type"
-            onClick={() => setProfile(false)}
-          >
-            <h1>Connections</h1>
-          </div>
+      <div className="bio-conditional" id="profile-connections">
+        <div className="bio-conditional-type" onClick={() => setProfile(true)}>
+          <h1>Profile</h1>
+        </div>
+        <div
+          className="bio-conditional-type"
+          id="bio-selected-type"
+          onClick={() => setProfile(false)}
+        >
+          <h1>Connections</h1>
         </div>
       </div>
-      <div className="shown-connections">
-        {connections.map((c, index) => (
-          <div key={index}>{showConnect(c)}</div>
-        ))}
-      </div>
+      {connections.length > 0 ? (
+        <div className="shown-connections">
+          {connections.map((c, index) => (
+            <div key={index}>{showConnect(c)}</div>
+          ))}
+        </div>
+      ) : (
+        <div className="no-connect">
+          <div className="come-again">
+            No connections yet . . . Keep Swiping!
+          </div>
+        </div>
+      )}
     </div>
   )
 }
