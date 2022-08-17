@@ -1,5 +1,5 @@
 header {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(250, 143, 143, 0.5);
   border-bottom: 1px solid black;
 }
 nav {
@@ -39,7 +39,7 @@ nav {
 }
 .dropbtn:hover {
   cursor: pointer;
-  background-color: rgba(250, 143, 143, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .user-nav-dropdown {
@@ -350,6 +350,23 @@ iframe {
   border-radius: 0;
   cursor: pointer;
 }
+.new-edit-icon img {
+  width: 3vw;
+  height: 3vw;
+  border-radius: 0;
+  cursor: pointer;
+  
+}
+.new-edit-icon{
+  width: 10vw;
+}
+.edit-btn-please-dear-god-work{
+  display: flex;
+
+}
+#edit-profilebtn-invisible{
+  opacity: 0;
+}
 .edit-icon {
   width: 50vw;
   margin-top: 2vh;
@@ -512,8 +529,6 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: flex;
-  flex-direction: column;
   border: 2px solid black;
   border-radius: 20px;
   background-color: rgba(250, 143, 143, 0.5);
@@ -535,6 +550,7 @@ textarea {
 #edit-profile-right {
   flex-direction: row-reverse;
   border-bottom: 1px solid black;
+  justify-content: space-between;
 }
 .already-member {
   text-align: center;
@@ -561,7 +577,9 @@ textarea {
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
 }
+
 .bio-conditional {
   display: flex;
   flex-direction: row;
@@ -570,6 +588,11 @@ textarea {
   margin-bottom: 1vh;
   border-radius: 6px;
   padding: 0 1vh 0vh 1vh;
+  margin-top: 1vh;
+}
+#profile-connections{
+
+  width:40vw;
 }
 #connections-cond {
   border-bottom: 1px solid black;
@@ -796,6 +819,7 @@ img {
     border-radius: 0;
     width: 100vw;
     border: none;
+    margin-top: 0;
   }
   #like-icon-bottom,
   #dislike-icon-bottom {
@@ -820,9 +844,16 @@ img {
   .displayed_pfp img,
   .login-page,
   .card-overlay,
-  .col,
-  iframe {
+  .col, .new-media {
     width: 85vw;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .input-box, #video_url, #img_url, #title, .image-post, .edit-bio-text, #written-post, iframe{
+    width: 80vw;
+  }
+  .post-image img {
+    min-width: 80vw;
   }
   .reg-form-gender {
     width: 40vw;
@@ -852,8 +883,23 @@ img {
     font-size: 1.5em;
     margin: 1em;
   }
-  .bio-conditional {
-    left: 0vw;
+  .bio-conditional-text {
+    
+    min-width: 0vw;
+  }
+  /* .edit-icon{
+    width: 0;
+    
+  } */
+  #edit-profile-right{
+    width: 85vw;
+  }
+
+  #edit-profilebtn{
+    width: 10vw;
+    height: auto;
+
+    right: 10em;
   }
 
   .match-type-option {
@@ -861,14 +907,15 @@ img {
   }
 
   .input-box-mid {
-    width: 76vw;
+    width: 70vw;
   }
   .gender-orientation {
     justify-content: space-around;
   }
   .gender {
-    width: 23vw;
+    width: 29vw;
   }
+
   .gender img,
   .reg-form-gender img {
     width: 6vw;
@@ -883,5 +930,24 @@ img {
   }
   header {
     background-color: rgba(250, 143, 143, 0.5);
+  }
+  .feed{
+    background-color: rgba(250, 143, 143, 0.5);
+  }
+  .profile{
+    background-color:rgba(250, 143, 143, 0.5);
+  }
+  .image-post, .gender{
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .edit-post-icon img{
+    height: 4vh;
+    width: auto;
+    
+  }
+  .edit-post-icon {
+   width: 90vw;
+    display: flex;
+    justify-content: space-around;
   }
 }
