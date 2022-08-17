@@ -30,7 +30,7 @@ const Navbar = ({ currentUser, profile, setProfile }) => {
               className="user-profile"
               onClick={() => setProfile(false)}
             >
-              <h4>Connections</h4>
+              <h4>Matches</h4>
             </Link>
 
             <Link to="/">

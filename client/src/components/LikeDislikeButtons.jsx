@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { LikeUser, ViewUser } from '../services/UserServices'
+import {
+  LikeUser,
+  ViewUser,
+  GetLikedMe,
+  GetUserLikes,
+  GetViewedUsers
+} from '../services/UserServices'
 
 const LikeDislikeButtons = ({
   setCount,
@@ -12,23 +18,36 @@ const LikeDislikeButtons = ({
   likedMe,
   connect,
   setConnect,
-  set
+  setLikedMe,
+  setLikes,
+  setViewedUsers
 }) => {
-  const likeClick = () => {
-    LikeUser(currentUser.id, displayedUser.id)
-    ViewUser(currentUser.id, displayedUser.id)
+  const likeClick = async () => {
+    await LikeUser(currentUser.id, displayedUser.id)
+    await GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
+    await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     for (let i = 0; i < likedMe.length; i++) {
       if (likedMe[i].id === displayedUser.id) {
+        console.log(likedMe[i])
         setConnect(true)
         let c = connections
         c.push(likedMe[i].id)
         setConnections(c)
+        return
       }
+    }
+    if (!connect) {
+      console.log('here')
+      let likeCount = count + 1
+      setCount(likeCount)
     }
   }
 
-  const dislikeClick = () => {
+  const dislikeClick = async () => {
     ViewUser(currentUser.id, displayedUser.id)
+    await GetViewedUsers(currentUser.id).then((res) =>
+      setViewedUsers(res[0].viewed)
+    )
     let likeCount = count + 1
     setCount(likeCount)
   }
