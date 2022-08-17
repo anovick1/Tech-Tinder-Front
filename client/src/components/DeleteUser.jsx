@@ -3,7 +3,10 @@ import {
   DeleteUserAccount,
   DeleteLike,
   GetLikedMe,
-  GetUserLikes
+  GetUserLikes,
+  GetViewedUsers,
+  DeleteView,
+  GetViewedMe
 } from '../services/UserServices'
 import { useNavigate } from 'react-router-dom'
 
@@ -13,10 +16,11 @@ const DeleteUser = ({
   likes,
   setLikes,
   likedMe,
-  setLikedMe
+  setLikedMe,
+  setViewedUsers,
+  viewedUsers
 }) => {
   let navigate = useNavigate()
-
   const [deleteA, setDeleteA] = useState(false)
 
   const deleteAccount = () => {
@@ -37,6 +41,23 @@ const DeleteUser = ({
     if (likedMe.length >= 1) {
       for (let i = 0; i < likedMe.length; i++) {
         await DeleteLike(parseInt(likedMe[i].id), parseInt(currentUser.id))
+      }
+    }
+    await GetViewedUsers(currentUser.id).then((res) =>
+      setViewedUsers(res[0].viewed)
+    )
+    if (viewedUsers.length >= 1) {
+      for (let i = 0; i < viewedUsers.length; i++) {
+        await DeleteView(
+          parseInt(parseInt(currentUser.id), parseInt(viewedUsers[i].id))
+        )
+      }
+    }
+    let v = await GetViewedMe(currentUser.id)
+    let vw = v[0].viewedMe
+    if (vw.length >= 1) {
+      for (let i = 0; i < vw.length; i++) {
+        await DeleteView(parseInt(parseInt(vw[i].id)), parseInt(currentUser.id))
       }
     }
     await DeleteUserAccount(currentUser.id)

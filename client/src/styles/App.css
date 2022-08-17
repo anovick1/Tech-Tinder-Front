@@ -654,6 +654,9 @@ textarea {
   border-radius: 50%;
   border: 1px solid black;
 }
+img {
+  object-fit: cover;
+}
 .connect-pfps {
   display: flex;
 }

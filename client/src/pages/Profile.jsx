@@ -19,7 +19,9 @@ const Profile = ({
   setLikedMe,
   setConnections,
   viewMatch,
-  setViewMatch
+  setViewMatch,
+  setViewedUsers,
+  viewedUsers
 }) => {
   const [edit, setEdit] = useState(false)
   const displayedUser = currentUser
@@ -58,6 +60,8 @@ const Profile = ({
         setLikes={setLikes}
         likedMe={likedMe}
         setLikedMe={setLikedMe}
+        setViewedUsers={setViewedUsers}
+        viewedUsers={viewedUsers}
       />
     ) : (
       <ShowProfileFeed

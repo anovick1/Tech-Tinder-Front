@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react'
 import ShowUserFeed from '../components/ShowUserFeed'
 import LikeDislikeButtons from '../components/LikeDislikeButtons'
 import ComeAgain from '../components/ComeAgain'
-import { GetUsers, GetLikedMe, GetUserLikes } from '../services/UserServices'
+import {
+  GetUsers,
+  GetLikedMe,
+  GetUserLikes,
+  GetViewedUsers
+} from '../services/UserServices'
 import NewConnection from '../components/NewConnection'
 
 const Home = ({
@@ -17,7 +22,9 @@ const Home = ({
   likedMe,
   setLikedMe,
   profile,
-  setProfile
+  setProfile,
+  viewedUsers,
+  setViewedUsers
 }) => {
   const [count, setCount] = useState(0)
   const [connect, setConnect] = useState(false)
@@ -46,14 +53,30 @@ const Home = ({
     }
   }, [likes])
 
+  useEffect(() => {
+    if (currentUser != null) {
+      GetViewedUsers(currentUser.id).then((res) =>
+        setViewedUsers(res[0].viewed)
+      )
+    }
+  }, [currentUser])
   const showFeed = () => {
     if (currentUser != null) {
+      const u = users
+      // console.log(u)
       if (currentUser.orientation === 'Male') {
-        for (let i = 0; i < users.length; i++) {
-          if (users[i].gender === 'Male' && users[i].id !== currentUser.id) {
-            arr.push(users[i])
+        for (let i = 0; i < u.length; i++) {
+          for (let j = 0; j < viewedUsers.length; j++) {
+            console.log('work')
+            if (u[i].id === viewedUsers[j].id) {
+              u.splice(i, 1)
+            }
+          }
+          if (u[i].gender === 'Male' && u[i].id !== currentUser.id) {
+            arr.push(u[i])
           }
         }
+        // console.log(users)
         displayedUser = arr[count]
         return count < arr.length ? (
           <>
@@ -94,6 +117,11 @@ const Home = ({
       }
       if (currentUser.orientation === 'Female') {
         for (let i = 0; i < users.length; i++) {
+          for (let j = 0; j < viewedUsers.length; j++) {
+            if (u[i].id === viewedUsers[j].id) {
+              u.splice(i, 1)
+            }
+          }
           if (users[i].gender === 'Female' && users[i].id !== currentUser.id) {
             arr.push(users[i])
           }
@@ -138,6 +166,11 @@ const Home = ({
       }
       if (currentUser.orientation === 'Both') {
         for (let i = 0; i < users.length; i++) {
+          for (let j = 0; j < viewedUsers.length; j++) {
+            if (u[i].id === viewedUsers[j].id) {
+              u.splice(i, 1)
+            }
+          }
           if (users[i].id !== currentUser.id) {
             arr.push(users[i])
           }

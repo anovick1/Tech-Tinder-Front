@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { LikeUser, GetLikedMe, GetUserLikes } from '../services/UserServices'
+import { LikeUser, ViewUser } from '../services/UserServices'
 
 const LikeDislikeButtons = ({
   setCount,
@@ -11,10 +11,12 @@ const LikeDislikeButtons = ({
   likes,
   likedMe,
   connect,
-  setConnect
+  setConnect,
+  set
 }) => {
   const likeClick = () => {
     LikeUser(currentUser.id, displayedUser.id)
+    ViewUser(currentUser.id, displayedUser.id)
     for (let i = 0; i < likedMe.length; i++) {
       if (likedMe[i].id === displayedUser.id) {
         setConnect(true)
@@ -26,6 +28,7 @@ const LikeDislikeButtons = ({
   }
 
   const dislikeClick = () => {
+    ViewUser(currentUser.id, displayedUser.id)
     let likeCount = count + 1
     setCount(likeCount)
   }

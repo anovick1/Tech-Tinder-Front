@@ -21,6 +21,7 @@ function App() {
   const [connections, setConnections] = useState([])
   const [likes, setLikes] = useState([])
   const [likedMe, setLikedMe] = useState([])
+  const [viewedUsers, setViewedUsers] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   const [profile, setProfile] = useState(true)
   const [count, setCount] = useState(0)
@@ -103,6 +104,8 @@ function App() {
                   setLikedMe={setLikedMe}
                   profile={profile}
                   setProfile={setProfile}
+                  viewedUsers={viewedUsers}
+                  setViewedUsers={setViewedUsers}
                 />
               </>
             }
@@ -134,6 +137,8 @@ function App() {
                   setLikedMe={setLikedMe}
                   viewMatch={viewMatch}
                   setViewMatch={setViewMatch}
+                  setViewedUsers={setViewedUsers}
+                  viewedUsers={viewedUsers}
                 />
               </>
             }
