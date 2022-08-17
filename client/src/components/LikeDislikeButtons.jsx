@@ -20,7 +20,10 @@ const LikeDislikeButtons = ({
   setConnect,
   setLikedMe,
   setLikes,
-  setViewedUsers
+  setViewedUsers,
+  topLikes,
+  mobile,
+  setMobile
 }) => {
   const likeClick = async () => {
     await LikeUser(currentUser.id, displayedUser.id)
@@ -42,7 +45,7 @@ const LikeDislikeButtons = ({
       setCount(likeCount)
     }
   }
-
+console.log(topLikes)
   const dislikeClick = async () => {
     ViewUser(currentUser.id, displayedUser.id)
     await GetViewedUsers(currentUser.id).then((res) =>
@@ -51,19 +54,38 @@ const LikeDislikeButtons = ({
     let likeCount = count + 1
     setCount(likeCount)
   }
-
+  
+console.log(window.innerWidth)
   return currentUser && !connect ? (
-    <div>
+    <div className="like-icons-buttons">
+    {topLikes === 1 ? (
+      <>
       <img
         src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"
-        id="like-icon"
+        id="like-icon-top"
         onClick={() => likeClick()}
       />
       <img
         src="https://cdn-icons-png.flaticon.com/128/1828/1828527.png"
-        id="dislike-icon"
+        id="dislike-icon-top"
         onClick={() => dislikeClick()}
       />
+    </>
+    ) : (
+      <>
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/1216/1216686.png"
+        id="like-icon-bottom"
+        onClick={() => likeClick()}
+      />
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/1828/1828527.png"
+        id="dislike-icon-bottom"
+        onClick={() => dislikeClick()}
+      />
+    </>
+    )
+    }
     </div>
   ) : (
     ''
