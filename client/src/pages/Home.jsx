@@ -63,17 +63,20 @@ const Home = ({
   const showFeed = () => {
     if (currentUser != null) {
       const u = users
+      // console.log(u)
       if (currentUser.orientation === 'Male') {
         for (let i = 0; i < u.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
+            console.log('work')
             if (u[i].id === viewedUsers[j].id) {
               u.splice(i, 1)
-            } else if (u[i].gender === 'Male' && u[i].id !== currentUser.id) {
-              arr.push(u[i])
             }
           }
+          if (u[i].gender === 'Male' && u[i].id !== currentUser.id) {
+            arr.push(u[i])
+          }
         }
-        console.log(arr)
+        // console.log(users)
         displayedUser = arr[count]
         return count < arr.length ? (
           <>
@@ -117,13 +120,10 @@ const Home = ({
           for (let j = 0; j < viewedUsers.length; j++) {
             if (u[i].id === viewedUsers[j].id) {
               u.splice(i, 1)
-            } else if (
-              users[i].gender === 'Female' &&
-              users[i].id !== currentUser.id &&
-              users[i].id !== viewedUsers[j].id
-            ) {
-              arr.push(users[i])
             }
+          }
+          if (users[i].gender === 'Female' && users[i].id !== currentUser.id) {
+            arr.push(users[i])
           }
         }
         displayedUser = arr[count]
@@ -169,12 +169,10 @@ const Home = ({
           for (let j = 0; j < viewedUsers.length; j++) {
             if (u[i].id === viewedUsers[j].id) {
               u.splice(i, 1)
-            } else if (
-              users[i].id !== currentUser.id &&
-              users[i].id !== viewedUsers[j].id
-            ) {
-              arr.push(users[i])
             }
+          }
+          if (users[i].id !== currentUser.id) {
+            arr.push(users[i])
           }
         }
         displayedUser = arr[count]
