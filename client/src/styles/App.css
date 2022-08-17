@@ -97,10 +97,15 @@ html {
   width: 52vw;
   border: 2px solid black;
   border-radius: 20px;
-
   background-color: rgba(255, 255, 255, 0.8);
-  margin-top: 2vh;
+  margin-top: 0vh;
   margin-bottom: 2vh;
+}
+.login-page {
+  margin-top: 2vh;
+}
+.signin-logo {
+  height: 5vw;
 }
 
 .profile img {
