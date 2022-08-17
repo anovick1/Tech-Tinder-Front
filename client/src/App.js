@@ -137,6 +137,8 @@ function App() {
                   setLikedMe={setLikedMe}
                   viewMatch={viewMatch}
                   setViewMatch={setViewMatch}
+                  setViewedUsers={setViewedUsers}
+                  viewedUsers={viewedUsers}
                 />
               </>
             }

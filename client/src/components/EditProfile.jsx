@@ -18,7 +18,9 @@ const ProfileEditForm = ({
   likes,
   setLikes,
   likedMe,
-  setLikedMe
+  setLikedMe,
+  setViewedUsers,
+  viewedUsers
 }) => {
   const [formValues, setFormValues] = useState({
     id: parseInt(currentUser.id),
@@ -332,6 +334,8 @@ const ProfileEditForm = ({
           setLikes={setLikes}
           likedMe={likedMe}
           setLikedMe={setLikedMe}
+          setViewedUsers={setViewedUsers}
+          viewedUsers={viewedUsers}
         />
         <div className="edit-icon">
           <img

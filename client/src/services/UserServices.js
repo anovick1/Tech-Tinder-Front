@@ -65,6 +65,14 @@ export const GetViewedUsers = async (id) => {
     throw error
   }
 }
+export const GetViewedMe = async (id) => {
+  try {
+    const res = await Client.get('/users/viewme/' + id)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
 
 export const updateUser = async (user_id, body) => {
   try {

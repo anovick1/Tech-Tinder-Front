@@ -11,7 +11,8 @@ const LikeDislikeButtons = ({
   likes,
   likedMe,
   connect,
-  setConnect
+  setConnect,
+  set
 }) => {
   const likeClick = () => {
     LikeUser(currentUser.id, displayedUser.id)
