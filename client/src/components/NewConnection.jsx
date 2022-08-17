@@ -45,7 +45,6 @@ const NewConnection = ({
 
     navigate('/profile')
   }
-
   return connect ? (
     <div className="newConnection">
       <div className="connect-pfps">
