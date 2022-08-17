@@ -45,7 +45,6 @@ const Profile = ({
       setConnections(c)
     }
   }, [likes])
-
   return currentUser && displayedUser ? (
     edit ? (
       <ProfileEditForm

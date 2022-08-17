@@ -63,7 +63,6 @@ const DeleteUser = ({
     localStorage.clear()
     navigate('/')
   }
-  console.log(viewedUsers)
   return !deleteA ? (
     <div className="Delete" id="delete-show" onClick={() => deleteAccount()}>
       <h3>Delete Account</h3>

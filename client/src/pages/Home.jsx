@@ -63,11 +63,9 @@ const Home = ({
   const showFeed = () => {
     if (currentUser != null) {
       const u = users
-      // console.log(u)
       if (currentUser.orientation === 'Male') {
         for (let i = 0; i < u.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
-            console.log('work')
             if (u[i].id === viewedUsers[j].id) {
               u.splice(i, 1)
             }
@@ -76,7 +74,6 @@ const Home = ({
             arr.push(u[i])
           }
         }
-        // console.log(users)
         displayedUser = arr[count]
         return count < arr.length ? (
           <>
