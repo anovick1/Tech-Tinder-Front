@@ -267,9 +267,7 @@ html {
   min-width: 23vw;
 }
 
-.post-image img,
-iframe,
-.image-post img,
+.post-image img .image-post img,
 .displayed_pfp img {
   border-radius: 16px;
   border-bottom-left-radius: 0;
@@ -279,8 +277,17 @@ iframe,
   width: 25vw;
   height: 23vw;
   min-height: 5vw;
-
   text-align: center;
+}
+iframe {
+  max-width: 25vw;
+  max-height: 23vw;
+  border-radius: 16px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 2px solid black;
+  text-align: center;
+  margin: 0 auto;
 }
 .displayed_pfp img {
   border-radius: 16px;
