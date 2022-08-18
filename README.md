@@ -16,7 +16,7 @@
 
 ---
 
-## <a href="https://techtinder.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
+### <a href="https://techtinder.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
 
 ---
 
