@@ -865,7 +865,6 @@ form ~ .invalid {
 .pass-val {
   display: flex;
   flex-direction: column;
-  width: 14vw;
   font-size: 14px;
 }
 .pass-containter {
@@ -1071,9 +1070,6 @@ form ~ .invalid {
     border: 1px solid black;
   }
 
-  .pass-val {
-    width: 50vw;
-  }
   .card-overlay {
     border: 0;
     min-width: 85vw;

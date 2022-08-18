@@ -20,6 +20,8 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
   let [num, setNum] = useState({ line: '', class: 'none' })
   let [spec, setSpec] = useState({ line: '', class: 'none' })
   let [size, setSize] = useState({ line: '', class: 'none' })
+  let [email, setEmail] = useState({ line: '', class: 'none' })
+  let [badE, setBadE] = useState(false)
   let [bad, setBad] = useState(false)
 
   let [final, setFinal] = useState({
@@ -60,10 +62,25 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
     let n = {}
     let spec = {}
     let si = {}
+    let em = {}
     let updateFinal = {}
+    for (let i = 0; i < users.length; i++) {
+      if (formValues.email === users[i].email) {
+        setBadE(true)
+        em = {
+          line: 'Email already in use',
+          class: 'invalid'
+        }
+        break
+      } else {
+        em = {
+          line: '',
+          class: 'none'
+        }
+      }
+    }
+    setEmail(em)
     if (formValues.password === formValues.confirmPassword) {
-      // updateFinal = { line: '', class: '' }
-      // setFinal(updateFinal)
     } else {
       updateFinal = { line: 'Passwords do not match', class: 'invalid' }
       setFinal(updateFinal)
@@ -130,7 +147,8 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
     setSize(si)
     if (
       strongRegex.test(formValues.password) &&
-      formValues.password === formValues.confirmPassword
+      formValues.password === formValues.confirmPassword &&
+      badE === false
     ) {
       await RegisterUser({
         firstName: formValues.firstName,
@@ -175,18 +193,7 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
       <div className="reg-title">
         <h3>Create an account:</h3>
       </div>
-      <div className="already-member">
-        <div>
-          <p>Already a member?</p>
-        </div>
-        <div>
-          <p>
-            <span id="already-member" onClick={() => toLogin()}>
-              Login Here
-            </span>
-          </p>
-        </div>
-      </div>
+
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <input
@@ -260,6 +267,7 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
         {bad ? (
           <div className="pass-containter">
             <div className="pass-val">
+              <p className={email.class}>{email.line}</p>
               <p className={final.class}>{final.line}</p>
               <p className={lower.class}>{lower.line}</p>
               <p className={upper.class}>{upper.line}</p>
@@ -271,6 +279,18 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
         ) : (
           ''
         )}
+        <div className="already-member">
+          <div>
+            <p>Already a member?</p>
+          </div>
+          <div>
+            <p>
+              <span id="already-member" onClick={() => toLogin()}>
+                Login Here
+              </span>
+            </p>
+          </div>
+        </div>
         <div className="signup-btn">
           <button
             disabled={

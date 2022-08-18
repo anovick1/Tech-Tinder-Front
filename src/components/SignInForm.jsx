@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
+  let [error, setError] = useState({ line: '', class: 'none' })
+  let [bad, setBad] = useState(false)
+
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
   const handleChange = (e) => {
@@ -13,9 +16,15 @@ const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
-    setFormValues({ email: '', password: '' })
-    setCurrentUser(payload)
-    navigate('/home')
+    if (payload) {
+      setFormValues({ email: '', password: '' })
+      setCurrentUser(payload)
+      setError({ line: '', class: 'none' })
+      navigate('/home')
+    } else {
+      setBad(true)
+      setError({ line: 'Email or password is incorrect', class: 'invalid' })
+    }
   }
   const toRegister = () => {
     setRegister(true)
@@ -23,6 +32,18 @@ const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
   return (
     <div className="card-overlay">
       <h3>Sign-In</h3>
+      <div className="already-member">
+        <div>
+          <p>New to Tech-Tinder? </p>
+        </div>
+        <div>
+          <p>
+            <span id="already-member" onClick={() => toRegister()}>
+              Register Here
+            </span>
+          </p>
+        </div>
+      </div>
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <input
@@ -46,18 +67,15 @@ const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
             className="input-box-mid"
           />
         </div>
-        <div className="already-member">
-          <div>
-            <p>New to Tech-Tinder? </p>
+        {bad ? (
+          <div className="pass-containter">
+            <div className="pass-val">
+              <p className={error.class}>{error.line}</p>
+            </div>
           </div>
-          <div>
-            <p>
-              <span id="already-member" onClick={() => toRegister()}>
-                Register Here
-              </span>
-            </p>
-          </div>
-        </div>
+        ) : (
+          ''
+        )}
         <div className="signup-btn ">
           <button disabled={!formValues.email || !formValues.password}>
             Sign In
