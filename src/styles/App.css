@@ -105,7 +105,9 @@ html {
   margin-top: 2vh;
 }
 .signin-logo {
-  height: 5vw;
+  height: 35vw;
+  margin-bottom: -10vh;
+  margin-top: -6vh;
 }
 
 .profile img {
@@ -749,8 +751,9 @@ img {
   margin: 2vh;
 }
 .home-nav img {
-  height: 4vh;
-  width: 4vh;
+  height: 14vh;
+  width: 14vh;
+  margin: -2vh -2vh -4vh -2vh;
   padding: 5px 0;
 }
 .home-nav {
@@ -1205,7 +1208,7 @@ form ~ .invalid {
     border-bottom-left-radius: 20px;
   }
   .signin-logo {
-    height: 15vw;
+    height: 65vw;
   }
   .come-again {
     background-color: rgba(255, 255, 255, 0.8);
