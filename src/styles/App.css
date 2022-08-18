@@ -267,7 +267,8 @@ html {
   min-width: 23vw;
 }
 
-.post-image img .image-post img,
+.post-image img,
+.image-post img,
 .displayed_pfp img {
   border-radius: 16px;
   border-bottom-left-radius: 0;
