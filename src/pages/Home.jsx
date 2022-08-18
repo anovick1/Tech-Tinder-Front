@@ -41,7 +41,6 @@ const Home = ({
       GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     }
   }, [currentUser])
-
   useEffect(() => {
     if (currentUser != null) {
       let c = []
@@ -57,7 +56,7 @@ const Home = ({
   }, [likes])
   useEffect(() => {
     GetUsers().then((res) => setUsers(res))
-  }, [currentUser.orientation])
+  }, [])
   useEffect(() => {
     if (currentUser != null) {
       GetViewedUsers(currentUser.id).then((res) =>
@@ -233,7 +232,7 @@ const Home = ({
         )
       }
       if (currentUser.orientation === 'Both') {
-        for (let i = 0; i < users.length; i++) {
+        for (let i = 0; i < us.length; i++) {
           for (let j = 0; j < viewedUsers.length; j++) {
             if (us[i].id === viewedUsers[j].id) {
               us.splice(i, 1)
