@@ -30,6 +30,16 @@ Once you fork and clone the repo:
 
 ### Screenshots
 
+#### Browser Version
+
+<div style= "center">
+    <pre>
+        <img src="images/registration.png"  height="350">&nbsp;&nbsp;&nbsp;<img src="images/feed.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/edit.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/connections.png" height="350">&nbsp;&nbsp;&nbsp;
+    </pre>
+</div>
+
+#### Mobile Version
+
 <div style= "center">
     <pre>
         <img src="images/registration.png"  height="350">&nbsp;&nbsp;&nbsp;<img src="images/feed.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/edit.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/connections.png" height="350">&nbsp;&nbsp;&nbsp;
