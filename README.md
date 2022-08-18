@@ -8,7 +8,7 @@
 
 #### By: Avery Novick, Jason Martinez, Matt Scott
 
-<a href="https://tech-tinder-backend.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
+<a href="https://techtinder.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
 
 ---
 
