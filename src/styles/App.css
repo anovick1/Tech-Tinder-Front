@@ -1184,7 +1184,7 @@ form ~ .invalid {
   .shown-connections {
     margin-top: 5vh;
     width: 90vw;
-    margin-left: -8vw;
+    text-align: center;
   }
   .connect-pfp img,
   .connection,
