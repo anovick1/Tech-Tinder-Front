@@ -1116,6 +1116,11 @@ form ~ .invalid {
     top: 3em;
     left: -3em;
   }
+  .match-icon-connections {
+    /* bottom: 15vh; */
+    top: -2vh;
+    left: 12vw;
+  }
   .post {
     display: flex;
     flex-direction: column-reverse;
@@ -1171,7 +1176,7 @@ form ~ .invalid {
   }
   .shown-connections {
     margin-top: 5vh;
-    width: 74vw;
+    width: 90vw;
     margin-left: -8vw;
   }
   .connect-pfp img,
