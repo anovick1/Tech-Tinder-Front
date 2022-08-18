@@ -1,3 +1,5 @@
+<img style="center" src="images/banner.png"  width="1000">
+
 # Tech-Tinder-Front
 
 ## A dating app for losers in tech
@@ -6,11 +8,7 @@
 
 #### By: Avery Novick, Jason Martinez, Matt Scott
 
-<a href="" target="_blank" rel="noreferrer">Deployed Website</a>
-
----
-
-<img src="./images/Zuck.png"  height="350">
+<a href="https://tech-tinder-backend.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
 
 ---
 
@@ -34,7 +32,7 @@ Once you fork and clone the repo:
 
 <div style= "center">
     <pre>
-        <img src="images/loginpage.png"  height="350">&nbsp;&nbsp;&nbsp;<img src="images/newsfeed.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/profile.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/instructions.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/create.png" height="350">
+        <img src="images/registration.png"  height="350">&nbsp;&nbsp;&nbsp;<img src="images/feed.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/edit.png" height="350">&nbsp;&nbsp;&nbsp;<img src="images/connections.png" height="350">&nbsp;&nbsp;&nbsp;
     </pre>
 </div>
 
@@ -58,6 +56,8 @@ Once you fork and clone the repo:
 #### _Future Updates_
 
 - [ ] Allow users to dm each other
+- [ ] Allow users to change password
+- [ ] Allow users to delete a like
 
 ---
 
