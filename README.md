@@ -30,7 +30,7 @@ Once you fork and clone the repo:
 
 ### Screenshots
 
-#### Browser Version
+#### Mobile Version
 
 <div style= "center">
     <pre>
@@ -38,7 +38,7 @@ Once you fork and clone the repo:
     </pre>
 </div>
 
-#### Mobile Version
+#### Browser Version
 
 <div style= "center">
     <pre>
