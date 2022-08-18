@@ -1,34 +1,40 @@
 <img style="center" src="images/banner.png"  width="1000">
 
-# Tech-Tinder-Front
+# Front End
 
 ## A dating app for losers in tech
 
 ## Date: 08/10/2022
 
-#### By: Avery Novick, Jason Martinez, Matt Scott
+---
 
-<a href="https://techtinder.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
+### Avery Novick: <a href="https://www.linkedin.com/in/avery-novick/" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://github.com/anovick1" target="_blank" rel="noreferrer">GitHub</a>
+
+### Jason Martinez: <a href="https://www.linkedin.com/in/matthew-scott95/" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="github.com/jasonmar08" target="_blank" rel="noreferrer">GitHub</a>
+
+### Matt Scott: <a href="linkedin.com/in/martinez-jason" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://github.com/gr8tscott" target="_blank" rel="noreferrer">GitHub</a>
 
 ---
 
-### _Description_
-
-For a full stack PERN application. This is a mock dating app for individuals who are in tech.
+## <a href="https://techtinder.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
 
 ---
 
-### Project Overview
+## Description
+
+For a full stack application using PostgreSQL, Express.js, React, Node.js (PERN) . This is a mock dating app for individuals who are in tech.
 
 ---
 
-### Getting Started
+## Getting Started
 
 Once you fork and clone the repo:
 
     1.   npm i
 
-### Screenshots
+---
+
+## Screenshots
 
 #### Mobile Version
 
@@ -48,7 +54,7 @@ Once you fork and clone the repo:
 
 ---
 
-### _Technologies Used_
+## Technologies Used
 
 <img style="center" src="https://repository-images.githubusercontent.com/248812720/56902700-c5bd-11ea-813f-ed8631377258"  width="500">
 
@@ -63,7 +69,7 @@ Once you fork and clone the repo:
 
 ---
 
-#### _Future Updates_
+## Future Updates
 
 - [ ] Allow users to dm each other
 - [ ] Allow users to change password
@@ -71,7 +77,7 @@ Once you fork and clone the repo:
 
 ---
 
-#### **_Resources_**
+### **_Resources_**
 
 ##### [Backend GitHub Link](https://github.com/anovick1/Tech-Tinder-Backend)
 
