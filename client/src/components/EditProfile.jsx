@@ -130,7 +130,7 @@ const ProfileEditForm = ({
         </div>
         <div className="ShownUserName">
           <h1>
-            {formValues.firstName} {formValues.lastName},{' '}{formValues.age}
+            {formValues.firstName} {formValues.lastName}, {formValues.age}
           </h1>
           <h3>
             {' '}
@@ -218,14 +218,14 @@ const ProfileEditForm = ({
           </div>
         </div>
         <div className="gender-orientation" id="edit-gender">
-          <div className="gender">
+          <div className="gender" id="edit-gender-bubble">
             <EditGender
               currentUser={currentUser}
               formValues={formValues}
               setFormValues={setFormValues}
             />
           </div>
-          <div className="gender">
+          <div className="gender" id="edit-gender-bubble">
             <EditOrientation
               currentUser={currentUser}
               formValues={formValues}

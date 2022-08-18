@@ -155,63 +155,58 @@ const ShowProfileFeed = ({
     <div className="feed">
       {profile ? (
         <div className="profile">
-          
-            
-            <div className="bio-conditional" id="profile-connections">
-              <div
-                className="bio-conditional-type"
-                id="bio-selected-type"
-                onClick={() => setProfile(true)}
-              >
-                <h1>Profile</h1>
-              </div>
-              <div
-                className="bio-conditional-type"
-                onClick={() => setProfile(false)}
-              >
-                <h1>Connections</h1>
-              </div>
+          <div className="bio-conditional" id="profile-connections">
+            <div
+              className="bio-conditional-type"
+              id="bio-selected-type"
+              onClick={() => setProfile(true)}
+            >
+              <h1>Profile</h1>
             </div>
-              
-          <div className="edit-btn-please-dear-god-work">   
-          <div className="new-edit-icon" >
-            <img
-              src="https://i.imgur.com/Kmxk7OM.png"
-              alt="edit"
-              
-              id="edit-profilebtn-invisible"
-            />
-            </div>     
-          <div className="ShownUserName">
-            <div>
-              <h1>
-                {displayedUser.firstName} {displayedUser.lastName},{' '}
-                {displayedUser.age}
-              </h1>
-              
+            <div
+              className="bio-conditional-type"
+              onClick={() => setProfile(false)}
+            >
+              <h1>Matches</h1>
             </div>
-           
-            <div>
-              <h3>
-                {' '}
-                {displayedUser.city}, {displayedUser.state}
-              </h3>
-            </div>
-            
           </div>
-          <div className="new-edit-icon" >
-            <img
-              src="https://i.imgur.com/Kmxk7OM.png"
-              alt="edit"
-              onClick={() => editBtn()}
-              id="edit-profilebtn"
-            />
+
+          <div className="edit-btn-please-dear-god-work">
+            <div className="new-edit-icon">
+              <img
+                src="https://i.imgur.com/Kmxk7OM.png"
+                alt="edit"
+                id="edit-profilebtn-invisible"
+              />
             </div>
+            <div className="ShownUserName">
+              <div>
+                <h1>
+                  {displayedUser.firstName} {displayedUser.lastName},{' '}
+                  {displayedUser.age}
+                </h1>
+              </div>
+
+              <div>
+                <h3>
+                  {' '}
+                  {displayedUser.city}, {displayedUser.state}
+                </h3>
+              </div>
             </div>
+            <div className="new-edit-icon">
+              <img
+                src="https://i.imgur.com/Kmxk7OM.png"
+                alt="edit"
+                onClick={() => editBtn()}
+                id="edit-profilebtn"
+              />
+            </div>
+          </div>
           <div className="displayed_pfp">
             <img src={displayedUser.pfp_link} alt="pfp" />
           </div>
-          
+
           <div className="gender-orientation">
             <div className="gender">
               <h4>Gender:</h4>
