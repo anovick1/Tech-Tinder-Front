@@ -865,7 +865,6 @@ form ~ .invalid {
 .pass-val {
   display: flex;
   flex-direction: column;
-  width: 14vw;
   font-size: 14px;
 }
 .pass-containter {
@@ -1071,9 +1070,6 @@ form ~ .invalid {
     border: 1px solid black;
   }
 
-  .pass-val {
-    width: 50vw;
-  }
   .card-overlay {
     border: 0;
     min-width: 85vw;
@@ -1119,6 +1115,11 @@ form ~ .invalid {
     bottom: 0;
     top: 3em;
     left: -3em;
+  }
+  .match-icon-connections {
+    /* bottom: 15vh; */
+    top: -2vh;
+    left: 12vw;
   }
   .post {
     display: flex;
@@ -1175,7 +1176,7 @@ form ~ .invalid {
   }
   .shown-connections {
     margin-top: 5vh;
-    width: 74vw;
+    width: 90vw;
     margin-left: -8vw;
   }
   .connect-pfp img,
