@@ -883,6 +883,7 @@ img {
     object-fit: cover;
     min-width: 74vw;
     width: 74vw;
+    height: 74vw;
   }
 
   .new-media {
