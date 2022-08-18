@@ -130,7 +130,7 @@ const ProfileEditForm = ({
         </div>
         <div className="ShownUserName">
           <h1>
-            {formValues.firstName} {formValues.lastName},{formValues.age}
+            {formValues.firstName} {formValues.lastName},{' '}{formValues.age}
           </h1>
           <h3>
             {' '}

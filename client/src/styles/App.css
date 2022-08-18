@@ -295,7 +295,7 @@ iframe,
   padding: 2vw;
 }
 
-iframe {
+iframe, .image-post {
   width: 25vw;
 }
 
@@ -382,6 +382,7 @@ iframe {
 }
 #edit-profilebtn-invisible {
   opacity: 0;
+  pointer-events: none;
 }
 .edit-icon {
   width: 50vw;
@@ -855,6 +856,11 @@ img {
   #dislike-icon-bottom {
     left: 6vw;
   }
+  /* #like-icon-top, #dislike-icon-top {
+    opacity: 0;
+    pointer-events: none;
+  } */
+
   .ShownUserName,
   .bio,
   .image-post img,
@@ -885,10 +891,10 @@ img {
   .edit-bio-text,
   #written-post,
   iframe {
-    width: 80vw;
+    width: 74vw;
   }
   .post-image img {
-    min-width: 80vw;
+    min-width: 74vw;
   }
   .reg-form-gender {
     width: 40vw;
@@ -952,6 +958,13 @@ img {
   .whole-media,
   textarea {
     width: 85vw;
+  }
+  .whole-media {
+    display: flex;
+    align-items: center;
+  }
+  .bio-conditional {
+    width: 41vh;
   }
   .gender img,
   .reg-form-gender img {
@@ -1061,6 +1074,7 @@ img {
   }
   .ShownUserName h1 {
     margin-left: 0;
+    margin-right: 0;
   }
   .ShownUserName {
     text-align: center;
@@ -1098,7 +1112,7 @@ img {
   .connection,
   .each-connection {
     height: 25vw;
-    width: 25vw;
+    width: 30vw;
   }
   .each-connection {
     margin-bottom: 20vw;
@@ -1115,7 +1129,7 @@ img {
   .connect-name {
     height: 20vw;
     background-color: white;
-    width: 25vw;
+    width: 30vw;
     border-bottom: 2px solid black;
     border-right: 2px solid black;
     border-left: 2px solid black;
