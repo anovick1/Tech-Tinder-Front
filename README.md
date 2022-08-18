@@ -1,18 +1,18 @@
 <img style="center" src="images/banner.png"  width="1000">
 
-# Front End
+## Front End
 
-## A dating app for losers in tech
+### A dating app for losers in tech
 
-## Date: 08/10/2022
+### Date: 08/10/2022
 
 ---
 
-### Avery Novick: <a href="https://www.linkedin.com/in/avery-novick/" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://github.com/anovick1" target="_blank" rel="noreferrer">GitHub</a>
+#### Avery Novick: <a href="https://www.linkedin.com/in/avery-novick/" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://github.com/anovick1" target="_blank" rel="noreferrer">GitHub</a>
 
-### Jason Martinez: <a href="https://www.linkedin.com/in/matthew-scott95/" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="github.com/jasonmar08" target="_blank" rel="noreferrer">GitHub</a>
+#### Jason Martinez: <a href="https://www.linkedin.com/in/matthew-scott95/" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="github.com/jasonmar08" target="_blank" rel="noreferrer">GitHub</a>
 
-### Matt Scott: <a href="linkedin.com/in/martinez-jason" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://github.com/gr8tscott" target="_blank" rel="noreferrer">GitHub</a>
+#### Matt Scott: <a href="linkedin.com/in/martinez-jason" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://github.com/gr8tscott" target="_blank" rel="noreferrer">GitHub</a>
 
 ---
 
