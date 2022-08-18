@@ -4,7 +4,7 @@
 
 ### A dating app for losers in tech
 
-### Date: 08/10/2022
+### Date: 08/19/2022
 
 ---
 
