@@ -52,7 +52,7 @@ const Connection = ({
           id="bio-selected-type"
           onClick={() => setProfile(false)}
         >
-          <h1>Connections</h1>
+          <h1>Matches</h1>
         </div>
       </div>
       {connections.length > 0 ? (

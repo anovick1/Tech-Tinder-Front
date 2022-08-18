@@ -267,14 +267,21 @@ html {
 
 .post-image img,
 iframe,
-.image-post img {
+.image-post img,
+.displayed_pfp img {
   border-radius: 16px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid black;
   min-width: 23vw;
+  width: 25vw;
+  height: 23vw;
   min-height: 5vw;
+
   text-align: center;
+}
+.displayed_pfp img {
+  border-radius: 16px;
 }
 
 .image-post {
@@ -295,7 +302,8 @@ iframe,
   padding: 2vw;
 }
 
-iframe, .image-post {
+iframe,
+.image-post {
   width: 25vw;
 }
 
@@ -512,8 +520,8 @@ textarea {
 }
 
 .image-post img {
-  min-width: 25vw;
-  min-height: 19vw;
+  width: 25vw;
+  height: 25vw;
 }
 
 #written-post {
@@ -864,14 +872,26 @@ img {
   .ShownUserName,
   .bio,
   .image-post img,
+  .displayed_pfp img {
+    width: 74vw;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
   .displayed_pfp img,
+  .post-image img,
+  iframe {
+    max-height: 74vw;
+    object-fit: cover;
+    min-width: 74vw;
+    width: 74vw;
+    height: 74vw;
+  }
+
   .new-media {
     width: 80vw;
-    background-color: rgba(255, 255, 255, 0.8);
   }
   .pfp-label,
   .socials {
-    width: 80vw;
+    width: 74vw;
   }
   #pfp_link,
   #ig_link,
@@ -889,12 +909,12 @@ img {
   .image-post,
   .image-post img,
   .edit-bio-text,
-  #written-post,
-  iframe {
+  #written-post {
     width: 74vw;
   }
   .post-image img {
     min-width: 74vw;
+    width: 74vw;
   }
   .reg-form-gender {
     width: 40vw;
@@ -952,9 +972,14 @@ img {
   }
   .gender-orientation {
     justify-content: space-between;
-    width: 85vw;
+    width: 74vw;
   }
-
+  .gender {
+    width: 30vw;
+  }
+  #edit-gender-bubble {
+    width: 72vw;
+  }
   .whole-media,
   textarea {
     width: 85vw;
@@ -964,7 +989,7 @@ img {
     align-items: center;
   }
   .bio-conditional {
-    width: 41vh;
+    width: 74vw;
   }
   .gender img,
   .reg-form-gender img {
@@ -1026,7 +1051,8 @@ img {
     justify-content: space-around;
   }
   #profile-connections {
-    width: 80vw;
+    width: 90vw;
+    text-align: center;
   }
   .edit-btn-please-dear-god-work {
     display: flex;
@@ -1070,7 +1096,7 @@ img {
     height: 8vw;
   }
   #edit-gender {
-    width: 80vw;
+    width: 74vw;
   }
   .ShownUserName h1 {
     margin-left: 0;
@@ -1105,7 +1131,7 @@ img {
   }
   .shown-connections {
     margin-top: 5vh;
-    width: 80vw;
+    width: 74vw;
     margin-left: -8vw;
   }
   .connect-pfp img,
