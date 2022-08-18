@@ -830,7 +830,45 @@ img {
 #delete-btn-post {
   width: 15vw;
 }
+.invalid {
+  align-items: center;
+  display: flex;
+  margin: 1rem 0;
+}
+form ~ .invalid {
+  margin: 0;
+  padding: 1rem 2rem 2rem;
+}
 
+.invalid {
+  color: black;
+}
+
+.invalid::before {
+  background-repeat: no-repeat;
+  content: '';
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.25rem;
+}
+
+.invalid::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' fill='black' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 464c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm94.8-285.3L281.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L256 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z'/%3E%3C/svg%3E");
+}
+.none {
+  margin: 0vw;
+}
+.pass-val {
+  display: flex;
+  flex-direction: column;
+  width: 14vw;
+  font-size: 14px;
+}
+.pass-containter {
+  display: flex;
+  justify-content: center;
+}
 /*  */
 /* FOR MOBILE */
 /*  */
@@ -1023,16 +1061,19 @@ img {
   }
   .login-page {
     border: 0;
-    width: 85vw;
+    min-width: 85vw;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
-    max-height: 95vh;
+    min-height: 95vh;
     border: 1px solid black;
   }
 
+  .pass-val {
+    width: 50vw;
+  }
   .card-overlay {
     border: 0;
-    width: 85vw;
+    min-width: 85vw;
     border-radius: 20px;
     background: none;
   }

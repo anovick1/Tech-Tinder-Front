@@ -20,6 +20,12 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
   let [num, setNum] = useState({ line: '', class: 'none' })
   let [spec, setSpec] = useState({ line: '', class: 'none' })
   let [size, setSize] = useState({ line: '', class: 'none' })
+  let [bad, setBad] = useState(false)
+
+  let [final, setFinal] = useState({
+    line: '',
+    class: 'none'
+  })
 
   //// FORM VALUES
   const [formValues, setFormValues] = useState({
@@ -37,6 +43,7 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    e.preventDefault()
   }
   const currentUser = {
     gender: 'Male',
@@ -48,6 +55,79 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    let l = {}
+    let u = {}
+    let n = {}
+    let spec = {}
+    let si = {}
+    let updateFinal = {}
+    if (formValues.password === formValues.confirmPassword) {
+      // updateFinal = { line: '', class: '' }
+      // setFinal(updateFinal)
+    } else {
+      updateFinal = { line: 'Passwords do not match', class: 'invalid' }
+      setFinal(updateFinal)
+    }
+    if (!lowercase.test(formValues.password)) {
+      l = {
+        line: 'Need a lowercase letter',
+        class: 'invalid'
+      }
+    } else {
+      l = {
+        line: '',
+        class: 'none'
+      }
+    }
+    setLower(l)
+    if (!uppercase.test(formValues.password)) {
+      u = {
+        line: 'Need a uppercase letter',
+        class: 'invalid'
+      }
+    } else {
+      u = {
+        line: '',
+        class: 'none'
+      }
+    }
+    setUpper(u)
+    if (!numeric.test(formValues.password)) {
+      n = {
+        line: 'Need a number',
+        class: 'invalid'
+      }
+    } else {
+      n = {
+        line: '',
+        class: 'none'
+      }
+    }
+    setNum(n)
+    if (!special.test(formValues.password)) {
+      spec = {
+        line: 'One special character',
+        class: 'invalid'
+      }
+    } else {
+      spec = {
+        line: '',
+        class: 'none'
+      }
+    }
+    setSpec(spec)
+    if (!passSize.test(formValues.password)) {
+      si = {
+        line: 'At least 8 characters',
+        class: 'invalid'
+      }
+    } else {
+      si = {
+        line: '',
+        class: 'none'
+      }
+    }
+    setSize(si)
     if (
       strongRegex.test(formValues.password) &&
       formValues.password === formValues.confirmPassword
@@ -68,7 +148,7 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
       await setUsers(u)
       for (let i = 0; i < u.length; i++) {
         if (u[i].passwordDigest === 'test') {
-          await LikeUser(parseInt(users[i].id), parseInt(u[u.length - 1].id))
+          await LikeUser(parseInt(u[i].id), parseInt(u[u.length - 1].id))
         }
       }
       setFormValues({
@@ -81,6 +161,8 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
         orientation: ''
       })
       setRegister(false)
+    } else {
+      setBad(true)
     }
   }
 
@@ -92,6 +174,18 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
     <div className="card-overlay">
       <div className="reg-title">
         <h3>Create an account:</h3>
+      </div>
+      <div className="already-member">
+        <div>
+          <p>Already a member?</p>
+        </div>
+        <div>
+          <p>
+            <span id="already-member" onClick={() => toLogin()}>
+              Login Here
+            </span>
+          </p>
+        </div>
       </div>
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
@@ -163,18 +257,20 @@ const RegisterForm = ({ register, setRegister, users, setUsers }) => {
             placeholder="Confirm Password"
           />
         </div>
-        <div className="already-member">
-          <div>
-            <p>Already a member?</p>
+        {bad ? (
+          <div className="pass-containter">
+            <div className="pass-val">
+              <p className={final.class}>{final.line}</p>
+              <p className={lower.class}>{lower.line}</p>
+              <p className={upper.class}>{upper.line}</p>
+              <p className={num.class}>{num.line}</p>
+              <p className={spec.class}>{spec.line}</p>
+              <p className={size.class}>{size.line}</p>
+            </div>
           </div>
-          <div>
-            <p>
-              <span id="already-member" onClick={() => toLogin()}>
-                Login Here
-              </span>
-            </p>
-          </div>
-        </div>
+        ) : (
+          ''
+        )}
         <div className="signup-btn">
           <button
             disabled={
