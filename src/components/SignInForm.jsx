@@ -32,18 +32,15 @@ const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
   return (
     <div className="card-overlay">
       <h3>Sign-In</h3>
-      <div className="already-member">
-        <div>
-          <p>New to Tech-Tinder? </p>
+      {bad ? (
+        <div className="pass-containter">
+          <div className="pass-val">
+            <p className={error.class}>{error.line}</p>
+          </div>
         </div>
-        <div>
-          <p>
-            <span id="already-member" onClick={() => toRegister()}>
-              Register Here
-            </span>
-          </p>
-        </div>
-      </div>
+      ) : (
+        ''
+      )}
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <input
@@ -67,15 +64,19 @@ const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
             className="input-box-mid"
           />
         </div>
-        {bad ? (
-          <div className="pass-containter">
-            <div className="pass-val">
-              <p className={error.class}>{error.line}</p>
-            </div>
+
+        <div className="already-member">
+          <div>
+            <p>New to Tech-Tinder? </p>
           </div>
-        ) : (
-          ''
-        )}
+          <div>
+            <p>
+              <span id="already-member" onClick={() => toRegister()}>
+                Register Here
+              </span>
+            </p>
+          </div>
+        </div>
         <div className="signup-btn ">
           <button disabled={!formValues.email || !formValues.password}>
             Sign In
