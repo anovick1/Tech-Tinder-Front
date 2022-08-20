@@ -22,27 +22,24 @@ const NewConnection = ({
   let navigate = useNavigate()
 
   const keepSwiping = async () => {
-    setConnect(false)
     await ViewUser(currentUser.id, displayedUser.id)
-
     await GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
     await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     await GetViewedUsers(currentUser.id).then((res) =>
       setViewedUsers(res[0].viewed)
     )
+    setConnect(false)
   }
 
   const viewConnections = async () => {
-    setConnect(false)
-    setProfile(false)
     await ViewUser(currentUser.id, displayedUser.id)
-
     await GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
     await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     await GetViewedUsers(currentUser.id).then((res) =>
       setViewedUsers(res[0].viewed)
     )
-
+    setConnect(false)
+    setProfile(false)
     navigate('/profile')
   }
   return connect ? (

@@ -30,9 +30,9 @@ const LikeDislikeButtons = ({
     await GetLikedMe(currentUser.id).then((res) => setLikedMe(res[0].liked_me))
     await GetUserLikes(currentUser.id).then((res) => setLikes(res[0].likes))
     ViewUser(currentUser.id, displayedUser.id)
-    await GetViewedUsers(currentUser.id).then((res) =>
-      setViewedUsers(res[0].viewed)
-    )
+    // await GetViewedUsers(currentUser.id).then((res) =>
+    //   setViewedUsers(res[0].viewed)
+    // )
     for (let i = 0; i < likedMe.length; i++) {
       if (likedMe[i].id === displayedUser.id) {
         setConnect(true)
@@ -52,8 +52,8 @@ const LikeDislikeButtons = ({
     await GetViewedUsers(currentUser.id).then((res) =>
       setViewedUsers(res[0].viewed)
     )
-    let likeCount = count + 1
-    setCount(likeCount)
+    // let likeCount = count + 1
+    // setCount(likeCount)
   }
 
   return currentUser && !connect ? (
