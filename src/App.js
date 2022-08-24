@@ -16,6 +16,8 @@ import { GetUsers, GetLikedMe, GetUserLikes } from './services/UserServices'
 import { CheckSession } from './services/Auth'
 
 function App() {
+  // console.log(localStorage)
+
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
   const [connections, setConnections] = useState([])

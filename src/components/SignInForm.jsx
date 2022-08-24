@@ -2,6 +2,7 @@ import React from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { GetUserById } from '../services/UserServices'
 
 const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
   let [error, setError] = useState({ line: '', class: 'none' })
@@ -18,7 +19,8 @@ const SignInForm = ({ setCurrentUser, currentUser, register, setRegister }) => {
     const payload = await SignInUser(formValues)
     if (payload) {
       setFormValues({ email: '', password: '' })
-      setCurrentUser(payload)
+      const user = await GetUserById(payload.id)
+      setCurrentUser(user[0])
       setError({ line: '', class: 'none' })
       navigate('/home')
     } else {
