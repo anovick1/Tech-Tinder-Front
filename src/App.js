@@ -12,7 +12,7 @@ import {
   GetVideoPosts,
   GetWrittenPosts
 } from './services/PostServices'
-import { GetUsers, GetLikedMe, GetUserLikes } from './services/UserServices'
+import { GetUsers, GetUserById } from './services/UserServices'
 import { CheckSession } from './services/Auth'
 
 function App() {
@@ -33,8 +33,10 @@ function App() {
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
     const user = await CheckSession()
-    setCurrentUser(user)
+    const u = await GetUserById(user.id)
+    setCurrentUser(u[0])
   }
+  // console.log(localStorage.getItem('token'))
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
