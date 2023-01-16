@@ -2,7 +2,7 @@
 
 ## Front End
 
-### A dating app for losers in tech
+### A dating app for innovators in tech
 
 ### Date: 08/19/2022
 
@@ -16,7 +16,7 @@
 
 ---
 
-### <a href="https://techtinder.herokuapp.com/" target="_blank" rel="noreferrer">Deployed Website</a>
+### <a href="http://tech-tinder-frontend.s3-website-us-east-1.amazonaws.com/" target="_blank" rel="noreferrer">Deployed Website</a>
 
 ---
 
