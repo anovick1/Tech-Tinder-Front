@@ -16,7 +16,7 @@
 
 ---
 
-### <a href="http://tech-tinder-frontend.s3-website-us-east-1.amazonaws.com/" target="_blank" rel="noreferrer">Deployed Website</a>
+### <a href="https://d2lngctsow99sp.cloudfront.net" target="_blank" rel="noreferrer">Deployed Website</a>
 
 ---
 
